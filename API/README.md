@@ -1,4 +1,4 @@
-#### FLASK RESTX BOILER-PLATE WITH JWT
+#### API
 
 ### Terminal commands
 Note: make sure you have `pip` and `virtualenv` installed.
