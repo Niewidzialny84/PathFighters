@@ -19,8 +19,6 @@ def add_new_user(request):
         return 409
 
 def get_all_users():
-    # users = list(User.query.all())
-    # return make_response(jsonify(users_schema.dump(users)), 200)
     return  User.query.all()       
 
 def get_user(username):
@@ -28,20 +26,71 @@ def get_user(username):
     return user
 
 def user_put(username, request):
-        if not username:
-            return make_response(jsonify({ 'Message': 'Must provide the proper username' }), 400)
+    user = User.query.filter_by(username = username).first()
 
-        user = User.query.filter_by(username = username).first()
+    if user == None:
+        return 404
 
-        if user == None:
-            return make_response(jsonify({ 'Message': 'User not exist!' }), 404)
+    username_new = request.json['username']
+    email_new = request.json['email']
+    password_new = request.json['password']
 
+    if (username_new or email_new or password_new) == None:
+        return 400
+
+    user.password = password_new
+    user.username = username_new
+    user.email = email_new
+
+    db.session.commit()
+    return 200
+
+def delete_all_users():
+    User.query.delete(users_schema).delete()
+    db.session.commit()
+
+def delete_user(username):
+    user = User.query.filter_by(username = username).first()
+
+    if user == None:
+        return 404
+
+    db.session.delete(user)
+    db.session.commit()
+    return 200
+
+def user_patch(username, request):  
+    try:
         username_new = request.json['username']
-        email_new = request.json['email']
+    except Exception as _:
+        username_new = None
+
+    try:
         password_new = request.json['password']
-        user.password = password_new
+    except Exception as _:
+        password_new = None
+    
+    try:
+        email_new = request.json['email']
+    except Exception as _:
+        email_new = None
+
+    if username == None:
+        return 400
+
+    user = User.query.filter_by(username = username).first()
+
+    if user == None:
+        return 404
+
+    if username_new != None:
         user.username = username_new
+
+    if password_new != None:
+        user.password = password_new 
+    
+    if email_new != None:
         user.email = email_new
 
-        db.session.commit()
-        return make_response(jsonify({'Message': f'User {user.username} altered.'}), 200)
+    db.session.commit()
+    return 200
