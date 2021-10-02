@@ -1,19 +1,23 @@
 from logging import Logger
 from app.main import db
+from app.main.model.stats_model import Stats
 from app.main.model.user_model import User
+from app.main.schema import stats_schema
 from app.main.schema.user_schema import users_schema, user_schema
 from typing import Dict, Tuple
 from flask import request, jsonify, make_response
+from app.main.service.stats_service import create_new_stats, delete_all_stats, delete_stats
 
 def add_new_user(request):
-    username = request['username']
-    email = request['email']
-    password = request['password']
+    username = request.json['username']
+    email = request.json['email']
+    password = request.json['password']
 
     if (email and username and password) != None and User.query.filter_by(username = username).first() == None:
         user = User(username, email, password)
         db.session.add(user)
         db.session.commit()
+        create_new_stats(username)
         return 201
     elif User.query.filter_by(username = username).first() != None:
         return 409
@@ -46,7 +50,8 @@ def user_put(username, request):
     return 200
 
 def delete_all_users():
-    User.query.delete(users_schema).delete()
+    delete_all_stats()
+    db.session.query(User).delete()
     db.session.commit()
 
 def delete_user(username):
@@ -55,6 +60,7 @@ def delete_user(username):
     if user == None:
         return 404
 
+    delete_stats(username)
     db.session.delete(user)
     db.session.commit()
     return 200

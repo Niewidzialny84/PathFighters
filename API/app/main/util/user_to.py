@@ -18,3 +18,15 @@ class UserDto:
     user_response = api.model('user_response',{
         'description': fields.String(required=True),
     })
+
+    user_payload = api.model('user_payload', {
+        'username': fields.String(required=True, description='user username'),
+        'email': fields.String(required=True, description='user email address'),
+        'password': fields.String(required=True, description='user password')
+    })
+
+    user_payload_patch = api.model('user_payload', {
+        'username': fields.String(required=False, description='user username'),
+        'email': fields.String(required=False, description='user email address'),
+        'password': fields.String(required=False, description='user password')
+    })
