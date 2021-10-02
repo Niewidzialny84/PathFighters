@@ -1,27 +1,28 @@
 from logging import Logger
 from app.main import db
 from app.main.model.stats_model import Stats
+from app.main.model.user_model import User
 from app.main.schema.stats_schema import stats_schema, stat_schema
 from typing import Dict, Tuple
 from flask import request, jsonify, make_response
 
-def create_new_stats(username):
+def create_new_stats(userid):
     total = 0
     fails = 0
     wins = 0
-    stats = Stats(username, total, fails, wins)
+    stats = Stats(userid, total, fails, wins)
     db.session.add(stats)
     db.session.commit()
 
 def get_all_stats():
     return  Stats.query.all()       
 
-def get_user_stats(username):
-    stats = Stats.query.filter_by(username = username).first()
+def get_user_stats(userid):
+    stats = Stats.query.filter_by(userid = userid).first()
     return stats
 
-def stats_put(username, request):
-    stats = Stats.query.filter_by(username = username).first()
+def stats_put(userid, request):
+    stats = Stats.query.filter_by(userid = userid).first()
 
     if stats == None:
         return 404
@@ -44,8 +45,8 @@ def delete_all_stats():
     db.session.query(Stats).delete()
     db.session.commit()
 
-def delete_stats(username):
-    stats = Stats.query.filter_by(username = username).first()
+def delete_stats(userid):
+    stats = Stats.query.filter_by(userid = userid).first()
 
     if stats == None:
         return 404
@@ -54,7 +55,7 @@ def delete_stats(username):
     db.session.commit()
     return 200
 
-def stats_patch(username, request):
+def stats_patch(userid, request):
     try:
         username_new = request.json['username']
     except Exception as _:
@@ -75,10 +76,10 @@ def stats_patch(username, request):
     except Exception as _:
         fails_new = None
 
-    if username == None:
+    if userid == None:
         return 400
 
-    stats = Stats.query.filter_by(username = username).first()
+    stats = Stats.query.filter_by(userid = userid).first()
 
     if stats == None:
         return 404
@@ -98,11 +99,11 @@ def stats_patch(username, request):
     db.session.commit()
     return 200        
 
-def stats_add_win(username):
-    if username == None:
+def stats_add_win(userid):
+    if userid == None:
         return 400
 
-    stats = Stats.query.filter_by(username = username).first()
+    stats = Stats.query.filter_by(userid = userid).first()
 
     if stats == None:
         return 404
@@ -116,11 +117,11 @@ def stats_add_win(username):
     db.session.commit()
     return 200        
 
-def stats_add_fails(username):
-    if username == None:
+def stats_add_fails(userid):
+    if userid == None:
         return 400
 
-    stats = Stats.query.filter_by(username = username).first()
+    stats = Stats.query.filter_by(userid = userid).first()
 
     if stats == None:
         return 404

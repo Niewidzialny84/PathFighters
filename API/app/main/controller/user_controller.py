@@ -13,7 +13,7 @@ _user_payload = UserDto.user_payload
 _user_payload_patch = UserDto.user_payload_patch
 
 @api.route('')
-class UserList(Resource):
+class User_list(Resource):
     
     # ***GET***
     # @api.marshal_list_with(_user, envelope='data')
@@ -105,6 +105,34 @@ class User(Resource):
     def delete(self, username):
         """Delete a user with given identifier"""
         status_code = delete_user(username)
+        if status_code == 200:
+            return marshal({'description':'OK'}, _user_response), 200
+        elif status_code == 404:
+            return marshal({'description':'NOT FOUND'}, _user_response), 404
+
+@api.route('/id/<userid>')
+@api.param('userid', 'The user identifier')
+class User_by_id(Resource):
+   
+    # ***GET***
+    @api.doc('return_user_with_specific_is.')
+    @api.response(200, description="OK", model = _user)
+    @api.response(404, description="NOT FOUND", model = _user_response)
+    def get(self, userid):
+        """Get a user with given identifier"""
+        user = get_user_by_id(userid)
+        if not user:
+            return marshal({'description':'NOT FOUND'}, _user_response), 404
+        else:
+            return marshal(user, _user), 200
+    
+    # ***DELETE***
+    @api.doc('delete_user_with_specific_id')
+    @api.response(200, description="OK", model = _user_response)
+    @api.response(404, description="NOT FOUND", model = _user_response)
+    def delete(self, userid):
+        """Delete a user with given identifier"""
+        status_code = delete_user_by_id(userid)
         if status_code == 200:
             return marshal({'description':'OK'}, _user_response), 200
         elif status_code == 404:

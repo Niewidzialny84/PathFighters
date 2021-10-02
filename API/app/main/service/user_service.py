@@ -17,7 +17,8 @@ def add_new_user(request):
         user = User(username, email, password)
         db.session.add(user)
         db.session.commit()
-        create_new_stats(username)
+        userid = User.query.filter_by(username = username).first().id
+        create_new_stats(userid)
         return 201
     elif User.query.filter_by(username = username).first() != None:
         return 409
@@ -27,6 +28,10 @@ def get_all_users():
 
 def get_user(username):
     user = User.query.filter_by(username = username).first()
+    return user
+
+def get_user_by_id(userid):
+    user = User.query.filter_by(id = userid).first()
     return user
 
 def user_put(username, request):
@@ -60,7 +65,18 @@ def delete_user(username):
     if user == None:
         return 404
 
-    delete_stats(username)
+    delete_stats(user.id)
+    db.session.delete(user)
+    db.session.commit()
+    return 200
+
+def delete_user_by_id(userid):
+    user = User.query.filter_by(id = userid).first()
+
+    if user == None:
+        return 404
+
+    delete_stats(user.id)
     db.session.delete(user)
     db.session.commit()
     return 200
