@@ -8,10 +8,10 @@ from typing import Dict, Tuple
 from flask import request, jsonify, make_response
 from app.main.service.stats_service import create_new_stats, delete_all_stats, delete_stats
 
-def add_new_user(request):
-    username = request.json['username']
-    email = request.json['email']
-    password = request.json['password']
+def add_new_user(request_json):
+    username = request_json['username']
+    email = request_json['email']
+    password = request_json['password']
 
     if (email and username and password) != None and User.query.filter_by(username = username).first() == None:
         user = User(username, email, password)
@@ -34,15 +34,35 @@ def get_user_by_id(userid):
     user = User.query.filter_by(id = userid).first()
     return user
 
-def user_put(username, request):
+def user_put(username, request_json):
     user = User.query.filter_by(username = username).first()
 
     if user == None:
         return 404
 
-    username_new = request.json['username']
-    email_new = request.json['email']
-    password_new = request.json['password']
+    username_new = request_json['username']
+    email_new = request_json['email']
+    password_new = request_json['password']
+
+    if (username_new or email_new or password_new) == None:
+        return 400
+
+    user.password = password_new
+    user.username = username_new
+    user.email = email_new
+
+    db.session.commit()
+    return 200
+
+def user_put_by_id(id, request_json):
+    user = User.query.filter_by(id = id).first()
+
+    if user == None:
+        return 404
+
+    username_new = request_json['username']
+    email_new = request_json['email']
+    password_new = request_json['password']
 
     if (username_new or email_new or password_new) == None:
         return 400
@@ -81,19 +101,19 @@ def delete_user_by_id(userid):
     db.session.commit()
     return 200
 
-def user_patch(username, request):  
+def user_patch(username, request_json):  
     try:
-        username_new = request.json['username']
+        username_new = request_json['username']
     except Exception as _:
         username_new = None
 
     try:
-        password_new = request.json['password']
+        password_new = request_json['password']
     except Exception as _:
         password_new = None
     
     try:
-        email_new = request.json['email']
+        email_new = request_json['email']
     except Exception as _:
         email_new = None
 
@@ -101,6 +121,42 @@ def user_patch(username, request):
         return 400
 
     user = User.query.filter_by(username = username).first()
+
+    if user == None:
+        return 404
+
+    if username_new != None:
+        user.username = username_new
+
+    if password_new != None:
+        user.password = password_new 
+    
+    if email_new != None:
+        user.email = email_new
+
+    db.session.commit()
+    return 200
+
+def user_patch_by_id(id, request_json):  
+    try:
+        username_new = request_json['username']
+    except Exception as _:
+        username_new = None
+
+    try:
+        password_new = request_json['password']
+    except Exception as _:
+        password_new = None
+    
+    try:
+        email_new = request_json['email']
+    except Exception as _:
+        email_new = None
+
+    if id == None:
+        return 400
+
+    user = User.query.filter_by(id = id).first()
 
     if user == None:
         return 404

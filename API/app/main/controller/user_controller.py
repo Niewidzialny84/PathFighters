@@ -36,7 +36,7 @@ class User_list(Resource):
     @api.expect(_user_payload)
     def post(self):
         """Create new user."""
-        status_code = add_new_user(request)
+        status_code = add_new_user(request.json)
         if status_code == 201:
             return marshal({'description':'CREATED'}, _user_response), 201
         elif status_code == 409:
@@ -74,7 +74,7 @@ class User(Resource):
     @api.expect(_user_payload)
     def put(self, username):
         """Put a user with given identifier"""
-        status_code = user_put(username, request)
+        status_code = user_put(username, request.json)
         if status_code == 200:
             return marshal({'description':'OK'}, _user_response), 200
         elif status_code == 400:
@@ -90,7 +90,7 @@ class User(Resource):
     @api.expect(_user_payload_patch, validate=False)
     def patch(self, username):
         """Patch a user with given identifier"""
-        status_code = user_patch(username, request)
+        status_code = user_patch(username, request.json)
         if status_code == 200:
             return marshal({'description':'OK'}, _user_response), 200
         elif status_code == 400:
@@ -135,5 +135,37 @@ class User_by_id(Resource):
         status_code = delete_user_by_id(userid)
         if status_code == 200:
             return marshal({'description':'OK'}, _user_response), 200
+        elif status_code == 404:
+            return marshal({'description':'NOT FOUND'}, _user_response), 404
+    
+    # ***PUT***
+    @api.doc('put_user_with_specific_id')
+    @api.response(200, description="OK", model = _user_response)
+    @api.response(400, description="BAD REQUEST", model = _user_response)
+    @api.response(404, description="NOT FOUND", model = _user_response)
+    @api.expect(_user_payload)
+    def put(self, id):
+        """Put a user with given identifier"""
+        status_code = user_put_by_id(id, request.json)
+        if status_code == 200:
+            return marshal({'description':'OK'}, _user_response), 200
+        elif status_code == 400:
+            return marshal({'description':'BAD REQUEST'}, _user_response), 400
+        elif status_code == 404:
+            return marshal({'description':'NOT FOUND'}, _user_response), 404
+    
+    # ***PATCH***
+    @api.doc('patch_user_with_specific_id')
+    @api.response(200, description="OK", model = _user_response)
+    @api.response(400, description="BAD REQUEST", model = _user_response)
+    @api.response(404, description="NOT FOUND", model = _user_response)
+    @api.expect(_user_payload_patch, validate=False)
+    def patch(self, username):
+        """Patch a user with given identifier"""
+        status_code = user_patch_by_id(id, request.json)
+        if status_code == 200:
+            return marshal({'description':'OK'}, _user_response), 200
+        elif status_code == 400:
+            return marshal({'description':'BAD REQUEST'}, _user_response), 400
         elif status_code == 404:
             return marshal({'description':'NOT FOUND'}, _user_response), 404

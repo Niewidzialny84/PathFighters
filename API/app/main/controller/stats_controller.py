@@ -53,7 +53,7 @@ class Stats(Resource):
     @api.expect(_stats_payload)
     def put(self, userid):
         """Put a stats for user with given identifier"""
-        status_code = stats_put(userid, request)
+        status_code = stats_put(userid, request.json)
         if status_code == 200:
             return marshal({'description':'OK'}, _stats_response), 200
         elif status_code == 400:
@@ -69,7 +69,7 @@ class Stats(Resource):
     @api.expect(_stats_payload_patch, validate=False)
     def patch(self, userid):
         """Patch a stats for user with given identifier"""
-        status_code = stats_patch(userid, request)
+        status_code = stats_patch(userid, request.json)
         if status_code == 200:
             return marshal({'description':'OK'}, _stats_response), 200
         elif status_code == 400:
