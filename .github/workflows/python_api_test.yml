@@ -19,6 +19,12 @@ jobs:
           echo Installing requirements
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+      - name: Init SQLite database
+        run: |
+          echo Initializing SQLite database
+          python main_app.py db init
+          python main_app.py db migrate --message 'initial database migration'
+          python main_app.py db upgrade
       - name: Execute test 
         run: |
           echo Running tests
