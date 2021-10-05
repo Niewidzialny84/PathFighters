@@ -19,4 +19,4 @@ jobs:
       - name: Execute test 
         run: |
           echo Running tests
-          python API/mainapp.py test
+          python API/main_app.py test
