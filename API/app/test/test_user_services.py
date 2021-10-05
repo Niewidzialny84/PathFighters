@@ -1,6 +1,7 @@
+"""
+Test User Services class
+"""
 import unittest
-import flask
-
 from app.main.service.user_service import *
 from app.test.base import BaseTestCase
 
@@ -139,4 +140,3 @@ class TestUserServices(BaseTestCase):
         
 if __name__ == '__main__':
     unittest.main()
-

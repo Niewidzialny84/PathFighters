@@ -18,4 +18,3 @@ class Stats(db.Model):
 
     def __repr__(self):
         return "<Stats for user with id: '{}'>".format(self.userid)
-    

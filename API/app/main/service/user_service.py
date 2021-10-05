@@ -1,11 +1,5 @@
-from logging import Logger
 from app.main import db
-from app.main.model.stats_model import Stats
 from app.main.model.user_model import User
-from app.main.schema import stats_schema
-from app.main.schema.user_schema import users_schema, user_schema
-from typing import Dict, Tuple
-from flask import request, jsonify, make_response
 from app.main.service.stats_service import create_new_stats, delete_all_stats, delete_stats
 
 def add_new_user(request_json):

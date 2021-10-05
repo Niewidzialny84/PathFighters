@@ -1,10 +1,8 @@
-from logging import Logger
+"""
+Stats service file.
+"""
 from app.main import db
 from app.main.model.stats_model import Stats
-from app.main.model.user_model import User
-from app.main.schema.stats_schema import stats_schema, stat_schema
-from typing import Dict, Tuple
-from flask import request, jsonify, make_response
 
 def create_new_stats(userid):
     total = 0
@@ -24,7 +22,7 @@ def get_user_stats(userid):
 def stats_put(userid, request_json):
     stats = Stats.query.filter_by(userid = userid).first()
 
-    if stats == None:
+    if stats is None:
         return 404
 
     total_new = request_json['total']
@@ -76,36 +74,36 @@ def stats_patch(userid, request_json):
     except Exception as _:
         fails_new = None
 
-    if userid == None:
+    if userid is None:
         return 400
 
     stats = Stats.query.filter_by(userid = userid).first()
 
-    if stats == None:
+    if stats is None:
         return 404
 
-    if username_new != None:
+    if username_new is not None:
         stats.username = username_new
 
-    if total_new != None:
+    if total_new is not None:
         stats.total = total_new
 
-    if wins_new != None:
-        stats.wins = wins_new 
+    if wins_new is not None:
+        stats.wins = wins_new
     
-    if fails_new != None:
+    if fails_new is not None:
         stats.fails = fails_new
 
     db.session.commit()
     return 200        
 
 def stats_add_win(userid):
-    if userid == None:
+    if userid is None:
         return 400
 
     stats = Stats.query.filter_by(userid = userid).first()
 
-    if stats == None:
+    if stats is None:
         return 404
 
     total_old = stats.total
@@ -117,13 +115,13 @@ def stats_add_win(userid):
     db.session.commit()
     return 200        
 
-def stats_add_fails(userid):
-    if userid == None:
+def stats_add_fail(userid):
+    if userid is None:
         return 400
 
     stats = Stats.query.filter_by(userid = userid).first()
 
-    if stats == None:
+    if stats is None:
         return 404
 
     total_old = stats.total

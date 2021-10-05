@@ -1,7 +1,7 @@
+"""
+Test User Db
+"""
 import unittest
-
-import datetime
-
 from app.main import db
 from app.main.model.user_model import User
 from app.test.base import BaseTestCase
