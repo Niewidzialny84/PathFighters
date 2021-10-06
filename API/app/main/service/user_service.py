@@ -31,14 +31,25 @@ def get_user_by_id(userid):
 def user_put(username, request_json):
     user = User.query.filter_by(username = username).first()
 
-    if user == None:
+    if user is None:
         return 404
 
-    username_new = request_json['username']
-    email_new = request_json['email']
-    password_new = request_json['password']
+    try:
+        username_new = request_json['username']
+    except Exception as _:
+        username_new = None
 
-    if (username_new or email_new or password_new) == None:
+    try:
+        password_new = request_json['password']
+    except Exception as _:
+        password_new = None
+    
+    try:
+        email_new = request_json['email']
+    except Exception as _:
+        email_new = None
+
+    if None in [username_new, email_new, password_new]:
         return 400
 
     user.password = password_new
@@ -54,9 +65,20 @@ def user_put_by_id(id, request_json):
     if user == None:
         return 404
 
-    username_new = request_json['username']
-    email_new = request_json['email']
-    password_new = request_json['password']
+    try:
+        username_new = request_json['username']
+    except Exception as _:
+        username_new = None
+
+    try:
+        password_new = request_json['password']
+    except Exception as _:
+        password_new = None
+    
+    try:
+        email_new = request_json['email']
+    except Exception as _:
+        email_new = None
 
     if (username_new or email_new or password_new) == None:
         return 400
