@@ -80,7 +80,7 @@ def user_put_by_id(id, request_json):
     except Exception as _:
         email_new = None
 
-    if (username_new or email_new or password_new) == None:
+    if None in [username_new, email_new, password_new]:
         return 400
 
     user.password = password_new

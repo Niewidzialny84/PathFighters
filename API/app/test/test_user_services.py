@@ -145,7 +145,7 @@ class TestUserServices(BaseTestCase):
         
         delete_all_users()
     
-    def test_user_services_user_put_by_username_201(self):
+    def test_user_services_user_put_by_username_200(self):
         """ [ Test check if put user process conduct properly and return 200 statse code ] """
         
         request_dict = {
@@ -217,8 +217,79 @@ class TestUserServices(BaseTestCase):
         self.assertEqual(user.username, "test_user")
 
         delete_all_users()
+    
+    def test_user_services_user_put_by_id_200(self):
+        """ [ Test check if put user process conduct properly and return 200 statse code ] """
+        
+        request_dict = {
+            "email" : "test@test.com",
+            "password" : "test",
+            "username" : "test_user"
+        }
 
+        request_dict_new = {
+            "email" : "test_new@test.com",
+            "password" : "test_new",
+            "username" : "test_user_new"
+        }
 
+        add_new_user(request_dict)
+
+        user = get_user_by_id(1)
+
+        status_code = user_put_by_id(1, request_dict_new)
+
+        self.assertEqual(status_code, 200)
+        self.assertEqual(user.id, 1)
+        self.assertEqual(user.email, "test_new@test.com")
+        self.assertEqual(user.password, "test_new")
+        self.assertEqual(user.username, "test_user_new")
+
+        delete_all_users()
+    
+    def test_user_services_user_put_by_id_404(self):
+        """ [ Test check if put user process handle error and return 404 statse code ] """
+
+        request_dict_new = {
+            "email" : "test_new@test.com",
+            "password" : "test_new",
+            "username" : "test_user_new"
+        }
+
+        user = get_user_by_id(1)
+
+        status_code = user_put_by_id(1, request_dict_new)
+
+        self.assertEqual(status_code, 404)
+        self.assertEqual(user, None)
+    
+    def test_user_services_user_put_by_id_400(self):
+        """ [ Test check if put user process handle error and return 400 statse code ] """
+
+        request_dict = {
+            "email" : "test@test.com",
+            "password" : "test",
+            "username" : "test_user"
+        }
+
+        request_dict_new = {
+            "password" : "test_new",
+            "username" : "test_user_new"
+        }
+
+        add_new_user(request_dict)
+
+        user = get_user_by_id(1)
+
+        status_code = user_put_by_id(1, request_dict_new)
+
+        self.assertEqual(status_code, 400)
+        self.assertEqual(user.id, 1)
+        self.assertEqual(user.email, "test@test.com")
+        self.assertEqual(user.password, "test")
+        self.assertEqual(user.username, "test_user")
+
+        delete_all_users()
         
 if __name__ == '__main__':
     unittest.main()
