@@ -25,4 +25,3 @@ api = Api(
 
 api.add_namespace(user_ns, path='/users')
 api.add_namespace(stats_ns, path='/stats')
-

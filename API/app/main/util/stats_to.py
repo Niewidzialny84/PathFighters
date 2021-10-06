@@ -1,9 +1,8 @@
 from flask_restx import Namespace, fields
-from ..schema.stats_schema import stat_schema, stats_schema
 
 class StatsDto:
     api = Namespace('stats', description='stats related operations')
-
+    
     stats = api.model('stats', {
         'id': fields.Integer(description='stats Identifier'),
         'userid': fields.Integer(required=True, description='user id'),

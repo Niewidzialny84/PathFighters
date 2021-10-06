@@ -1,10 +1,10 @@
-from flask import request, jsonify, make_response
+"""
+Stats Controller class
+"""
+from flask import request
 from flask_restx import Resource, marshal
-from ..model.stats_model import Stats
 from ..util.stats_to import StatsDto
-from ..schema import stats_schema
-from ..service.stats_service import *
-from app.main import db
+from ..service.stats_service import get_all_stats, get_user_stats, stats_patch, stats_put, stats_add_win, stats_add_fail
 
 api = StatsDto.api
 _stats = StatsDto.stats
@@ -79,7 +79,7 @@ class Stats(Resource):
 
 @api.route('/<userid>/add-win')
 @api.param('userid', 'The user identifier')
-class Stats_wins(Resource):
+class StatsWins(Resource):
    
     # ***PATCH***
     @api.doc('add_win_and_total_to_stats_for_user_with_given_username')
@@ -98,7 +98,7 @@ class Stats_wins(Resource):
 
 @api.route('/<userid>/add-fail')
 @api.param('userid', 'The user identifier')
-class Stats_fails(Resource):
+class StatsFails(Resource):
    
     # ***PATCH***
     @api.doc('add_fails_and_total_to_stats_for_user_with_given_username')
@@ -107,7 +107,7 @@ class Stats_fails(Resource):
     @api.response(404, description="NOT FOUND", model = _stats_response)
     def patch(self, userid):
         """Patch a fails for user with given identifier"""
-        status_code = stats_add_fails(userid)
+        status_code = stats_add_fail(userid)
         if status_code == 200:
             return marshal({'description':'OK'}, _stats_response), 200
         elif status_code == 400:

@@ -1,16 +1,15 @@
-from re import S
+"""
+Test Stats Db
+"""
 import unittest
-
-import datetime
-
 from app.main import db
 from app.main.model.stats_model import Stats
 from app.test.base import BaseTestCase
 
 class TestStatsDb(BaseTestCase):
 
-    """ Test check if creation stats process conduct properly. """
     def test_stats_db_proper_creation(self):
+        """ Test check if creation stats process conduct properly. """
         stats = Stats(
             userid = 1,
             total = 3,
@@ -32,8 +31,9 @@ class TestStatsDb(BaseTestCase):
         db.session.delete(stats)
         db.session.commit()
     
-    """ Test check if delete stat process conduct properly. """
+    
     def test_stats_db_proper_delete(self):
+        """ Test check if delete stat process conduct properly. """
         stats = Stats(
             userid = 1,
             total = 3,
@@ -49,8 +49,8 @@ class TestStatsDb(BaseTestCase):
         db.session.commit()
         self.assertTrue(Stats.query.all() == [])
     
-    """ Test check if autoincrement function work properly. """
     def test_stats_db_proper_id_autoincrement(self):
+        """ Test check if autoincrement function work properly. """
         stats_1 = Stats(
             userid = 4,
             total = 3,
@@ -78,8 +78,27 @@ class TestStatsDb(BaseTestCase):
         db.session.query(Stats).delete()
         db.session.commit()
     
-    """ Test check if it is possible to create 1000 stats. """
     def test_stats_db_proper_create_1000_stats(self):
+        """ Test check if it is possible to create 1000 stats. """
+        for i in range(1000):
+            stats = Stats(
+                userid = i,
+                total = 3,
+                wins = 2,
+                fails = 1
+            )
+
+            db.session.add(stats)
+        
+        db.session.commit()
+        
+        self.assertTrue(len(Stats.query.all()) == 1000)
+        
+        db.session.query(Stats).delete()
+        db.session.commit()
+  
+    def test_stats_db_proper_delete_1000_stats(self):
+        """ Test check if delete 1000 stats process conduct properly. """  
         for i in range(1000):
             stats = Stats(
             userid = i,
@@ -91,37 +110,20 @@ class TestStatsDb(BaseTestCase):
         
         db.session.commit()
         
-        self.assertTrue(len(Stats.query.all()) == 1000)
-        
-        db.session.query(Stats).delete()
-        db.session.commit()
-
-    """ Test check if delete 1000 stats process conduct properly. """    
-    def test_stats_db_proper_delete_1000_stats(self):
-        for i in range(1000):
-                stats = Stats(
-                userid = i,
-                total = 3,
-                wins = 2,
-                fails = 1)
-
-                db.session.add(stats)
-        
-        db.session.commit()
-        
         db.session.query(Stats).delete()
         db.session.commit()
 
         self.assertTrue(Stats.query.all() == [])
     
-    """ Test check if modification stats process conduct properly. """
     def test_stats_db_proper_modification(self):
+        """ Test check if modification stats process conduct properly. """
         stats = Stats(
             userid = 5,
             total = 3,
             wins = 2,
             fails = 1
         )
+        
         db.session.add(stats)
         db.session.commit()
         
@@ -149,7 +151,7 @@ class TestStatsDb(BaseTestCase):
         self.assertTrue(stats.total == 6)
         self.assertTrue(stats.wins == 3)
         self.assertTrue(stats.fails == 3)
-       
+
         db.session.delete(stats)
         db.session.commit()
         

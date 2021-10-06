@@ -14,11 +14,11 @@ class TestDevelopmentConfig(TestCase):
         return app
 
     def test_app_is_development(self):
-        self.assertFalse(app.config['SECRET_KEY'] is 'my_precious')
+        self.assertFalse(app.config['SECRET_KEY'] == 'my_precious')
         self.assertTrue(app.config['DEBUG'] is True)
         self.assertFalse(current_app is None)
-        self.assertTrue(
-            app.config['SQLALCHEMY_DATABASE_URI'] == 'sqlite:///' + os.path.join(basedir, 'engineer_main.db')
+        self.assertEquals(
+            app.config['SQLALCHEMY_DATABASE_URI'], 'sqlite:///' + os.path.join(basedir, 'engineer_main.db')
         )
 
 
@@ -28,10 +28,10 @@ class TestTestingConfig(TestCase):
         return app
 
     def test_app_is_testing(self):
-        self.assertFalse(app.config['SECRET_KEY'] is 'my_precious')
+        self.assertFalse(app.config['SECRET_KEY'] == 'my_precious')
         self.assertTrue(app.config['DEBUG'])
-        self.assertTrue(
-            app.config['SQLALCHEMY_DATABASE_URI'] == 'sqlite:///' + os.path.join(basedir, 'engineer_test.db')
+        self.assertEquals(
+            app.config['SQLALCHEMY_DATABASE_URI'], 'sqlite:///' + os.path.join(basedir, 'engineer_test.db')
         )
 
 
@@ -41,7 +41,7 @@ class TestProductionConfig(TestCase):
         return app
 
     def test_app_is_production(self):
-        self.assertTrue(app.config['DEBUG'] is False)
+        self.assertEquals(app.config['DEBUG'], False)
 
 if __name__ == '__main__':
     unittest.main()

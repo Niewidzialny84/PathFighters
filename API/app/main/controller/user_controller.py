@@ -1,10 +1,7 @@
-from flask import request, jsonify, make_response
+from flask import request
 from flask_restx import Resource, marshal
-from ..model.user_model import User
 from ..util.user_to import UserDto
-from ..schema import user_schema
 from ..service.user_service import *
-from app.main import db
 
 api = UserDto.api
 _user = UserDto.user
@@ -13,7 +10,7 @@ _user_payload = UserDto.user_payload
 _user_payload_patch = UserDto.user_payload_patch
 
 @api.route('')
-class User_list(Resource):
+class UserList(Resource):
     
     # ***GET***
     # @api.marshal_list_with(_user, envelope='data')
@@ -112,7 +109,7 @@ class User(Resource):
 
 @api.route('/id/<userid>')
 @api.param('userid', 'The user identifier')
-class User_by_id(Resource):
+class UserById(Resource):
    
     # ***GET***
     @api.doc('return_user_with_specific_is.')

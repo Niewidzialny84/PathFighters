@@ -1,5 +1,4 @@
 from flask_restx import Namespace, fields
-from ..schema.user_schema import user_schema, users_schema
 
 class UserDto:
     api = Namespace('user', description='user related operations')
