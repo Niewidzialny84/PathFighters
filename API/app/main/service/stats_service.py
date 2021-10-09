@@ -20,17 +20,28 @@ def get_user_stats(userid):
     return stats
 
 def stats_put(userid, request_json):
+    try:
+        total_new = request_json['total']
+    except Exception as _:
+        total_new = None
+
+    try:
+        wins_new = request_json['wins']
+    except Exception as _:
+        wins_new = None
+    
+    try:
+        fails_new = request_json['fails']
+    except Exception as _:
+        fails_new = None
+
+    if None in [userid, total_new, wins_new, fails_new]:
+        return 400
+    
     stats = Stats.query.filter_by(userid = userid).first()
 
     if stats is None:
         return 404
-
-    total_new = request_json['total']
-    wins_new = request_json['wins']
-    fails_new = request_json['fails']
-
-    if (total_new or wins_new or fails_new) == None:
-        return 400
 
     stats.total = total_new
     stats.wins = wins_new
@@ -55,9 +66,9 @@ def delete_stats(userid):
 
 def stats_patch(userid, request_json):
     try:
-        username_new = request_json['username']
+        userid_new = request_json['userid']
     except Exception as _:
-        username_new = None
+        userid_new = None
 
     try:
         total_new = request_json['total']
@@ -82,8 +93,8 @@ def stats_patch(userid, request_json):
     if stats is None:
         return 404
 
-    if username_new is not None:
-        stats.username = username_new
+    if userid is not None:
+        stats.userid = userid_new
 
     if total_new is not None:
         stats.total = total_new
