@@ -66,11 +66,6 @@ def delete_stats(userid):
 
 def stats_patch(userid, request_json):
     try:
-        userid_new = request_json['userid']
-    except Exception as _:
-        userid_new = None
-
-    try:
         total_new = request_json['total']
     except Exception as _:
         total_new = None
@@ -92,9 +87,6 @@ def stats_patch(userid, request_json):
 
     if stats is None:
         return 404
-
-    if userid is not None:
-        stats.userid = userid_new
 
     if total_new is not None:
         stats.total = total_new
