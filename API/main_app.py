@@ -3,6 +3,7 @@ This is main app of API.
 """
 import os
 import unittest
+import alembic
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 from app import blueprint
@@ -14,18 +15,18 @@ app.register_blueprint(blueprint)
 
 app.app_context().push()
 
-manager = Manager(app)
+main_app = Manager(app)
 
 migrate = Migrate(app, db)
 
-manager.add_command('db', MigrateCommand)
+main_app.add_command('db', MigrateCommand)
 
-@manager.command
+@main_app.command
 def run():
     """Runs main app."""
     app.run()
 
-@manager.command
+@main_app.command
 def test():
     """Runs the unit tests."""
     tests = unittest.TestLoader().discover('app/test', pattern='test*.py')
@@ -35,4 +36,7 @@ def test():
     return 1
 
 if __name__ == '__main__':
-    manager.run()
+    try:
+        main_app.run()
+    except alembic.util.exc.CommandError as ex:
+        print(ex)
