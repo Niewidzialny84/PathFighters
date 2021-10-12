@@ -4,6 +4,7 @@ This is main app of API.
 import os
 import unittest
 import alembic
+import coverage
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 from app import blueprint
@@ -32,6 +33,49 @@ def test():
     tests = unittest.TestLoader().discover('app/test', pattern='test*.py')
     result = unittest.TextTestRunner(verbosity=2).run(tests)
     if result.wasSuccessful():
+        return 0
+    return 1
+
+@main_app.command
+def covhtml():
+    """Runs the unit tests with coverage."""
+    
+    cov = coverage.coverage(branch=True, include='app/main*')
+    cov.start()
+
+    tests = unittest.TestLoader().discover('app/test', pattern='test*.py')
+    result = unittest.TextTestRunner(verbosity=2).run(tests)
+
+    if result.wasSuccessful():
+        cov.stop()
+        cov.save()
+        print('Coverage Summary:')
+        cov.report(omit=['main_app.py', 'app/main/__init__.py', 'test/*', 'venv*/*'])
+        # cov.report()
+        basedir = os.path.abspath(os.path.dirname(__file__))
+        covdir = os.path.join(basedir, 'tmp/coverage')
+        cov.html_report(directory=covdir)
+        print('HTML version: file://%s/index.html' % covdir)
+        cov.erase()
+        return 0
+    return 1
+
+@main_app.command
+def cov():
+    """Runs the unit tests with coverage."""
+    
+    cov = coverage.coverage(branch=True, include='app/main*')
+    cov.start()
+
+    tests = unittest.TestLoader().discover('app/test', pattern='test*.py')
+    result = unittest.TextTestRunner(verbosity=2).run(tests)
+
+    if result.wasSuccessful():
+        cov.stop()
+        cov.save()
+        print('Coverage Summary:')
+        cov.report(omit=['main_app.py', 'app/main/__init__.py', 'test/*', 'venv*/*'])
+        cov.erase()
         return 0
     return 1
 
