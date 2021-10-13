@@ -6,6 +6,7 @@ public class unitScript : MonoBehaviour
 {
     public float speed;
     public int hitPoints;
+    public int belongsToPlayer;
     private string status;
 
     private float rayDistance = 0.03f;
@@ -28,9 +29,19 @@ public class unitScript : MonoBehaviour
 
         if (this.status != "Dying")
         {
-            if (!Physics2D.Raycast(new Vector2(this.transform.position.x + 0.11f, this.transform.position.y), new Vector2(1f, 0f), rayDistance, ~ignoreMask) && this.transform.position.x < 6)
+            if(belongsToPlayer == 1)
             {
-                this.transform.position += new Vector3(this.speed * Time.deltaTime, 0, 0);
+                if (!Physics2D.Raycast(new Vector2(this.transform.position.x + 0.11f, this.transform.position.y), new Vector2(1f, 0f), rayDistance, ~ignoreMask) && this.transform.position.x < 6)
+                {
+                    this.transform.position += new Vector3(this.speed * Time.deltaTime, 0, 0);
+                }
+            }
+            else if (belongsToPlayer == 2)
+            {
+                if (!Physics2D.Raycast(new Vector2(this.transform.position.x - 0.11f, this.transform.position.y), new Vector2(-1f, 0f), rayDistance, ~ignoreMask) && this.transform.position.x > -6)
+                {
+                    this.transform.position += new Vector3(-this.speed * Time.deltaTime, 0, 0);
+                }
             }
             Debug.DrawLine(new Vector2(this.transform.position.x + 0.11f, this.transform.position.y), new Vector2(this.transform.position.x + 0.14f, this.transform.position.y), Color.green);
         }

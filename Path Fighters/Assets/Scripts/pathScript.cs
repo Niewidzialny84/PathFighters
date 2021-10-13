@@ -32,7 +32,9 @@ public class pathScript : MonoBehaviour
 
         if (unit != null)
         {
-            Instantiate(unit, new Vector3(-6, this.transform.position.y, 0), Quaternion.identity);
+            var tempUnit = Instantiate(unit, new Vector3(-6, this.transform.position.y, 0), Quaternion.identity);
+            // TODO: This will get more complex once players are added
+            tempUnit.GetComponent<unitScript>().belongsToPlayer = 1;
         }
     }
 }
