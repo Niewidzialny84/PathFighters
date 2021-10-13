@@ -24,7 +24,7 @@ class StatsList(Resource):
         """Get a list of all stats"""
         stats = get_all_stats()
         
-        if stats == None:
+        if stats == []:
             return marshal({'description':'NO CONTENT'}, _stats_response), 204
         else:
             return marshal(stats, _stats), 200
