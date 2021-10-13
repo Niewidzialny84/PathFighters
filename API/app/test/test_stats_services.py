@@ -89,11 +89,7 @@ class TestStatsServices(BaseTestCase):
         """ [ Test checks if put stats by id process handle error and return 400 status code. ] """
 
         create_new_stats(1)
-
-        request_dict = {
-            "total" : 3,
-            "wins" : 2
-        }
+        request_dict = {}
 
         status_code = stats_put(1, request_dict)
         stats = get_user_stats(1)
@@ -190,11 +186,7 @@ class TestStatsServices(BaseTestCase):
         """ [ Test checks if patch stats by id process handle error and return 400 status code. ] """
 
         create_new_stats(1)
-
-        request_dict = {
-            "total" : 3,
-            "wins" : 2
-        }
+        request_dict = {}
 
         status_code = stats_patch(None, request_dict)
         self.assertEqual(status_code, 400)

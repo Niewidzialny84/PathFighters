@@ -1,8 +1,8 @@
 """
 Stats service file.
 """
-from app.main import db
-from app.main.model.stats_model import Stats
+from app.main import db # pragma: no cover
+from app.main.model.stats_model import Stats # pragma: no cover
 
 def create_new_stats(userid):
     total = 0

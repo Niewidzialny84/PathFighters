@@ -199,10 +199,7 @@ class TestUserServices(BaseTestCase):
             "username" : "test_user"
         }
 
-        request_dict_new = {
-            "password" : "test_new",
-            "username" : "test_user_new"
-        }
+        request_dict_new = {}
 
         add_new_user(request_dict)
 
@@ -272,10 +269,7 @@ class TestUserServices(BaseTestCase):
             "username" : "test_user"
         }
 
-        request_dict_new = {
-            "password" : "test_new",
-            "username" : "test_user_new"
-        }
+        request_dict_new = {}
 
         add_new_user(request_dict)
 
@@ -317,8 +311,8 @@ class TestUserServices(BaseTestCase):
         users = get_all_users()
         self.assertEqual(len(users), 0)
     
-    def test_user_services_delete_user_by_username(self):
-        """ [ Test checks if delete user by username process conducted properly. ] """
+    def test_user_services_delete_user_by_username_200(self):
+        """ [ Test checks if delete user by username process conducted properly and return 200 status code. ] """
         
         request_dict_1 = {
                 "email" : "test@test.com",
@@ -338,16 +332,23 @@ class TestUserServices(BaseTestCase):
         users = get_all_users()
         self.assertEqual(len(users), 2)
 
-        delete_user("test_user_1")
+        status_code = delete_user("test_user_1")
 
         users = get_all_users()
+        self.assertEqual(status_code, 200)
         self.assertEqual(len(users), 1)
         self.assertEqual(users[0].username, "test_user_2")
 
         delete_all_users()
+    
+    def test_user_services_delete_user_by_username_404(self):
+        """ [ Test checks if delete user by username process properly handle error and return 404 status code. ] """
+        
+        status_code = delete_user("test_user")
+        self.assertEqual(status_code, 404)
 
-    def test_user_services_delete_user_by_id(self):
-        """ [ Test checks if delete user by id process conducted properly. ] """
+    def test_user_services_delete_user_by_id_200(self):
+        """ [ Test checks if delete user by id process conducted properly and return 200 status code. ] """
         
         request_dict_1 = {
                 "email" : "test@test.com",
@@ -367,16 +368,23 @@ class TestUserServices(BaseTestCase):
         users = get_all_users()
         self.assertEqual(len(users), 2)
 
-        delete_user_by_id(1)
+        status_code = delete_user_by_id(1)
 
         users = get_all_users()
+        self.assertEqual(status_code, 200)
         self.assertEqual(len(users), 1)
         self.assertEqual(users[0].username, "test_user_2")
 
         delete_all_users()
+    
+    def test_user_services_delete_user_by_id_404(self):
+        """ [ Test checks if delete user by id process properly handle error and return 404 status code. ] """
+        
+        status_code = delete_user_by_id(1)
+        self.assertEqual(status_code, 404)
 
     def test_user_services_user_patch_by_username_200(self):
-        """ [ Test checks if patch user by username process conducted properly and return 200 statse code. ] """
+        """ [ Test checks if patch user by username process conducted properly and return 200 status code. ] """
         
         request_dict = {
             "email" : "test@test.com",
@@ -386,6 +394,7 @@ class TestUserServices(BaseTestCase):
 
         request_dict_new = {
             "email" : "test_new@test.com",
+            "password" : "test_new",
             "username" : "test_user_new"
         }
 
@@ -427,10 +436,7 @@ class TestUserServices(BaseTestCase):
             "username" : "test_user"
         }
 
-        request_dict_new = {
-            "password" : "test_new",
-            "username" : "test_user_new"
-        }
+        request_dict_new = {}
 
         add_new_user(request_dict)
 
@@ -457,6 +463,7 @@ class TestUserServices(BaseTestCase):
 
         request_dict_new = {
             "email" : "test_new@test.com",
+            "password" : "test_new",
             "username" : "test_user_new"
         }
 
@@ -498,10 +505,7 @@ class TestUserServices(BaseTestCase):
             "username" : "test_user"
         }
 
-        request_dict_new = {
-            "password" : "test_new",
-            "username" : "test_user_new"
-        }
+        request_dict_new = {}
 
         add_new_user(request_dict)
 

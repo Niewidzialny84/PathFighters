@@ -40,23 +40,23 @@ def test():
 def covhtml():
     """Runs the unit tests with coverage."""
     
-    cov = coverage.coverage(branch=True, include='app/main*')
-    cov.start()
+    cover = coverage.coverage(branch=True, include='app/main*')
+    cover.start()
 
     tests = unittest.TestLoader().discover('app/test', pattern='test*.py')
     result = unittest.TextTestRunner(verbosity=2).run(tests)
 
     if result.wasSuccessful():
-        cov.stop()
-        cov.save()
+        cover.stop()
+        cover.save()
         print('Coverage Summary:')
-        cov.report(omit=['main_app.py', 'app/main/__init__.py', 'test/*', 'venv*/*'])
+        cover.report(omit=['main_app.py', 'app/main/__init__.py', 'test/*', 'venv*/*'])
         # cov.report()
         basedir = os.path.abspath(os.path.dirname(__file__))
         covdir = os.path.join(basedir, 'tmp/coverage')
-        cov.html_report(directory=covdir)
+        cover.html_report(directory=covdir)
         print('HTML version: file://%s/index.html' % covdir)
-        cov.erase()
+        cover.erase()
         return 0
     return 1
 
@@ -64,18 +64,18 @@ def covhtml():
 def cov():
     """Runs the unit tests with coverage."""
     
-    cov = coverage.coverage(branch=True, include='app/main*')
-    cov.start()
+    cover = coverage.coverage(branch=True, include='app/main*')
+    cover.start()
 
     tests = unittest.TestLoader().discover('app/test', pattern='test*.py')
     result = unittest.TextTestRunner(verbosity=2).run(tests)
 
     if result.wasSuccessful():
-        cov.stop()
-        cov.save()
+        cover.stop()
+        cover.save()
         print('Coverage Summary:')
-        cov.report(omit=['main_app.py', 'app/main/__init__.py', 'test/*', 'venv*/*'])
-        cov.erase()
+        cover.report(omit=['main_app.py', 'app/main/__init__.py', 'test/*', 'venv*/*'])
+        cover.erase()
         return 0
     return 1
 

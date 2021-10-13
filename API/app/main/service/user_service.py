@@ -1,7 +1,10 @@
-from app.main import db
-from app.main.model.user_model import User
-from app.main.service.stats_service import create_new_stats, delete_all_stats, delete_stats
-
+"""
+User service file.
+"""
+from app.main import db # pragma: no cover 
+from app.main.model.user_model import User # pragma: no cover 
+from app.main.service.stats_service import create_new_stats, delete_all_stats, delete_stats # pragma: no cover 
+ 
 def add_new_user(request_json):
     username = request_json['username']
     email = request_json['email']
