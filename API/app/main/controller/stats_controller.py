@@ -34,7 +34,7 @@ class StatsList(Resource):
 class Stats(Resource):
    
     # ***GET***
-    @api.doc('return_stats_for_user_with_specific_username.')
+    @api.doc('return_stats_for_user_with_specific_userid.')
     @api.response(200, description="OK", model = _stats)
     @api.response(404, description="NOT FOUND", model = _stats_response)
     def get(self, userid):
@@ -62,7 +62,7 @@ class Stats(Resource):
             return marshal({'description':'NOT FOUND'}, _stats_response), 404
 
     # ***PATCH***
-    @api.doc('patch_stats_for_user_with_specific_username')
+    @api.doc('patch_stats_for_user_with_specific_userid')
     @api.response(200, description="OK", model = _stats_response)
     @api.response(400, description="BAD REQUEST", model = _stats_response)
     @api.response(404, description="NOT FOUND", model = _stats_response)
