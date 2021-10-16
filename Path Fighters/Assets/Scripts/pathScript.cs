@@ -29,13 +29,12 @@ public class pathScript : MonoBehaviour
     {
         GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
         GameObject unit = gameHandler.GetComponent<gameHandlerScript>().selectedObject;
+        int activePlayer = gameHandler.GetComponent<gameHandlerScript>().activePlayer;
 
         if (unit != null && unit.layer == 7)
         {
-            // TODO: "-6" is not right it should depend on the active player
-            var tempUnit = Instantiate(unit, new Vector3(-6, this.transform.position.y, 0), Quaternion.identity);
-            // TODO: This will get more complex once players are added
-            tempUnit.GetComponent<unitScript>().belongsToPlayer = 1;
+            var tempUnit = Instantiate(unit, new Vector3(activePlayer==1 ? -6 : 6, this.transform.position.y, 0), Quaternion.identity);
+            tempUnit.GetComponent<unitScript>().belongsToPlayer = activePlayer;
         }
     }
 }
