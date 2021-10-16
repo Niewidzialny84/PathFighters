@@ -24,9 +24,11 @@ public class unitScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Soldier dies and is destroyed. TODO: Combat; TODO: Animation?; TODO: Blood?
         if (this.hitPoints <= 0)
         {
             this.status = "Dying";
+            Destroy(gameObject, 0.5f);
         }
 
         if (this.status != "Dying")
