@@ -17,6 +17,8 @@ public class unitScript : MonoBehaviour
     {
         ignoreMask = LayerMask.GetMask("Path");
         this.status = "Moving";
+
+        //TODO: a variable 1P = 1; 2P = -1 should be set and used to reduce else if's later (for the movement and combat) once the players are included
     }
 
     // Update is called once per frame
