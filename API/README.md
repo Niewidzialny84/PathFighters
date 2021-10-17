@@ -15,16 +15,25 @@ If neccesary `docker-compose.yml` file can be edited to change the port or volum
 ### Terminal commands
 Note: make sure you have `pip` and `virtualenv` installed.
 Initial installation
-> make install
+
+```shell
+make install
+```
 
 To run tests
-> make tests
+```shell
+make tests
+```
 
 To run application
-> make run
+```shell
+make run
+```
 
 To run all commands at once
-> make all
+```shell
+make all
+```
 
 Make sure to run the initial migration commands to update the database.
 
@@ -36,13 +45,28 @@ Make sure to run the initial migration commands to update the database.
 
 Basic commands:
 Run API
-> python main_app.py run
+
+```shell
+python main_app.py run
+```
+
 Run tests
-> python main_app.py test
+
+```shell
+python main_app.py test
+```
+
 Run tests with coverage
-> python main_app.py cov
+
+```shell
+python main_app.py cov
+```
+
 Run tests with coverage and generate html reports
-> python main_app.py covhtml
+
+```shell
+python main_app.py covhtml
+```
 
 ### Viewing the app
 
