@@ -9,6 +9,10 @@ public class gameHandlerScript : MonoBehaviour
     //This contains the active player
     public int activePlayer;
 
+
+    // TODO DELETE THIS
+    bool aP = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +23,19 @@ public class gameHandlerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //THIS IS ONLY A TEST DELETE IS AFTERWARDS
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (aP)
+            {
+                activePlayer++;
+                aP = false;
+            }
+            else if (!aP)
+            {
+                activePlayer--;
+                aP = true;
+            }
+        }
     }
 }

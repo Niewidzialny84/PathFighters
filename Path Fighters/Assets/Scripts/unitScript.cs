@@ -8,6 +8,7 @@ public class unitScript : MonoBehaviour
     public int hitPoints;
     public int belongsToPlayer;
     private string status;
+    private int moveDirection;
 
     private float rayDistance = 0.03f;
     private LayerMask ignoreMask;
@@ -18,7 +19,14 @@ public class unitScript : MonoBehaviour
         ignoreMask = LayerMask.GetMask("Path");
         this.status = "Moving";
 
-        //TODO: a variable 1P = 1; 2P = -1 should be set and used to reduce else if's later (for the movement and combat) once the players are included
+        if(belongsToPlayer == 1)
+        {
+            moveDirection = -1;
+        }
+        else
+        {
+            moveDirection = 1;
+        }
     }
 
     // Update is called once per frame
@@ -33,21 +41,12 @@ public class unitScript : MonoBehaviour
 
         if (this.status != "Dying")
         {
-            if(belongsToPlayer == 1)
+            //The 0.11f magic number is temporary and it is just outside the radius of the soldier to not hit himself
+            if (!Physics2D.Raycast(new Vector2(this.transform.position.x - (0.11f * moveDirection), this.transform.position.y), new Vector2((-1f * moveDirection), 0f), rayDistance, ~ignoreMask) && this.transform.position.x >= -6 && this.transform.position.x <= 6)
             {
-                if (!Physics2D.Raycast(new Vector2(this.transform.position.x + 0.11f, this.transform.position.y), new Vector2(1f, 0f), rayDistance, ~ignoreMask) && this.transform.position.x < 6)
-                {
-                    this.transform.position += new Vector3(this.speed * Time.deltaTime, 0, 0);
-                }
+                this.transform.position += new Vector3((-this.speed * moveDirection) * Time.deltaTime, 0, 0);
             }
-            else if (belongsToPlayer == 2)
-            {
-                if (!Physics2D.Raycast(new Vector2(this.transform.position.x - 0.11f, this.transform.position.y), new Vector2(-1f, 0f), rayDistance, ~ignoreMask) && this.transform.position.x > -6)
-                {
-                    this.transform.position += new Vector3(-this.speed * Time.deltaTime, 0, 0);
-                }
-            }
-            Debug.DrawLine(new Vector2(this.transform.position.x + 0.11f, this.transform.position.y), new Vector2(this.transform.position.x + 0.14f, this.transform.position.y), Color.green);
+            Debug.DrawLine(new Vector2(this.transform.position.x + (-0.11f * moveDirection), this.transform.position.y), new Vector2(this.transform.position.x + (-0.14f * moveDirection), this.transform.position.y), Color.green);
         }
     }
 }
