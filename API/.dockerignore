@@ -1,0 +1,22 @@
+# Docker build files
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# Git
+.git
+.gitignore
+
+# Environment
+env/
+Env/
+Venv/
+venv/
+
+# Visual Studio Code
+.vscode/
+
+# Files
+Makefile
+README.md
+

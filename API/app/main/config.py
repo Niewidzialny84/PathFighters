@@ -10,19 +10,20 @@ class Config:
     DEBUG = False
     # Swagger
     RESTX_MASK_SWAGGER = False
+    SERVER_NAME = '0.0.0.0:5000'
 
 class DevelopmentConfig(Config):
     # uncomment the line below to use postgres
     # SQLALCHEMY_DATABASE_URI = postgres_local_base
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'engineer_main.db')
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir + '/db', 'engineer_main.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
 class TestingConfig(Config):
     DEBUG = True
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'engineer_test.db')
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir + '/db', 'engineer_test.db')
     PRESERVE_CONTEXT_ON_EXCEPTION = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
