@@ -136,7 +136,7 @@ def user_patch(username, request_json):
     except Exception as _:
         email_new = None
 
-    if username == None:
+    if all (a is None for a in [username_new, password_new, email_new]):
         return 400
 
     user = User.query.filter_by(username = username).first()
@@ -172,7 +172,7 @@ def user_patch_by_id(id, request_json):
     except Exception as _:
         email_new = None
 
-    if id == None:
+    if all (a is None for a in [username_new, password_new, email_new]):
         return 400
 
     user = User.query.filter_by(id = id).first()

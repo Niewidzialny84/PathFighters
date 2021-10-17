@@ -80,7 +80,7 @@ def stats_patch(userid, request_json):
     except Exception as _:
         fails_new = None
 
-    if userid is None:
+    if all (a is None for a in [total_new, wins_new, fails_new]):
         return 400
 
     stats = Stats.query.filter_by(userid = userid).first()

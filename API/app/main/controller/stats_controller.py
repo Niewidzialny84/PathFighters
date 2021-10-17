@@ -64,6 +64,7 @@ class Stats(Resource):
     # ***PATCH***
     @api.doc('patch_stats_for_user_with_specific_userid')
     @api.response(200, description="OK", model = _stats_response)
+    @api.response(400, description="BAD REQUEST", model = _stats_response)
     @api.response(404, description="NOT FOUND", model = _stats_response)
     @api.expect(_stats_payload_patch, validate=False)
     def patch(self, userid):
@@ -71,6 +72,8 @@ class Stats(Resource):
         status_code = stats_patch(userid, request.json)
         if status_code == 200:
             return marshal({'description':'OK'}, _stats_response), 200
+        elif status_code == 400:
+            return marshal({'description':'BAD REQUEST'}, _stats_response), 400
         elif status_code == 404:
             return marshal({'description':'NOT FOUND'}, _stats_response), 404
 
