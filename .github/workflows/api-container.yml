@@ -22,8 +22,8 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          context: ./API/
-          file: ./Dockerfile
+          context: ./
+          file: ./API/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/path-fighters-api:latest
       - name: Image digest
