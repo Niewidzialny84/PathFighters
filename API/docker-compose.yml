@@ -6,3 +6,4 @@ services:
       - ./path-fighters-api:/app/app/main/db
     ports:
       - "5000:5000"
+    # - "127.0.0.1:5000:5000"
