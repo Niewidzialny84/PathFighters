@@ -17,4 +17,4 @@ class Stats(db.Model):
         self.wins = wins
 
     def __repr__(self):
-        return "<Stats for user with id: '{}'>".format(self.userid)
+        return "User: <userid: '{}', total: '{}', fails: '{}', wins: '{}'>".format(self.userid, self.total, self.fails, self.wins)
