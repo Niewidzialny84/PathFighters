@@ -19,15 +19,6 @@ Make sure to run the initial migration commands to update the database.
 
     > python main_app.py db upgrade
 
-Basic commands:
-
-    > python main_app.py run -> to run API
-
-    > python main_app.py test -> run tests
-
-    > python main_app.py cov -> run tests with coverage
-
-    > python main_app.py covhtml -> run tests with coverage and generate html reports
 
 ### Viewing the app ###
 
