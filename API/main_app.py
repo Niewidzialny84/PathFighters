@@ -10,7 +10,7 @@ from flask_script import Manager
 from app import blueprint
 from app.main import create_app, db
 
-app = create_app(os.getenv('ENGINEER API') or 'dev')
+app = create_app(os.getenv('ENGINEER_API') or 'dev')
 
 app.register_blueprint(blueprint)
 

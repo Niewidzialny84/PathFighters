@@ -1,35 +1,73 @@
-#### API
+# API
+
+## Running in Docker
+
+To get app to running in Docker, you simply need to run docker-compose using the following:
+
+```shell
+docker-compose up -d
+```
+
+If neccesary `docker-compose.yml` file can be edited to change the port or volumes.
+
+## Running in Terminal
 
 ### Terminal commands
 Note: make sure you have `pip` and `virtualenv` installed.
+Initial installation
 
-    Initial installation: make install
+```shell
+make install
+```
 
-    To run test: make tests
+To run tests
+```shell
+make tests
+```
 
-    To run application: make run
+To run application
+```shell
+make run
+```
 
-    To run all commands at once : make all
+To run all commands at once
+```shell
+make all
+```
 
 Make sure to run the initial migration commands to update the database.
-    
-    > python main_app.py db init
 
-    > python main_app.py db migrate --message 'initial database migration'
-
-    > python main_app.py db upgrade
+```shell
+> python main_app.py db init
+> python main_app.py db migrate --message 'initial database migration'
+> python main_app.py db upgrade
+```
 
 Basic commands:
+Run API
 
-    > python main_app.py run -> to run API
+```shell
+python main_app.py run
+```
 
-    > python main_app.py test -> run tests
+Run tests
 
-    > python main_app.py cov -> run tests with coverage
+```shell
+python main_app.py test
+```
 
-    > python main_app.py covhtml -> run tests with coverage and generate html reports
+Run tests with coverage
 
-### Viewing the app ###
+```shell
+python main_app.py cov
+```
 
-    Open the following url on your browser to view swagger documentation
-    http://127.0.0.1:5000/
+Run tests with coverage and generate html reports
+
+```shell
+python main_app.py covhtml
+```
+
+### Viewing the app
+
+Open the following url on your browser to view swagger documentation `http://127.0.0.1:5000/`
