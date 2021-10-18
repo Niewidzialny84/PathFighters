@@ -23,6 +23,7 @@ public class gameHandlerScript : MonoBehaviour
         //This will be handeled by the server
         activePlayer = 1;
         recruitmentTime = 5.0f;
+        gold = 500.4f;
     }
 
     // Update is called once per frame
@@ -32,6 +33,12 @@ public class gameHandlerScript : MonoBehaviour
         {
             recruitmentTime -= (1.0f * Time.deltaTime);
         }
+
+        if(gold < 1000000000000f)
+        {
+            gold += (10f * Time.deltaTime);
+        }
+
 
         //THIS IS ONLY A TEST DELETE IS AFTERWARDS
         if (Input.GetMouseButtonDown(1))
@@ -47,5 +54,11 @@ public class gameHandlerScript : MonoBehaviour
                 aP = true;
             }
         }
+    }
+
+    void OnDrawGizmos()
+    {
+        UnityEditor.Handles.color = Color.white;
+        UnityEditor.Handles.Label( this.transform.position, gold.ToString("F0"));
     }
 }

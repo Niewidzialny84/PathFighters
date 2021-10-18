@@ -99,6 +99,7 @@ MonoBehaviour:
   speed: 0.3
   hitPoints: 20
   belongsToPlayer: 0
+  cost: 25
 --- !u!58 &3250758427116257795
 CircleCollider2D:
   m_ObjectHideFlags: 0

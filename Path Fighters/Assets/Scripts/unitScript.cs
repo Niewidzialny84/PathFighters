@@ -13,6 +13,8 @@ public class unitScript : MonoBehaviour
     private float rayDistance = 0.03f;
     private LayerMask ignoreMask;
 
+    public float cost;
+
     // Start is called before the first frame update
     void Start()
     {

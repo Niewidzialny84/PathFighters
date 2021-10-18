@@ -38,14 +38,16 @@ public class towerFieldScript : MonoBehaviour
         if (gameHandler.GetComponent<gameHandlerScript>().activePlayer == this.belongsToPlayer)
         {
             //Create selected tower
-            if (tower != null && tower.layer == 8 && localTower == null)
+            if (tower != null && tower.layer == 8 && localTower == null && gameHandler.GetComponent<gameHandlerScript>().gold >= tower.GetComponent<towerScript>().cost)
             {
                 var tempUnit = Instantiate(tower, new Vector3(this.transform.position.x, this.transform.position.y, 0), Quaternion.identity);
+                gameHandler.GetComponent<gameHandlerScript>().gold -= tower.GetComponent<towerScript>().cost;
                 localTower = tempUnit;
             }
             //Destroy tower
             else if (tower == null && localTower != null)
             {
+                gameHandler.GetComponent<gameHandlerScript>().gold += (localTower.GetComponent<towerScript>().cost * 0.2f);
                 Destroy(localTower);
                 localTower = null;
             }
