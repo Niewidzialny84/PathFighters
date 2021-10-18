@@ -24,7 +24,7 @@ class StatsList(Resource):
         """Get a list of all stats"""
         stats = get_all_stats()
         
-        if stats == []:
+        if stats == None:
             return marshal({'description':'NO CONTENT'}, _stats_response), 204
         else:
             return marshal(stats, _stats), 200
@@ -34,7 +34,7 @@ class StatsList(Resource):
 class Stats(Resource):
    
     # ***GET***
-    @api.doc('return_stats_for_user_with_specific_userid.')
+    @api.doc('return_stats_for_user_with_specific_username.')
     @api.response(200, description="OK", model = _stats)
     @api.response(404, description="NOT FOUND", model = _stats_response)
     def get(self, userid):
@@ -62,7 +62,7 @@ class Stats(Resource):
             return marshal({'description':'NOT FOUND'}, _stats_response), 404
 
     # ***PATCH***
-    @api.doc('patch_stats_for_user_with_specific_userid')
+    @api.doc('patch_stats_for_user_with_specific_username')
     @api.response(200, description="OK", model = _stats_response)
     @api.response(400, description="BAD REQUEST", model = _stats_response)
     @api.response(404, description="NOT FOUND", model = _stats_response)
@@ -84,12 +84,15 @@ class StatsWins(Resource):
     # ***PATCH***
     @api.doc('add_win_and_total_to_stats_for_user_with_given_username')
     @api.response(200, description="OK", model = _stats_response)
+    @api.response(400, description="BAD REQUEST", model = _stats_response)
     @api.response(404, description="NOT FOUND", model = _stats_response)
     def patch(self, userid):
         """Patch a wins for user with given identifier"""
         status_code = stats_add_win(userid)
         if status_code == 200:
             return marshal({'description':'OK'}, _stats_response), 200
+        elif status_code == 400:
+            return marshal({'description':'BAD REQUEST'}, _stats_response), 400
         elif status_code == 404:
             return marshal({'description':'NOT FOUND'}, _stats_response), 404
 
@@ -100,11 +103,14 @@ class StatsFails(Resource):
     # ***PATCH***
     @api.doc('add_fails_and_total_to_stats_for_user_with_given_username')
     @api.response(200, description="OK", model = _stats_response)
+    @api.response(400, description="BAD REQUEST", model = _stats_response)
     @api.response(404, description="NOT FOUND", model = _stats_response)
     def patch(self, userid):
         """Patch a fails for user with given identifier"""
         status_code = stats_add_fail(userid)
         if status_code == 200:
             return marshal({'description':'OK'}, _stats_response), 200
+        elif status_code == 400:
+            return marshal({'description':'BAD REQUEST'}, _stats_response), 400
         elif status_code == 404:
             return marshal({'description':'NOT FOUND'}, _stats_response), 404

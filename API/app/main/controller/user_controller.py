@@ -1,7 +1,7 @@
 from flask import request
 from flask_restx import Resource, marshal
 from ..util.user_to import UserDto
-from ..service.user_service import delete_user, get_all_users, add_new_user, delete_all_users, get_user, user_patch, user_patch_by_id, user_put, user_put_by_id, get_user_by_id, delete_user, delete_user_by_id
+from ..service.user_service import *
 
 api = UserDto.api
 _user = UserDto.user
@@ -21,7 +21,7 @@ class UserList(Resource):
         """Get a list of users"""
         users = get_all_users()
         
-        if users == []:
+        if users == None:
             return marshal({'description':'NO CONTENT'}, _user_response), 204
         else:
             return marshal(users, _user), 200
@@ -34,7 +34,6 @@ class UserList(Resource):
     def post(self):
         """Create new user."""
         status_code = add_new_user(request.json)
-        
         if status_code == 201:
             return marshal({'description':'CREATED'}, _user_response), 201
         elif status_code == 409:
@@ -59,11 +58,10 @@ class User(Resource):
     def get(self, username):
         """Get a user with given identifier"""
         user = get_user(username)
-        
         if not user:
             return marshal({'description':'NOT FOUND'}, _user_response), 404
-        
-        return marshal(user, _user), 200
+        else:
+            return marshal(user, _user), 200
     
     # ***PUT***
     @api.doc('put_user_with_specific_username')
@@ -143,9 +141,9 @@ class UserById(Resource):
     @api.response(400, description="BAD REQUEST", model = _user_response)
     @api.response(404, description="NOT FOUND", model = _user_response)
     @api.expect(_user_payload)
-    def put(self, userid):
+    def put(self, id):
         """Put a user with given identifier"""
-        status_code = user_put_by_id(userid, request.json)
+        status_code = user_put_by_id(id, request.json)
         if status_code == 200:
             return marshal({'description':'OK'}, _user_response), 200
         elif status_code == 400:
@@ -159,9 +157,9 @@ class UserById(Resource):
     @api.response(400, description="BAD REQUEST", model = _user_response)
     @api.response(404, description="NOT FOUND", model = _user_response)
     @api.expect(_user_payload_patch, validate=False)
-    def patch(self, userid):
+    def patch(self, username):
         """Patch a user with given identifier"""
-        status_code = user_patch_by_id(userid, request.json)
+        status_code = user_patch_by_id(id, request.json)
         if status_code == 200:
             return marshal({'description':'OK'}, _user_response), 200
         elif status_code == 400:
