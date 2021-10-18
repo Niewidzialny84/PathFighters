@@ -3,7 +3,7 @@ from .. import db
 
 class User(db.Model):
     """ User Model for storing user related details """
-    __tablename__ = "users" # pragma: no cover
+    __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     username = db.Column(db.String(32), unique=True, nullable=False)

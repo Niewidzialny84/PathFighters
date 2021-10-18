@@ -1,10 +1,7 @@
-"""
-User service file.
-"""
-from app.main import db # pragma: no cover 
-from app.main.model.user_model import User # pragma: no cover 
-from app.main.service.stats_service import create_new_stats, delete_all_stats, delete_stats # pragma: no cover 
- 
+from app.main import db
+from app.main.model.user_model import User
+from app.main.service.stats_service import create_new_stats, delete_all_stats, delete_stats
+
 def add_new_user(request_json):
     username = request_json['username']
     email = request_json['email']
@@ -65,7 +62,7 @@ def user_put(username, request_json):
 def user_put_by_id(id, request_json):
     user = User.query.filter_by(id = id).first()
 
-    if user is None:
+    if user == None:
         return 404
 
     try:
@@ -83,7 +80,7 @@ def user_put_by_id(id, request_json):
     except Exception as _:
         email_new = None
 
-    if None in [username_new, email_new, password_new]:
+    if (username_new or email_new or password_new) == None:
         return 400
 
     user.password = password_new
@@ -101,7 +98,7 @@ def delete_all_users():
 def delete_user(username):
     user = User.query.filter_by(username = username).first()
 
-    if user is None:
+    if user == None:
         return 404
 
     delete_stats(user.id)
@@ -112,7 +109,7 @@ def delete_user(username):
 def delete_user_by_id(userid):
     user = User.query.filter_by(id = userid).first()
 
-    if user is None:
+    if user == None:
         return 404
 
     delete_stats(user.id)
@@ -120,7 +117,7 @@ def delete_user_by_id(userid):
     db.session.commit()
     return 200
 
-def user_patch(username, request_json):
+def user_patch(username, request_json):  
     try:
         username_new = request_json['username']
     except Exception as _:
@@ -136,7 +133,7 @@ def user_patch(username, request_json):
     except Exception as _:
         email_new = None
 
-    if all (a is None for a in [username_new, password_new, email_new]):
+    if username == None:
         return 400
 
     user = User.query.filter_by(username = username).first()
@@ -144,13 +141,13 @@ def user_patch(username, request_json):
     if user == None:
         return 404
 
-    if username_new is not None:
+    if username_new != None:
         user.username = username_new
 
-    if password_new is not None:
-        user.password = password_new
+    if password_new != None:
+        user.password = password_new 
     
-    if email_new is not None:
+    if email_new != None:
         user.email = email_new
 
     db.session.commit()
@@ -172,21 +169,21 @@ def user_patch_by_id(id, request_json):
     except Exception as _:
         email_new = None
 
-    if all (a is None for a in [username_new, password_new, email_new]):
+    if id == None:
         return 400
 
     user = User.query.filter_by(id = id).first()
 
-    if user is None:
+    if user == None:
         return 404
 
-    if username_new is not None:
+    if username_new != None:
         user.username = username_new
 
-    if password_new is not None:
-        user.password = password_new
+    if password_new != None:
+        user.password = password_new 
     
-    if email_new is not None:
+    if email_new != None:
         user.email = email_new
 
     db.session.commit()

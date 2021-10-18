@@ -9,7 +9,7 @@ from app.test.base import BaseTestCase
 class TestStatsDb(BaseTestCase):
 
     def test_stats_db_proper_creation(self):
-        """ Test checkss if creation stats process conducted properly. """
+        """ Test check if creation stats process conduct properly. """
         stats = Stats(
             userid = 1,
             total = 3,
@@ -33,7 +33,7 @@ class TestStatsDb(BaseTestCase):
     
     
     def test_stats_db_proper_delete(self):
-        """ Test checkss if delete stat process conducted properly. """
+        """ Test check if delete stat process conduct properly. """
         stats = Stats(
             userid = 1,
             total = 3,
@@ -50,7 +50,7 @@ class TestStatsDb(BaseTestCase):
         self.assertTrue(Stats.query.all() == [])
     
     def test_stats_db_proper_id_autoincrement(self):
-        """ Test checkss if autoincrement function work properly. """
+        """ Test check if autoincrement function work properly. """
         stats_1 = Stats(
             userid = 4,
             total = 3,
@@ -79,7 +79,7 @@ class TestStatsDb(BaseTestCase):
         db.session.commit()
     
     def test_stats_db_proper_create_1000_stats(self):
-        """ Test checkss if it is possible to create 1000 stats. """
+        """ Test check if it is possible to create 1000 stats. """
         for i in range(1000):
             stats = Stats(
                 userid = i,
@@ -98,7 +98,7 @@ class TestStatsDb(BaseTestCase):
         db.session.commit()
   
     def test_stats_db_proper_delete_1000_stats(self):
-        """ Test checkss if delete 1000 stats process conducted properly. """  
+        """ Test check if delete 1000 stats process conduct properly. """  
         for i in range(1000):
             stats = Stats(
             userid = i,
@@ -116,7 +116,7 @@ class TestStatsDb(BaseTestCase):
         self.assertTrue(Stats.query.all() == [])
     
     def test_stats_db_proper_modification(self):
-        """ Test checkss if modification stats process conducted properly. """
+        """ Test check if modification stats process conduct properly. """
         stats = Stats(
             userid = 5,
             total = 3,
