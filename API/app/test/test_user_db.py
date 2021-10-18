@@ -8,8 +8,9 @@ from app.test.base import BaseTestCase
 
 class TestUserDb(BaseTestCase):
 
-    """ Test check if creation user process conduct properly. """
     def test_user_db_proper_creation(self):
+        """ Test checks if creation user process conducted properly. """
+
         user = User(
             email='test@test.com',
             password='test',
@@ -29,8 +30,9 @@ class TestUserDb(BaseTestCase):
         db.session.delete(user)
         db.session.commit()
     
-    """ Test check if delete user process conduct properly. """
     def test_user_db_proper_delete(self):
+        """ Test checks if delete user process conducted properly. """
+
         user = User(
             email='test@test.com',
             password='test',
@@ -44,8 +46,9 @@ class TestUserDb(BaseTestCase):
         db.session.commit()
         self.assertTrue(User.query.all() == [])
     
-    """ Test check if autoincrement function work properly. """
     def test_user_db_proper_id_autoincrement(self):
+        """ Test checks if autoincrement function work properly. """
+        
         user_1 = User(
             email='test@test.com',
             password='test',
@@ -71,8 +74,9 @@ class TestUserDb(BaseTestCase):
         db.session.query(User).delete()
         db.session.commit()
     
-    """ Test check if it is possible to create 1000 users. """
     def test_user_db_proper_create_1000_users(self):
+        """ Test checks if it is possible to create 1000 users. """
+
         for i in range(1000):
             user = User(
             email='test@test.com',
@@ -87,9 +91,10 @@ class TestUserDb(BaseTestCase):
         
         db.session.query(User).delete()
         db.session.commit()
-
-    """ Test check if delete 1000 users process conduct properly. """    
+ 
     def test_user_db_proper_delete_1000_users(self):
+        """ Test checks if delete 1000 users process conducted properly. """
+
         for i in range(1000):
             user = User(
             email='test@test.com',
@@ -105,8 +110,9 @@ class TestUserDb(BaseTestCase):
 
         self.assertTrue(User.query.all() == [])
     
-    """ Test check if modification user process conduct properly. """
     def test_user_db_modification(self):
+        """ Test checks if modification user process conducted properly. """
+
         user = User(
             email='test@test.com',
             password='test',
@@ -142,4 +148,3 @@ class TestUserDb(BaseTestCase):
         
 if __name__ == '__main__':
     unittest.main()
-
