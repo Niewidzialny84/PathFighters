@@ -31,10 +31,11 @@ public class pathScript : MonoBehaviour
         GameObject unit = gameHandler.GetComponent<gameHandlerScript>().selectedObject;
         int activePlayer = gameHandler.GetComponent<gameHandlerScript>().activePlayer;
 
-        if (unit != null && unit.layer == 7)
+        if (unit != null && unit.layer == 7 && gameHandler.GetComponent<gameHandlerScript>().recruitmentTime <= 0f)
         {
             var tempUnit = Instantiate(unit, new Vector3(activePlayer==1 ? -6 : 6, this.transform.position.y, 0), Quaternion.identity);
             tempUnit.GetComponent<unitScript>().belongsToPlayer = activePlayer;
+            gameHandler.GetComponent<gameHandlerScript>().recruitmentTime = 1.0f;
         }
     }
 }
