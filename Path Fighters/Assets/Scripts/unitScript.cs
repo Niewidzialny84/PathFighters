@@ -11,6 +11,7 @@ public class unitScript : MonoBehaviour
     public float speed;
     private float rayOffset; // There needs to be a offset so the ray doesn't collide with origin
     public float reach;
+    public float meleeReach; // This will control if ranged units are shooting or fighting in melee which will decrease their damage. !!!THIS IS 0 FOR ALL MELEE UNITS AS THEY USE JUST REACH!!!
     public float attackDelay; // This describes how long the delay between attacks is
     private float actualAttackDelay; // This is used to show how much of the delay is left.
     public int armor;
@@ -121,13 +122,21 @@ public class unitScript : MonoBehaviour
                 RaycastHit2D[] inReach = Physics2D.RaycastAll(new Vector2(this.transform.position.x - ((GetComponent<CircleCollider2D>().radius + rayOffset) * moveDirection), this.transform.position.y), new Vector2((-1f * moveDirection), 0f), reach, (LayerMask.GetMask("Unit") | LayerMask.GetMask("Gate")));
                 for (int i = 0; i < inReach.Length; i++)
                 {
-                    if (inReach[i].collider.gameObject.layer == 7 && inReach[i].collider.gameObject.GetComponent<unitScript>().belongsToPlayer != this.belongsToPlayer)
+                    var enemy = inReach[i].collider.gameObject;
+                    if (enemy.layer == 7 && enemy.GetComponent<unitScript>().belongsToPlayer != this.belongsToPlayer)
                     {
-                        inReach[i].collider.gameObject.GetComponent<unitScript>().hitPoints -= Mathf.Max(1, (this.damage / inReach[i].collider.gameObject.GetComponent<unitScript>().armor));
+                        if (Mathf.Abs(this.transform.position.x - enemy.transform.position.x) <= this.meleeReach + GetComponent<CircleCollider2D>().radius + enemy.GetComponent<CircleCollider2D>().radius)
+                        {
+                            enemy.GetComponent<unitScript>().hitPoints -= Mathf.Max(1, ((int)(this.damage/2) - enemy.GetComponent<unitScript>().armor));
+                        }
+                        else
+                        {
+                            enemy.GetComponent<unitScript>().hitPoints -= Mathf.Max(1, (this.damage - enemy.GetComponent<unitScript>().armor));
+                        }
                         actualAttackDelay = attackDelay;
                         break;
                     }
-                    else if (inReach[i].collider.gameObject.layer == 9 && inReach[i].collider.gameObject.GetComponent<gateScript>().belongsToPlayer != this.belongsToPlayer)
+                    else if (enemy.layer == 9 && enemy.GetComponent<gateScript>().belongsToPlayer != this.belongsToPlayer)
                     {
                         actualAttackDelay = attackDelay;
                         break;

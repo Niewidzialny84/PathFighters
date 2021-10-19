@@ -99,9 +99,10 @@ MonoBehaviour:
   belongsToPlayer: 0
   speed: 0.3
   reach: 0.03
+  meleeReach: 0
   attackDelay: 1
   armor: 2
-  damage: 7
+  damage: 6
   hitPoints: 25
   cost: 25
 --- !u!58 &3250758427116257795

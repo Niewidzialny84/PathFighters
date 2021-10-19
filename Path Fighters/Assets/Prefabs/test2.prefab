@@ -99,10 +99,11 @@ MonoBehaviour:
   belongsToPlayer: 0
   speed: 0.35
   reach: 1.2
-  attackDelay: 0.8
+  meleeReach: 0.04
+  attackDelay: 1.2
   armor: 1
-  damage: 5
-  hitPoints: 15
+  damage: 7
+  hitPoints: 20
   cost: 30
 --- !u!58 &-1108918635339615533
 CircleCollider2D:
