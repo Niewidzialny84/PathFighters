@@ -101,7 +101,7 @@ MonoBehaviour:
   reach: 1.2
   attackDelay: 0.8
   armor: 1
-  damage: 4
+  damage: 5
   hitPoints: 15
   cost: 30
 --- !u!58 &-1108918635339615533

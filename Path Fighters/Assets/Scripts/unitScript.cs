@@ -28,6 +28,22 @@ public class unitScript : MonoBehaviour
     }
     State state;
 
+    // This is called when unit moves over the half distance to the enemy base
+    void EndDefenderFury()
+    {
+        this.damage -= 1;
+    }
+    private bool defender;
+
+    // This is called when the unit moves
+    void Advance(float moveSpeed)
+    {
+        if (!Physics2D.Raycast(new Vector2(this.transform.position.x - ((GetComponent<CircleCollider2D>().radius + rayOffset) * this.moveDirection), this.transform.position.y), new Vector2((-1f * this.moveDirection), 0f), rayDistance, (LayerMask.GetMask("Unit") | LayerMask.GetMask("Gate"))))
+        {
+            this.transform.position += new Vector3((-moveSpeed * this.moveDirection) * Time.deltaTime, 0, 0);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +52,7 @@ public class unitScript : MonoBehaviour
 
         this.state = State.Moving;
 
-        if(belongsToPlayer == 1)
+        if (belongsToPlayer == 1)
         {
             moveDirection = -1;
         }
@@ -45,11 +61,26 @@ public class unitScript : MonoBehaviour
             moveDirection = 1;
         }
         actualAttackDelay = attackDelay;
+
+        this.defender = true;
     }
+
 
     // Update is called once per frame
     void Update()
     {
+        // Check if unit is defending or attacking
+        if (this.belongsToPlayer == 1 && this.transform.position.x > 0 && this.defender)
+        {
+            EndDefenderFury();
+            this.defender = false;
+        }
+        else if (this.belongsToPlayer == 2 && this.transform.position.x < 0 && this.defender)
+        {
+            EndDefenderFury();
+            this.defender = false;
+        }
+
         //Reduce the actual attack delay to allow the unit to be ready to attack.
         if (this.actualAttackDelay > 0f)
         {
@@ -58,6 +89,7 @@ public class unitScript : MonoBehaviour
 
         if (this.state == State.Moving)
         {
+            // Check if not entering combat
             bool enemyInReach = false;
             RaycastHit2D[] inReach = Physics2D.RaycastAll(new Vector2(this.transform.position.x - ((GetComponent<CircleCollider2D>().radius + rayOffset) * moveDirection), this.transform.position.y), new Vector2((-1f * moveDirection), 0f), reach, (LayerMask.GetMask("Unit") | LayerMask.GetMask("Gate")));
             for (int i = 0; i < inReach.Length; i++)
@@ -77,30 +109,34 @@ public class unitScript : MonoBehaviour
             {
                 this.state = State.Fighting;
             }
-            else if (!Physics2D.Raycast(new Vector2(this.transform.position.x - ((GetComponent<CircleCollider2D>().radius + rayOffset) * moveDirection), this.transform.position.y), new Vector2((-1f * moveDirection), 0f), rayDistance, (LayerMask.GetMask("Unit") | LayerMask.GetMask("Gate"))))
-            {
-                this.transform.position += new Vector3((-this.speed * moveDirection) * Time.deltaTime, 0, 0);
-            }
+            // Move the unit
+            Advance(this.speed);
         }
         //This is the combat section!
-        else if (this.state == State.Fighting && this.actualAttackDelay <= 0f)
+        else if (this.state == State.Fighting)
         {
-            RaycastHit2D[] inReach = Physics2D.RaycastAll(new Vector2(this.transform.position.x - ((GetComponent<CircleCollider2D>().radius + rayOffset) * moveDirection), this.transform.position.y), new Vector2((-1f * moveDirection), 0f), reach, (LayerMask.GetMask("Unit") | LayerMask.GetMask("Gate")));
-            for (int i = 0; i < inReach.Length; i++)
+            // Actual attack
+            if (this.actualAttackDelay <= 0f)
             {
-                if (inReach[i].collider.gameObject.layer == 7 && inReach[i].collider.gameObject.GetComponent<unitScript>().belongsToPlayer != this.belongsToPlayer)
+                RaycastHit2D[] inReach = Physics2D.RaycastAll(new Vector2(this.transform.position.x - ((GetComponent<CircleCollider2D>().radius + rayOffset) * moveDirection), this.transform.position.y), new Vector2((-1f * moveDirection), 0f), reach, (LayerMask.GetMask("Unit") | LayerMask.GetMask("Gate")));
+                for (int i = 0; i < inReach.Length; i++)
                 {
-                    inReach[i].collider.gameObject.GetComponent<unitScript>().hitPoints -= Mathf.Max(1, (this.damage/ inReach[i].collider.gameObject.GetComponent<unitScript>().armor));
-                    actualAttackDelay = attackDelay;
-                    break;
+                    if (inReach[i].collider.gameObject.layer == 7 && inReach[i].collider.gameObject.GetComponent<unitScript>().belongsToPlayer != this.belongsToPlayer)
+                    {
+                        inReach[i].collider.gameObject.GetComponent<unitScript>().hitPoints -= Mathf.Max(1, (this.damage / inReach[i].collider.gameObject.GetComponent<unitScript>().armor));
+                        actualAttackDelay = attackDelay;
+                        break;
+                    }
+                    else if (inReach[i].collider.gameObject.layer == 9 && inReach[i].collider.gameObject.GetComponent<gateScript>().belongsToPlayer != this.belongsToPlayer)
+                    {
+                        actualAttackDelay = attackDelay;
+                        break;
+                    }
                 }
-                else if (inReach[i].collider.gameObject.layer == 9 && inReach[i].collider.gameObject.GetComponent<gateScript>().belongsToPlayer != this.belongsToPlayer)
-                {
-                    actualAttackDelay = attackDelay;
-                    break;
-                }
+                this.state = State.Moving;
             }
-            this.state = State.Moving;
+            // Move slowly while in combat
+            Advance(this.speed * 0.25f);
         }
         Debug.DrawLine(new Vector2(this.transform.position.x + (-(GetComponent<CircleCollider2D>().radius + 0.01f) * moveDirection), this.transform.position.y), new Vector2(this.transform.position.x + (-0.14f * moveDirection), this.transform.position.y), Color.green);
 
