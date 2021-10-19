@@ -97,6 +97,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 150
   attackHight: 0
-  reach: 2.8
+  reach: 3
   attackDelay: 1.8
   damage: 5

@@ -30,15 +30,15 @@ public class towerScript : MonoBehaviour
             attackHight = 1.5f;
         }
 
-        if (this.transform.position.x < 0)
+        if (this.transform.position.x > 0)
         {
             belongsToPlayer = 2;
-            this.attckDirection = 1;
+            attckDirection = -1;
         }
         else
         {
             belongsToPlayer = 1;
-            this.attckDirection = -1;
+            attckDirection = 1;
         }
 
         actualAttackDelay = attackDelay;
@@ -56,7 +56,7 @@ public class towerScript : MonoBehaviour
 
         if (this.actualAttackDelay <= 0f)
         {
-            RaycastHit2D[] inReach = Physics2D.RaycastAll(new Vector2(5.8f * this.attckDirection, attackHight), new Vector2((-1f * attckDirection), 0f), reach, (LayerMask.GetMask("Unit")));
+            RaycastHit2D[] inReach = Physics2D.RaycastAll(new Vector2(-6f * this.attckDirection, attackHight), new Vector2((1f * attckDirection), 0f), reach, (LayerMask.GetMask("Unit")));
             for (int i = 0; i < inReach.Length; i++)
             {
                 var enemy = inReach[i].collider.gameObject;
