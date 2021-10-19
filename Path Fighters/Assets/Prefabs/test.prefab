@@ -96,9 +96,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3271fec34c0f4c848ae3b41082da1986, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.3
-  hitPoints: 20
   belongsToPlayer: 0
+  speed: 0.3
+  reach: 0.03
+  attackDelay: 1
+  armor: 2
+  damage: 6
+  hitPoints: 25
   cost: 25
 --- !u!58 &3250758427116257795
 CircleCollider2D:

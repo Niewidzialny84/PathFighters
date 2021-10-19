@@ -36,7 +36,11 @@ public class pathScript : MonoBehaviour
         Collider2D[] inGate = Physics2D.OverlapCircleAll(new Vector3(activePlayer == 1 ? -5.9f : 5.9f, this.transform.position.y, 0), 0.2f, LayerMask.GetMask("Unit"));
         for (int i = 0; i < inGate.Length; i++)
         {
-            if(inGate[i].GetComponent<unitScript>().belongsToPlayer == activePlayer) blocked = true;
+            if(inGate[i].GetComponent<unitScript>().belongsToPlayer == activePlayer)
+            {
+                blocked = true;
+                break;
+            }
         }
 
         if (unit != null && unit.layer == 7 && gameHandler.GetComponent<gameHandlerScript>().recruitmentTime <= 0f && gameHandler.GetComponent<gameHandlerScript>().gold >= unit.GetComponent<unitScript>().cost && !blocked)
