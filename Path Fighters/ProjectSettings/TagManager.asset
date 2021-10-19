@@ -17,7 +17,7 @@ TagManager:
   - Path
   - Unit
   - Tower
-  - 
+  - Gate
   - 
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: Units
     uniqueID: 2798013107
+    locked: 0
+  - name: Buildings
+    uniqueID: 431730001
     locked: 0
   - name: Buttons
     uniqueID: 2004406135

@@ -7,19 +7,29 @@ public class unitScript : MonoBehaviour
     public float speed;
     public int hitPoints;
     public int belongsToPlayer;
-    private string status;
     private int moveDirection;
 
-    private float rayDistance = 0.03f;
-    private LayerMask ignoreMask;
+    private float rayOffset;
+    private float rayDistance;
 
     public float cost;
+
+    //State machine enumerator
+    enum State
+    {
+        Moving, //Idle and moving will have similar animations
+        Fighting,
+        Dying
+    }
+    private State state;
 
     // Start is called before the first frame update
     void Start()
     {
-        ignoreMask = LayerMask.GetMask("Path");
-        this.status = "Moving";
+        rayDistance = 0.03f;
+        rayOffset = 0.01f;
+
+        this.state = State.Moving;
 
         if(belongsToPlayer == 1)
         {
@@ -37,18 +47,17 @@ public class unitScript : MonoBehaviour
         //Soldier dies and is destroyed. TODO: Combat; TODO: Animation?; TODO: Blood?
         if (this.hitPoints <= 0)
         {
-            this.status = "Dying";
+            this.state = State.Dying;
             Destroy(gameObject, 0.5f);
         }
 
-        if (this.status != "Dying")
+        if (this.state != State.Dying)
         {
-            //The 0.11f magic number is temporary and it is just outside the radius of the soldier to not hit himself
-            if (!Physics2D.Raycast(new Vector2(this.transform.position.x - (0.11f * moveDirection), this.transform.position.y), new Vector2((-1f * moveDirection), 0f), rayDistance, ~ignoreMask) && this.transform.position.x >= -6 && this.transform.position.x <= 6)
+            if (!Physics2D.Raycast(new Vector2(this.transform.position.x - ((GetComponent<CircleCollider2D>().radius + rayOffset) * moveDirection), this.transform.position.y), new Vector2((-1f * moveDirection), 0f), rayDistance, (LayerMask.GetMask("Unit") | LayerMask.GetMask("Gate"))))
             {
                 this.transform.position += new Vector3((-this.speed * moveDirection) * Time.deltaTime, 0, 0);
             }
-            Debug.DrawLine(new Vector2(this.transform.position.x + (-0.11f * moveDirection), this.transform.position.y), new Vector2(this.transform.position.x + (-0.14f * moveDirection), this.transform.position.y), Color.green);
         }
+        Debug.DrawLine(new Vector2(this.transform.position.x + (-(GetComponent<CircleCollider2D>().radius + 0.01f) * moveDirection), this.transform.position.y), new Vector2(this.transform.position.x + (-0.14f * moveDirection), this.transform.position.y), Color.green);
     }
 }
