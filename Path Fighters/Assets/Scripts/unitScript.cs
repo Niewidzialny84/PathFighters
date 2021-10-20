@@ -14,6 +14,9 @@ public class unitScript : MonoBehaviour
     public float meleeReach; // This will control if ranged units are shooting or fighting in melee which will decrease their damage. !!!THIS IS 0 FOR ALL MELEE UNITS AS THEY USE JUST REACH!!!
     public float attackDelay; // This describes how long the delay between attacks is
     private float actualAttackDelay; // This is used to show how much of the delay is left.
+
+    public GameObject projectile;
+
     public int armor;
     public int damage;
     public int hitPoints;
@@ -48,7 +51,7 @@ public class unitScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rayDistance = 0.03f;
+        rayDistance = 0.05f;
         rayOffset = 0.01f;
 
         this.state = State.Moving;
@@ -61,7 +64,7 @@ public class unitScript : MonoBehaviour
         {
             moveDirection = 1;
         }
-        actualAttackDelay = attackDelay;
+        actualAttackDelay = 0f;
 
         this.defender = true;
     }
@@ -109,6 +112,7 @@ public class unitScript : MonoBehaviour
             if (enemyInReach)
             {
                 this.state = State.Fighting;
+                actualAttackDelay = attackDelay;
             }
             // Move the unit
             Advance(this.speed);
@@ -129,16 +133,20 @@ public class unitScript : MonoBehaviour
                         {
                             enemy.GetComponent<unitScript>().hitPoints -= Mathf.Max(1, ((int)(this.damage/2) - enemy.GetComponent<unitScript>().armor));
                         }
+                        else if(this.projectile != null)
+                        {
+                            var tempProjectile = Instantiate(projectile, this.transform.position, Quaternion.identity);
+                            tempProjectile.GetComponent<projectileScript>().setTarget(enemy);
+                            tempProjectile.GetComponent<projectileScript>().setDamage(damage);
+                        }
                         else
                         {
                             enemy.GetComponent<unitScript>().hitPoints -= Mathf.Max(1, (this.damage - enemy.GetComponent<unitScript>().armor));
                         }
-                        actualAttackDelay = attackDelay;
                         break;
                     }
                     else if (enemy.layer == 9 && enemy.GetComponent<gateScript>().belongsToPlayer != this.belongsToPlayer)
                     {
-                        actualAttackDelay = attackDelay;
                         break;
                     }
                 }

@@ -14,6 +14,8 @@ public class towerScript : MonoBehaviour
     private float actualAttackDelay; // This is used to show how much of the delay is left.
     public int damage;
 
+    public GameObject projectile;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,8 +64,12 @@ public class towerScript : MonoBehaviour
                 var enemy = inReach[i].collider.gameObject;
                 if (enemy.GetComponent<unitScript>().belongsToPlayer != this.belongsToPlayer)
                 {
-                    enemy.GetComponent<unitScript>().hitPoints -= Mathf.Max(1, (this.damage - enemy.GetComponent<unitScript>().armor));
                     actualAttackDelay = attackDelay;
+
+                    var tempProjectile = Instantiate(projectile, new Vector3(this.belongsToPlayer == 1 ? -5.9f : 5.9f, this.transform.position.y, 0), Quaternion.identity);
+                    tempProjectile.GetComponent<projectileScript>().setTarget(enemy);
+                    tempProjectile.GetComponent<projectileScript>().setDamage(damage);
+
                     break;
                 }
             }

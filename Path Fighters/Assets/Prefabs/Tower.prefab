@@ -100,3 +100,4 @@ MonoBehaviour:
   reach: 3
   attackDelay: 1.8
   damage: 5
+  projectile: {fileID: 2004257574386229139, guid: 1c6bf287b81c5204cb0bb09950a66afb, type: 3}

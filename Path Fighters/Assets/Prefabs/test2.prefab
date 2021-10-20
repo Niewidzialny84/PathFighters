@@ -99,8 +99,9 @@ MonoBehaviour:
   belongsToPlayer: 0
   speed: 0.35
   reach: 1.2
-  meleeReach: 0.04
+  meleeReach: 0.06
   attackDelay: 1.2
+  projectile: {fileID: 2004257574386229139, guid: 1c6bf287b81c5204cb0bb09950a66afb, type: 3}
   armor: 1
   damage: 7
   hitPoints: 20
