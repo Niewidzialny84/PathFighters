@@ -147,8 +147,7 @@ public class unitScript : MonoBehaviour
             // Move slowly while in combat
             Advance(this.speed * 0.25f);
         }
-        Debug.DrawLine(new Vector2(this.transform.position.x + (-(GetComponent<CircleCollider2D>().radius + 0.01f) * moveDirection), this.transform.position.y), new Vector2(this.transform.position.x + (-0.14f * moveDirection), this.transform.position.y), Color.green);
-
+        
         //Soldier dies and is destroyed. TODO: Combat; TODO: Animation?; TODO: Blood?
         if (this.hitPoints <= 0)
         {
