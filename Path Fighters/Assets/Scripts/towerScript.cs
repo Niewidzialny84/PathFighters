@@ -19,17 +19,17 @@ public class towerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(this.transform.position.y <= 0)
+        if(this.transform.position.y <= 0.5)
         {
-            attackHight = -0.5f;
+            attackHight = 0f;
         }
-        else if(this.transform.position.y >= 3)
+        else if(this.transform.position.y >= 3.5)
         {
-            attackHight = 3.5f;
+            attackHight = 4f;
         }
         else
         {
-            attackHight = 1.5f;
+            attackHight = 2f;
         }
 
         if (this.transform.position.x > 0)

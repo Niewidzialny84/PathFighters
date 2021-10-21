@@ -147,19 +147,35 @@ public class unitScript : MonoBehaviour
                     }
                     else if (enemy.layer == 9 && enemy.GetComponent<gateScript>().belongsToPlayer != this.belongsToPlayer)
                     {
+                        if (Mathf.Abs(this.transform.position.x - enemy.transform.position.x) <= this.meleeReach + GetComponent<CircleCollider2D>().radius/* + enemy.GetComponent<BoxCollider2D>().size.x*/)
+                        {
+                            enemy.GetComponent<gateScript>().receiveDamage((int)this.damage / 2);
+                        }
+                        else if (this.projectile != null)
+                        {
+                            var tempProjectile = Instantiate(projectile, this.transform.position, Quaternion.identity);
+                            tempProjectile.GetComponent<projectileScript>().setTarget(enemy);
+                            tempProjectile.GetComponent<projectileScript>().setDamage(damage);
+                        }
+                        else
+                        {
+                            enemy.GetComponent<gateScript>().receiveDamage(this.damage);
+                        }
                         break;
                     }
                 }
                 this.state = State.Moving;
             }
             // Move slowly while in combat
-            Advance(this.speed * 0.25f);
+            Advance(this.speed * 0.33f);
         }
         
         //Soldier dies and is destroyed. TODO: Combat; TODO: Animation?; TODO: Blood?
-        if (this.hitPoints <= 0)
+        if (this.hitPoints <= 0 && this.state != State.Dying)
         {
             this.state = State.Dying;
+            var gameHandler = GameObject.Find("gameHandler");
+            if (this.belongsToPlayer != gameHandler.GetComponent<gameHandlerScript>().activePlayer) gameHandler.GetComponent<gameHandlerScript>().gold += cost * 0.3f;
             Destroy(gameObject, 0.1f);
         }
     }

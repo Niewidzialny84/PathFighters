@@ -14,6 +14,18 @@ public class gameHandlerScript : MonoBehaviour
     public float recruitmentTime;
 
 
+    public int[] baseHitPoints = new int[2];
+    private float pauseEndTime;
+
+    enum State
+    {
+        Active,
+        Defeated,
+        Victorious
+    }
+    State state;
+
+
     // TODO DELETE THIS
     bool aP = true;
 
@@ -23,20 +35,57 @@ public class gameHandlerScript : MonoBehaviour
         //This will be handeled by the server
         activePlayer = 1;
         recruitmentTime = 5.0f;
-        gold = 500.4f;
+        gold = 150.0f;
+
+        this.state = State.Active;
+        this.baseHitPoints[0] = 500;
+        this.baseHitPoints[1] = 500;
+
+        pauseEndTime = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(recruitmentTime > 0f)
+        if (pauseEndTime != 0 && Time.realtimeSinceStartup > pauseEndTime)
         {
-            recruitmentTime -= (1.0f * Time.deltaTime);
+            Time.timeScale = 1f;
+            //Here the game should end and the players should be moved to the summary screen
         }
 
-        if(gold < 1000000000000f)
+        if (this.state == State.Active)
         {
-            gold += (10f * Time.deltaTime);
+            if (this.baseHitPoints[0] <= 0 || this.baseHitPoints[1] <= 0)
+            {
+                Time.timeScale = 0.1f;
+                if (this.baseHitPoints[0] <= 0 || this.baseHitPoints[1] <= 0)
+                {
+                    this.pauseEndTime = Time.realtimeSinceStartup + 3;
+                    this.state = State.Defeated;
+                    //TODO: send that player is defeated with timestamp to the server for it to decide (based on time) who is the winner
+                }
+                else if (this.baseHitPoints[this.activePlayer - 1] <= 0)
+                {
+                    this.pauseEndTime = Time.realtimeSinceStartup + 3;
+                    this.state = State.Defeated;
+                    //TODO: send that player is defeated with timestamp to the server for it to decide (based on time) who is the winner
+                }
+                else
+                {
+                    this.pauseEndTime = Time.realtimeSinceStartup + 3;
+                    this.state = State.Victorious;
+                    //TODO: send that player is defeated with timestamp to the server for it to decide (based on time) who is the winner
+                }
+            }
+            if (recruitmentTime > 0f)
+            {
+                recruitmentTime -= (1.0f * Time.deltaTime);
+            }
+
+            if (gold < 1000000000000f)
+            {
+                gold += (5f * Time.deltaTime);
+            }
         }
 
 
@@ -60,5 +109,6 @@ public class gameHandlerScript : MonoBehaviour
     {
         UnityEditor.Handles.color = Color.white;
         UnityEditor.Handles.Label( this.transform.position, gold.ToString("F0"));
+        UnityEditor.Handles.Label(new Vector3(this.transform.position.x, this.transform.position.y + 0.3f ,0f), this.baseHitPoints[this.activePlayer - 1].ToString());
     }
 }

@@ -38,7 +38,8 @@ public class projectileScript : MonoBehaviour
 
             if (this.transform.position == target.transform.position)
             {
-                if(!hit) target.GetComponent<unitScript>().hitPoints -= Mathf.Max(1, (this.damage - target.GetComponent<unitScript>().armor));
+                if(!hit && target.layer == 7) target.GetComponent<unitScript>().hitPoints -= Mathf.Max(1, (this.damage - target.GetComponent<unitScript>().armor));
+                else if (!hit && target.layer == 9) target.GetComponent<gateScript>().receiveDamage(this.damage);
                 hit = true;
                 Destroy(gameObject, 0.1f);
             }
