@@ -10,7 +10,6 @@ public class LoginMenu : MonoBehaviour
         Application.Quit();
         Debug.Log("Closing");
     }
-
     public void Login()
     {
         SceneManager.LoadScene("Main Menu");
@@ -19,5 +18,16 @@ public class LoginMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Register Scene");
     }
-
+    public void StartGame()
+    {
+        SceneManager.LoadScene("Start Game Scene");
+    }
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
+    public void ReturnToLoginScene()
+    {
+        SceneManager.LoadScene("Login Window");
+    }
 }
