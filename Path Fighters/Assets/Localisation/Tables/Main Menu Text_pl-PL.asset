@@ -50,5 +50,33 @@ MonoBehaviour:
     m_Localized: "Wyj\u015Bcie"
     m_Metadata:
       m_Items: []
+  - m_Id: 1837746804744192
+    m_Localized: "Zarejestruj si\u0119"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1841526547931136
+    m_Localized: "Potwierd\u017A has\u0142o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1841733910126592
+    m_Localized: "Potwierd\u017A email"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1841887992078336
+    m_Localized: Podaj email
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1844177016709120
+    m_Localized: Szybka rozgrywka
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1844258113576960
+    m_Localized: "Do\u0142\u0105cz do rozgrywki"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1844426691043328
+    m_Localized: "Utw\xF3rz now\u0105 rozgrywk\u0119"
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

@@ -50,5 +50,33 @@ MonoBehaviour:
     m_Localized: Exit
     m_Metadata:
       m_Items: []
+  - m_Id: 1837746804744192
+    m_Localized: Register
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1841526547931136
+    m_Localized: Confirm password
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1841733910126592
+    m_Localized: Confirm email
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1841887992078336
+    m_Localized: Enter email
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1844177016709120
+    m_Localized: Quick game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1844258113576960
+    m_Localized: Join the game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1844426691043328
+    m_Localized: Create new game
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
