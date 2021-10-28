@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HPbarScript : MonoBehaviour
 {
-    private int maxHP;
+    public int maxHP;
 
     // Start is called before the first frame update
     void Start()

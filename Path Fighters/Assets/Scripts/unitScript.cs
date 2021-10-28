@@ -67,6 +67,10 @@ public class unitScript : MonoBehaviour
         actualAttackDelay = 0f;
 
         this.defender = true;
+
+        //Here will be some bonuses due to upgrades
+        GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
+        if (gameHandler.GetComponent<gameHandlerScript>().upgrades[this.belongsToPlayer - 1, 1]) hitPoints += 20;
     }
 
 

@@ -115,3 +115,5 @@ MonoBehaviour:
   active: 0
   researche: 0
   researcheGoal: 25
+  previousUpgrade: {fileID: 8278355085022012518, guid: 11d753416fc047f4b88964479f8b6bb2, type: 3}
+  order: 1

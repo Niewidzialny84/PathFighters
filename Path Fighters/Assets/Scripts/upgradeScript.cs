@@ -7,6 +7,8 @@ public class upgradeScript : MonoBehaviour
     public bool active;
     public float researche;
     public float researcheGoal;
+    public GameObject previousUpgrade;
+    public int order;
 
     // Start is called before the first frame update
     void Start()
@@ -22,12 +24,21 @@ public class upgradeScript : MonoBehaviour
         {
             researche += Time.deltaTime;
         }
+        else if (this.active)
+        {
+            this.active = false;
+            GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
+            gameHandler.GetComponent<gameHandlerScript>().upgrades[gameHandler.GetComponent<gameHandlerScript>().activePlayer - 1, this.order] = true;
+            for (int i = 0; i < 2; i++)
+                for (int j = 0; j < 14; j++)
+                    Debug.Log(gameHandler.GetComponent<gameHandlerScript>().upgrades[i,j] + " " + i + " " + j);
+        }
     }
 
     // This will activate if the mouse cursor is currently above
     void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && (previousUpgrade == null || previousUpgrade.GetComponent<upgradeScript>().IsDeveloped()) && !this.IsDeveloped())
         {
             Activate();
         }
@@ -36,14 +47,19 @@ public class upgradeScript : MonoBehaviour
     // This funktion is responsible for activationg the right selectable and deactivate all others
     void Activate()
     {
-        GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
-        GameObject[] selectables = GameObject.FindGameObjectsWithTag("upgrade");
+        GameObject[] upgrades = GameObject.FindGameObjectsWithTag("upgrade");
 
-        foreach (GameObject selectable in selectables)
+        foreach (GameObject upgrade in upgrades)
         {
-            selectable.GetComponent<upgradeScript>().active = false;
+            upgrade.GetComponent<upgradeScript>().active = false;
         }
 
         this.active = true;
+    }
+
+    bool IsDeveloped()
+    {
+        if (this.researche >= this.researcheGoal) return true;
+        return false;
     }
 }

@@ -15,6 +15,8 @@ public class gameHandlerScript : MonoBehaviour
 
 
     public int[] baseHitPoints = new int[2];
+    public bool[,] upgrades = new bool[2,14];
+
     private float pauseEndTime;
 
     enum State
@@ -42,6 +44,11 @@ public class gameHandlerScript : MonoBehaviour
         this.baseHitPoints[1] = 500;
 
         pauseEndTime = 0;
+
+        for(int i = 0; i < 14; i++)
+        {
+            upgrades[0,i] = upgrades[1,i] = false;
+        }
     }
 
     // Update is called once per frame
