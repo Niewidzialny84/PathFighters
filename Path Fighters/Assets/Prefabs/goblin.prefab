@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5728255669042477124}
   - component: {fileID: 3250758427116257795}
   m_Layer: 7
-  m_Name: test
+  m_Name: goblin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,14 +98,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   belongsToPlayer: 0
-  speed: 0.3
+  speed: 0.25
   reach: 0.05
   meleeReach: 0
   attackDelay: 1
   projectile: {fileID: 0}
-  armor: 2
-  damage: 6
-  hitPoints: 25
+  armor: 0
+  damage: 17
+  hitPoints: 50
   cost: 25
 --- !u!58 &3250758427116257795
 CircleCollider2D:

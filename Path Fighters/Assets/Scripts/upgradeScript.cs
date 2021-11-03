@@ -5,7 +5,7 @@ using UnityEngine;
 public class upgradeScript : MonoBehaviour
 {
     public bool active;
-    public float researche;
+    private float researche;
     public float researcheGoal;
     public GameObject previousUpgrade;
     public int order;
