@@ -98,10 +98,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   belongsToPlayer: 0
-  speed: 0.3
+  speed: 0.6
   reach: 1.2
   meleeReach: 0.06
-  attackDelay: 1.2
+  attackDelay: 0.6
   projectile: {fileID: 2004257574386229139, guid: 1c6bf287b81c5204cb0bb09950a66afb, type: 3}
   armor: 0
   damage: 8

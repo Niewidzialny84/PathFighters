@@ -75,4 +75,9 @@ public class towerScript : MonoBehaviour
             }
         }
     }
+
+    public int getPlayer()
+    {
+        return belongsToPlayer;
+    }
 }
