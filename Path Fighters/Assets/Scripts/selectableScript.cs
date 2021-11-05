@@ -16,7 +16,7 @@ public class selectableScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     // This will activate if the mouse cursor is currently above

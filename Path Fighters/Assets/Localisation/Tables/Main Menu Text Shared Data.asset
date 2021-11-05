@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Main Menu Text Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Main Menu Text
+  m_TableCollectionNameGuidString: b224f168b04271142934e399195148b3
+  m_Entries:
+  - m_Id: 19549380608
+    m_Key: Main Menu Start Game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 368309952512
+    m_Key: Main Menu Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 482126585856
+    m_Key: Main Menu Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 702981857280
+    m_Key: Login Login Placeholder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944502464512
+    m_Key: Login Password Placeholder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1067747893248
+    m_Key: Register
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1199084134400
+    m_Key: Login Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1416378441728
+    m_Key: Login Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1837746804744192
+    m_Key: "Register\t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1841526547931136
+    m_Key: "Confirm Password\t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1841733910126592
+    m_Key: Confirm Email
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1841887992078336
+    m_Key: Email
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1844177016709120
+    m_Key: "Quick Game\t\t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1844258113576960
+    m_Key: Join the game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1844426691043328
+    m_Key: Create new
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    id: 0
+  references:
+    version: 1
+    00000000:
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1634668372390
