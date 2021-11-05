@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Main Menu Text_en-GB
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en-GB
+  m_SharedData: {fileID: 11400000, guid: b224f168b04271142934e399195148b3, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 19549380608
+    m_Localized: Start The Game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 368309952512
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 482126585856
+    m_Localized: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 702981857280
+    m_Localized: Enter login...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944502464512
+    m_Localized: Enter password...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1067747893248
+    m_Localized: Log in
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1199084134400
+    m_Localized: Log in to the game server
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1416378441728
+    m_Localized: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1837746804744192
+    m_Localized: Register
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1841526547931136
+    m_Localized: Confirm password
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1841733910126592
+    m_Localized: Confirm email
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1841887992078336
+    m_Localized: Enter email
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1844177016709120
+    m_Localized: Quick game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1844258113576960
+    m_Localized: Join the game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1844426691043328
+    m_Localized: Create new game
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 1
