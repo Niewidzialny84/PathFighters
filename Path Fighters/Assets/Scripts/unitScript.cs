@@ -36,6 +36,20 @@ public class unitScript : MonoBehaviour
     void EndDefenderFury()
     {
         this.damage -= 1;
+        //If right upgrades are developed this will boost the unit
+        GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
+        if (gameHandler.GetComponent<gameHandlerScript>().upgrades[this.belongsToPlayer - 1, 5])
+        {
+            if (this.reach < 1.1)
+            {
+                this.damage += 3;
+            }
+            else
+            {
+                this.damage += 1;
+            }
+            this.speed = this.speed * 1.2f;
+        }
     }
     private bool defender;
 
@@ -70,7 +84,12 @@ public class unitScript : MonoBehaviour
 
         //Here will be some bonuses due to upgrades
         GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
-        if (gameHandler.GetComponent<gameHandlerScript>().upgrades[this.belongsToPlayer - 1, 1]) hitPoints += 20;
+        if (gameHandler.GetComponent<gameHandlerScript>().upgrades[this.belongsToPlayer - 1, 3] && this.speed == 0.5f)
+        {
+            this.speed += 0.1f;
+            this.reach = this.reach * 1.4f;
+            this.cost -= 5;
+        }
     }
 
 
@@ -179,7 +198,10 @@ public class unitScript : MonoBehaviour
         {
             this.state = State.Dying;
             var gameHandler = GameObject.Find("gameHandler");
-            if (this.belongsToPlayer != gameHandler.GetComponent<gameHandlerScript>().activePlayer) gameHandler.GetComponent<gameHandlerScript>().gold += cost * 0.3f;
+            if (this.belongsToPlayer != gameHandler.GetComponent<gameHandlerScript>().activePlayer) {
+                if (gameHandler.GetComponent<gameHandlerScript>().upgrades[gameHandler.GetComponent<gameHandlerScript>().activePlayer - 1, 11]) { gameHandler.GetComponent<gameHandlerScript>().gold += cost * 0.5f; }
+                else { gameHandler.GetComponent<gameHandlerScript>().gold += cost * 0.3f; }
+            }
             Destroy(gameObject, 0.1f);
         }
     }

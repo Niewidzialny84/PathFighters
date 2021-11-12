@@ -47,7 +47,8 @@ public class towerFieldScript : MonoBehaviour
             //Destroy tower
             else if (tower == null && localTower != null)
             {
-                gameHandler.GetComponent<gameHandlerScript>().gold += (localTower.GetComponent<towerScript>().cost * 0.2f);
+                if(gameHandler.GetComponent<gameHandlerScript>().upgrades[this.belongsToPlayer - 1, 9]) { gameHandler.GetComponent<gameHandlerScript>().gold += (localTower.GetComponent<towerScript>().cost * 0.35f); }
+                else { gameHandler.GetComponent<gameHandlerScript>().gold += (localTower.GetComponent<towerScript>().cost * 0.2f); }
                 Destroy(localTower);
                 localTower = null;
             }

@@ -113,6 +113,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 0
-  researche: 0
-  researcheGoal: 10
+  researcheGoal: 15
   previousUpgrade: {fileID: 0}
+  order: 0
