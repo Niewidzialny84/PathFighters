@@ -77,6 +77,7 @@ public class unitScript : MonoBehaviour
         else
         {
             moveDirection = 1;
+            this.transform.localScale = new Vector3(-1f, 1f, 0f);
         }
         actualAttackDelay = 0f;
 
@@ -202,7 +203,7 @@ public class unitScript : MonoBehaviour
                 if (gameHandler.GetComponent<gameHandlerScript>().upgrades[gameHandler.GetComponent<gameHandlerScript>().activePlayer - 1, 11]) { gameHandler.GetComponent<gameHandlerScript>().gold += cost * 0.5f; }
                 else { gameHandler.GetComponent<gameHandlerScript>().gold += cost * 0.3f; }
             }
-            Destroy(gameObject, 0.1f);
+            Destroy(gameObject, 0.5f);
         }
     }
 }
