@@ -6,6 +6,7 @@ public class selectableScript : MonoBehaviour
 {
     public GameObject setToSelected;
     public bool active;
+    public int reaserchLevel;
 
     // Start is called before the first frame update
     void Start()
@@ -32,14 +33,17 @@ public class selectableScript : MonoBehaviour
     void Activate()
     {
         GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
-        GameObject[] selectables = GameObject.FindGameObjectsWithTag("selectable");
-
-        foreach (GameObject selectable in selectables)
+        if (reaserchLevel == -1 || gameHandler.GetComponent<gameHandlerScript>().upgrades[gameHandler.GetComponent<gameHandlerScript>().activePlayer - 1, this.reaserchLevel]) 
         {
-            selectable.GetComponent<selectableScript>().active = false;
-        }
+            GameObject[] selectables = GameObject.FindGameObjectsWithTag("selectable");
 
-        gameHandler.GetComponent<gameHandlerScript>().selectedObject = setToSelected;
-        this.active = true;
+            foreach (GameObject selectable in selectables)
+            {
+                selectable.GetComponent<selectableScript>().active = false;
+            }
+
+            gameHandler.GetComponent<gameHandlerScript>().selectedObject = setToSelected;
+            this.active = true;
+        }
     }
 }

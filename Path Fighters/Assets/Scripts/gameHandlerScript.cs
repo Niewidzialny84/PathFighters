@@ -91,7 +91,8 @@ public class gameHandlerScript : MonoBehaviour
 
             if (gold < 1000000000000f)
             {
-                gold += (5f * Time.deltaTime);
+                if (upgrades[activePlayer - 1, 7]) { gold += (7f * Time.deltaTime); }
+                else { gold += (5f * Time.deltaTime); }  
             }
         }
 

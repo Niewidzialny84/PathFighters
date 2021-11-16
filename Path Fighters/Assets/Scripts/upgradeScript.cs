@@ -29,6 +29,10 @@ public class upgradeScript : MonoBehaviour
             this.active = false;
             GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
             gameHandler.GetComponent<gameHandlerScript>().upgrades[gameHandler.GetComponent<gameHandlerScript>().activePlayer - 1, this.order] = true;
+            if (order == 13)
+            {
+                gameHandler.GetComponent<gameHandlerScript>().baseHitPoints[gameHandler.GetComponent<gameHandlerScript>().activePlayer - 1] += 200;
+            }
         }
     }
 

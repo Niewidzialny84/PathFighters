@@ -98,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   setToSelected: {fileID: 3966771907537544977, guid: 508b95acf0b91134eb090764f821465b, type: 3}
   active: 0
+  reaserchLevel: 6
 --- !u!58 &5325638861650598800
 CircleCollider2D:
   m_ObjectHideFlags: 0
