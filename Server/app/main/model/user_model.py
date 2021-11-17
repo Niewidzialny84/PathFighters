@@ -7,4 +7,8 @@ class User(object):
         self.password = password
 
     def __repr__(self):
-        return "{\"id\":\"'{}'\", \"username\":\"'{}'\", \"email\":\"'{}'\", \"password\":\"'{}'\"}".format(self.username)
+        return "{\"id\":\"'{}'\", \"username\":\"'{}'\", \"email\":\"'{}'\", \"password\":\"'{}'\"}".format(
+            self.id,
+            self.username,
+            self.email,
+            self.password)

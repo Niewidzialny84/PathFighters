@@ -3,12 +3,10 @@ Login service file.
 """
 import requests, json
 from app.main.model.user_model import User
-from app.main.utils import users, stats
+from app.main.model.authorized_user_model import AuthorizedUser
 from app.main.model.login_model import Login # pragma: no cover
-from app.main.utils import * # pragma: no cover
-from ..utils import API_URL
-
-API_SPECIFIC_USER = API_URL + "/users/{}"
+from app.main.service.users_service import api_get_user_by_username
+from flask_jwt_extended import create_access_token
 
 def handle_login_data(request_json):
     try:
@@ -19,19 +17,14 @@ def handle_login_data(request_json):
     if login is None or None in [login.username, login.password]:
         return 400, None
     
-    user = api_get_user(login.username)
+    status_code, user = api_get_user_by_username(login.username)
 
-    if stats is None:
+    if user is None:
         return 404, None
+    elif user.password != login.password:
+        return 400, None
 
-    return user
+    access_token = create_access_token(identity=user.id)
+    authorized_user = AuthorizedUser(user, access_token)
 
-def api_get_user(username):
-    response = requests.get("http://127.0.0.1:5000/users/" + username)
-    try:
-        j = response.json()
-        user = User(**j)
-    except Exception as _:
-        user = None
-
-    return user
+    return status_code, authorized_user

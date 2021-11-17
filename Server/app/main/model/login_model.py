@@ -8,3 +8,4 @@ class Login(object):
 
     def __repr__(self):
         return "{\"username\":\"'{}'\", \"password\":\"'{}'\"}".format(self.username, self.password)
+    
