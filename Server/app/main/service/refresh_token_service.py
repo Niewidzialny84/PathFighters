@@ -1,14 +1,14 @@
 """
-Login service file.
+Refresh token service file.
 """
 import requests, json
 from app.main.model.authorized_user_model import AuthorizedUser
 from app.main.model.login_model import Login # pragma: no cover
 from app.main.service.users_service import api_get_user_by_username
 from flask_jwt_extended import create_access_token
+from ..model.token_to import Token
 
-
-def handle_login_data(request_json):
+def refresh_token(request_json):
     try:
         login = Login(**request_json)
     except Exception as _:
@@ -25,6 +25,4 @@ def handle_login_data(request_json):
         return 400, None
 
     access_token = create_access_token(identity=user.password)
-    authorized_user = AuthorizedUser(user, access_token)
-
-    return status_code, authorized_user
+    return status_code, Token(access_token)

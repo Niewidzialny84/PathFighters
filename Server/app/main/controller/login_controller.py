@@ -19,13 +19,13 @@ from flask_jwt_extended import unset_jwt_cookies
 api = LoginDto.api
 _login_payload = LoginDto.login_payload
 _user_response = UserDto.user_response
-_login_succesful = LoginDto.login_succesful
+_login_successful = LoginDto.login_successful
 
 @api.route('')
 class LoginEndpoint(Resource):
     
     # ***POST***
-    @api.response(200, description="OK", model = _login_succesful)
+    @api.response(200, description="OK", model = _login_successful)
     @api.response(400, description="BAD REQUEST", model = _user_response)
     @api.response(404, description="NOT FOUND", model = _user_response)
     @api.expect(_login_payload)
@@ -37,7 +37,7 @@ class LoginEndpoint(Resource):
         # return jsonpickle.decode(user_JSON)
 
         if status_code == 200:
-            return marshal(authenticated_user, _login_succesful), status_code
+            return marshal(authenticated_user, _login_successful), status_code
         elif status_code == 400:
             return marshal({"description":"BAD REQUEST"}, _user_response), status_code
         elif status_code == 404:

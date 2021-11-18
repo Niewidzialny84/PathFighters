@@ -1,7 +1,7 @@
 from flask import request
 from flask_restx import Resource, marshal
 from ..dto.user_to import UserDto
-from ..dto.regiter_to import RegisterDto
+from ..dto.register_to import RegisterDto
 from ..service.registration_service import api_add_user
 
 api = RegisterDto.api

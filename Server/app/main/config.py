@@ -10,11 +10,15 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
+    SQLALCHEMY_DATABASE_URI = 'sqlite://'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 class TestingConfig(Config):
     DEBUG = True
     TESTING = True
+    SQLALCHEMY_DATABASE_URI = 'sqlite://'
     PRESERVE_CONTEXT_ON_EXCEPTION = False
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 class ProductionConfig(Config):
     DEBUG = False
