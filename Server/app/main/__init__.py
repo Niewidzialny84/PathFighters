@@ -20,7 +20,7 @@ def create_app(config_name: str) -> Flask:
     db.init_app(app)
 
     app.config["JWT_SECRET_KEY"] = "jLfaiVjHUgFA/4+#Q$"  # Change this "super secret" with something else!
-    app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(minutes=1)
+    app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=1)
     jwt.init_app(app)
 
     return app
