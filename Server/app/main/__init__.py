@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from flask_marshmallow import Marshmallow
 
 from .config import config_by_name
@@ -22,5 +22,12 @@ def create_app(config_name: str) -> Flask:
     app.config["JWT_SECRET_KEY"] = "jLfaiVjHUgFA/4+#Q$"  # Change this "super secret" with something else!
     app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=1)
     jwt.init_app(app)
+
+    @app.before_request
+    def before_request() -> None:
+        """ Get server_name from http_host """
+        
+        http_host = request.environ.get('HTTP_HOST')
+        app.config['SERVER_NAME'] = http_host
 
     return app
