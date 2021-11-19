@@ -10,7 +10,9 @@ class Config:
     DEBUG = False
     # Swagger
     RESTX_MASK_SWAGGER = False
-    SERVER_NAME = '0.0.0.0:5000'
+    #SERVER_NAME = '172.17.0.2:5000'
+    # HOST = '0.0.0.0'
+    # PORT = '5000';
 
 class DevelopmentConfig(Config):
     # uncomment the line below to use postgres

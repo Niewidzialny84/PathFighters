@@ -1,18 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class LoginMenu : MonoBehaviour
 {
-   public void ExitButton()
+    [SerializeField] private TMP_InputField usernameInputField = default;
+    [SerializeField] private TMP_InputField passwordInputField = default;
+
+    public void ExitButton()
     {
         Application.Quit();
         Debug.Log("Closing");
     }
     public void Login()
     {
-        SceneManager.LoadScene("Main Menu");
+        Debug.Log(usernameInputField.text);
+        Debug.Log(StartCoroutine(API.Login.GetUser(usernameInputField.text)));
+
+        //SceneManager.LoadScene("Main Menu");
     }
     public void Register()
     {

@@ -25,7 +25,7 @@ main_app.add_command('db', MigrateCommand)
 @main_app.command
 def run():
     """Runs main app."""
-    app.run()
+    app.run(host='0.0.0.0', port=5000)
 
 @main_app.command
 def test():
