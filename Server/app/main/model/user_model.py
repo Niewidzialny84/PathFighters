@@ -12,3 +12,4 @@ class User(object):
             self.username,
             self.email,
             self.password)
+            

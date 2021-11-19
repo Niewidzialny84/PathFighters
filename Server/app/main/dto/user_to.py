@@ -29,3 +29,4 @@ class UserDto:
         'email': fields.String(required=False, description='user email address'),
         'password': fields.String(required=False, description='user password')
     })
+    

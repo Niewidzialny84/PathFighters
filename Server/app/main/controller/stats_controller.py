@@ -1,7 +1,6 @@
 """
 Stats Controller class
 """
-from flask import request
 from flask_restx import Resource, marshal
 from ..dto.stats_to import StatsDto
 from ..service.stats_service import *
@@ -73,3 +72,4 @@ class StatsFails(Resource):
             return marshal({'description':'OK'}, _stats_response), 200
         elif status_code == 404:
             return marshal({'description':'NOT FOUND'}, _stats_response), 404
+            

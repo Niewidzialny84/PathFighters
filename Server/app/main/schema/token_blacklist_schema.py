@@ -1,6 +1,7 @@
 from .. import ma
 
 class TokenBlacklistSchema(ma.Schema):
+    """ Token Black LIst Schema. """
     class Meta:
         fields = ('id', 'jti', 'expiration_time')
 

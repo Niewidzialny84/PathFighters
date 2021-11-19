@@ -14,3 +14,4 @@ class Stats(object):
             self.total,
             self.fails,
             self.wins)
+            

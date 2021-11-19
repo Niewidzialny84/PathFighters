@@ -1,3 +1,6 @@
+"""
+Registration controller class
+"""
 from flask import request
 from flask_restx import Resource, marshal
 from ..dto.user_to import UserDto
@@ -16,9 +19,8 @@ class Register(Resource):
     @api.response(409, description="CONFLICT", model = _register_response)
     @api.expect(_user_payload)
     def post(self):
-        """Create new user."""
+        """Handle registration process and if True create new user."""
         status_code = api_add_user(request.json)
-        
         if status_code == 201:
             return marshal({'description':'CREATED'}, _register_response), 201
         elif status_code == 409:

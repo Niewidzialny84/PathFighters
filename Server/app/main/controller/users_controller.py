@@ -1,3 +1,6 @@
+"""
+Users Controller class
+"""
 from flask import request
 from flask_restx import Resource, marshal
 from ..dto.user_to import UserDto
@@ -19,7 +22,6 @@ class UserList(Resource):
     def get(self):
         """Get a list of users"""
         status_code, users = api_get_users()
-        
         if users == None:
             return marshal({'description':'NO CONTENT'}, _user_response), 204
         else:
@@ -70,3 +72,4 @@ class UserById(Resource):
             return marshal({'description':'BAD REQUEST'}, _user_response), 400
         elif status_code == 404:
             return marshal({'description':'NOT FOUND'}, _user_response), 404
+            

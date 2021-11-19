@@ -2,9 +2,9 @@
 Registration service file.
 """
 import requests
-
-API_ALL_USERS = "http://127.0.0.1:5000/users"
+from app.main.service.enum.link_enum import LinkEnum
 
 def api_add_user(request_json):
-    response = requests.post(API_ALL_USERS, json = request_json)
+    """ Method to perform registraion process. """
+    response = requests.post(LinkEnum.API_ALL_USERS.value, json = request_json)
     return response.status_code

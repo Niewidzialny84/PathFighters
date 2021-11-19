@@ -3,3 +3,4 @@ class AuthorizedUser(object):
     def __init__(self, user, jwt_token):
         self.user = user
         self.jwt_token = jwt_token
+        

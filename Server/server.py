@@ -12,32 +12,17 @@ from app import blueprint
 from app.main import create_app, db, jwt
 from app.main.utils.token_utils import delete_expired_tokens
 
-# from datetime import datetime
-# from datetime import timedelta
-# from flask_jwt_extended import create_access_token
-# from flask_jwt_extended import get_jwt_identity
-# from flask_jwt_extended import jwt_required
-# from flask_jwt_extended import JWTManager
-# from flask_jwt_extended import get_jwt
-# from flask_jwt_extended import set_access_cookies
-# from flask_jwt_extended import unset_jwt_cookies
-# from datetime import timezone
-
-
 app = create_app(os.getenv('ENGINEER_Server') or 'dev')
 app.app_context().push()
 db.create_all()
-
 app.register_blueprint(blueprint)
-
-app.app_context().push()
 
 main_app = Manager(app)
 
 @main_app.command
 def run():
     """Runs main app."""
-    app.run(host='0.0.0.0', port=5001, use_reloader=False) #, ssl_context="adhoc"
+    app.run(host='0.0.0.0', port=5001, use_reloader=False) #, ssl_context="adhoc"   # TO ADD INSIDE RUN TU ACTIVATE SSL
 
 @main_app.command
 def test():
@@ -62,7 +47,7 @@ def covhtml():
         cover.stop()
         cover.save()
         print('Coverage Summary:')
-        cover.report(omit=['main_app.py', 'app/main/__init__.py', 'test/*', 'venv*/*'])
+        cover.report(omit=['server.py', 'app/main/__init__.py', 'test/*', 'venv*/*'])
         # cov.report()
         basedir = os.path.abspath(os.path.dirname(__file__))
         covdir = os.path.join(basedir, 'tmp/coverage')
@@ -86,26 +71,10 @@ def cov():
         cover.stop()
         cover.save()
         print('Coverage Summary:')
-        cover.report(omit=['main_app.py', 'app/main/__init__.py', 'test/*', 'venv*/*'])
+        cover.report(omit=['server.py', 'app/main/__init__.py', 'test/*', 'venv*/*'])
         cover.erase()
         return 0
     return 1
-
-# @app.after_request
-# def refresh_expiring_jwts(response):
-#     try:
-#         exp_timestamp = get_jwt()["exp"]
-#         now = datetime.now(timezone.utc)
-#         target_timestamp = datetime.timestamp(now + timedelta(minutes=1))
-#         if target_timestamp > exp_timestamp:
-#             access_token = create_access_token(identity=get_jwt_identity())
-#             set(response, access_token)
-#         return response
-#     except (RuntimeError, KeyError):
-#         # Case where there is not a valid JWT. Just return the original respone
-#         return response
-
-# from datetime import datetime
 
 def schedule_tokens():
     while(True):

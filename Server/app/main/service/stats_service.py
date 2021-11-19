@@ -1,33 +1,32 @@
 """
-Users service file.
+Stats service file.
 """
-# from app.main.model.login_model import Login # pragma: no cover
-import requests, json
+import requests
 from app.main.model.stats_model import Stats
-
-API_ALL_STATS= "http://127.0.0.1:5000/stats"
-API_STATS_BY_ID = API_ALL_STATS + "/{}"
-API_STATS_ADD_WIN = API_STATS_BY_ID + "/add-win"
-API_STATS_ADD_FAIL = API_STATS_BY_ID + "/add-fail"
+from app.main.service.enum.link_enum import LinkEnum
 
 def api_get_all_stats():
-    response = requests.get(API_ALL_STATS)
+    """ Method to get all stats list. """
+    response = requests.get(LinkEnum.API_ALL_STATS.value)
     try:
         return response.status_code, response.json()
     except Exception as _:
         return response.status_code, None
 
-def api_get_user_stats(id):
-    response = requests.get(API_STATS_BY_ID.format(id))
+def api_get_user_stats(userid):
+    """ Method to get stats with specific userid. """
+    response = requests.get(LinkEnum.API_STATS_BY_ID.value.format(userid))
     try:
         return response.status_code, Stats(**response.json())
     except Exception as _:
         return response.status_code, None
 
-def api_stats_add_win(id):
-    response = requests.patch(API_STATS_ADD_WIN.format(id))
+def api_stats_add_win(userid):
+    """ Method to add win into stats with specific userid. """
+    response = requests.patch(LinkEnum.API_STATS_ADD_WIN.value.format(userid))
     return response.status_code
     
-def api_stats_add_fail(id):
-    response = requests.patch(API_STATS_ADD_FAIL.format(id))
+def api_stats_add_fail(userid):
+    """ Method to add fail into stats with specific userid. """
+    response = requests.patch(LinkEnum.API_STATS_ADD_FAIL.value.format(userid))
     return response.status_code

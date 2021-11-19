@@ -30,3 +30,4 @@ class StatsDto:
         'fails': fields.Integer(required=False, description='total user fails'),
         'wins': fields.Integer(required=False, description='total user wins')
     })
+    

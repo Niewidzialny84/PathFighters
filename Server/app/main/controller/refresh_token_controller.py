@@ -1,7 +1,7 @@
 """
 Refresh token controller class
 """
-from flask import request, jsonify
+from flask import request
 from flask_restx import Resource, marshal
 from ..service.refresh_token_service import refresh_token
 from ..dto.token_to import TokenDto

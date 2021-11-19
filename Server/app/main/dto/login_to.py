@@ -13,3 +13,4 @@ class LoginDto:
         'user': fields.Nested(UserDto.user),
         'jwt_token': fields.String(required=True, description='JSON web token'),
     })
+    
