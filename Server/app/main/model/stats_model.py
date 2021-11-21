@@ -6,12 +6,4 @@ class Stats(object):
         self.total = total
         self.fails = fails
         self.wins = wins
-
-    def __repr__(self):
-        return "{\"id\":\"'{}'\", \"userid\":\"'{}'\", \"total\":\"'{}'\", \"fails\":\"'{}'\", \"wins\":\"'{}'\"}".format(
-            self.id,
-            self.userid,
-            self.total,
-            self.fails,
-            self.wins)
-            
+        

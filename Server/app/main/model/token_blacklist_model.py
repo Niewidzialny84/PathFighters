@@ -1,6 +1,5 @@
 from datetime import datetime
 from .. import db
-from datetime import datetime
 
 class TokenBlackList(db.Model):
     """ Token Black List Model for storing basic information about jwt_token. """
