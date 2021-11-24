@@ -2,13 +2,11 @@
 Utils class for controller tests
 """
 import json
-import unittest
 from app.test.base import BaseTestCase
 
-class ControllerTestsUtils(BaseTestCase):
-    def __init__(self): # app = self.app.self.test_client()
-        super().__init__()
-        self.test_client = self.app.test_client()
+class ControllerTestsUtils():
+    def __init__(self): 
+        self.test_client = BaseTestCase.create_app(self).test_client()
         self.test_username = "username"
         self.test_email =  "test@test.pl"
         self.test_password = "testPasswd"
