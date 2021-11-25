@@ -70,14 +70,12 @@ class TestUserController(BaseTestCase):
         
         self.ctu.perform_registration("test_1", "test@email", "124")
         payload = {
-            "username": "test_patch",
             "email": "test_patch@email",
             "password": "124_patch"
         }
         test_user = self.ctu.perform_get_user_by_username("test_1").json
         result = self.ctu.perform_patch_user_by_id(test_user['id'], payload)
         self.assert200(result)
-        self.ctu.perform_delete_user_by_id("test_1")
     
     def test_patch_user_by_id_return_400(self):
         """ Test checks if patch user by id process handle error properly and return 400 status code. """
@@ -91,9 +89,10 @@ class TestUserController(BaseTestCase):
         """ Test checks if patch user by id process handle error properly and return 404 status code. """
         
         payload = {
-            "username": "test_patch",
             "email": "test_patch@email",
             "password": "124_patch"
         }
         result = self.ctu.perform_patch_user_by_id(0, payload)
         self.assert404(result)
+        test_user = self.ctu.perform_get_user_by_username("test_1").json
+        self.ctu.perform_delete_user_by_id("test_1")
