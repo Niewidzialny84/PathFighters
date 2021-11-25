@@ -4,7 +4,6 @@ from flask_testing import TestCase
 from app.main import db
 from server import app
 
-
 class BaseTestCase(TestCase):
     """ Base Tests """
     def create_app(self):

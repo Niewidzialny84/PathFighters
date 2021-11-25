@@ -42,6 +42,19 @@ class UserByUsername(Resource):
             return marshal({'description':'NOT FOUND'}, _user_response), 404
         else:
             return marshal(user, _user), 200
+    
+    # ***DELETE***
+    @api.doc('delete_user_with_specific_username')
+    @api.response(200, description="OK", model = _user_response)
+    @api.response(404, description="NOT FOUND", model = _user_response)
+    @jwt_required()
+    def delete(self, username):
+        """Delete a user with given username"""
+        status_code = api_delete_user_by_username(username)
+        if status_code == 200:
+            return marshal({'description':'OK'}, _user_response), 200
+        elif status_code == 404:
+            return marshal({'description':'NOT FOUND'}, _user_response), 404
 
 @api.route('/id/<userid>')
 @api.param('userid', 'The user identifier')

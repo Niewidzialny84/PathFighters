@@ -90,7 +90,7 @@ if __name__ == '__main__':
         t2.daemon = True
         t2.start()
        
-        main_app.run() #default_command="run"
+        main_app.run(default_command="run") #default_command="run"
     except alembic.util.exc.CommandError as ex:
         t2.join
         print(ex)
