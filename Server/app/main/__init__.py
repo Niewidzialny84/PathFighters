@@ -23,11 +23,11 @@ def create_app(config_name: str) -> Flask:
     app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=1)
     jwt.init_app(app)
 
-    @app.before_request
-    def before_request() -> None:
-        """ Get server_name from http_host """
+    # @app.before_request
+    # def before_request() -> None:
+    #     """ Get server_name from http_host """
         
-        http_host = request.environ.get('HTTP_HOST')
-        app.config['SERVER_NAME'] = http_host
+    #     http_host = request.environ.get('HTTP_HOST')
+    #     app.config['SERVER_NAME'] = http_host
 
     return app
