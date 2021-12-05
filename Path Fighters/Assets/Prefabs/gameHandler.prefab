@@ -44,3 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedObject: {fileID: 0}
+  activePlayer: 0
+  gold: 0
+  recruitmentTime: 0
+  baseHitPoints: 0000000000000000
