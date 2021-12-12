@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: -1496954189
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 539d4631820dbd4458d98c721bf72e57, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fce169a6f4709d24e8364985b58a3ceb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   reach: 1.2
   meleeReach: 0.06
   attackDelay: 0.6
-  projectile: {fileID: 2004257574386229139, guid: 1c6bf287b81c5204cb0bb09950a66afb, type: 3}
+  projectile: {fileID: 5498631155754670395, guid: 6f57a6836110f63479eb95cb5e6c73ac, type: 3}
   armor: 0
   damage: 8
   hitPoints: 45

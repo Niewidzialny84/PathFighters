@@ -102,7 +102,7 @@ MonoBehaviour:
   reach: 0.8
   meleeReach: 0.001
   attackDelay: 0.6
-  projectile: {fileID: 2004257574386229139, guid: 1c6bf287b81c5204cb0bb09950a66afb, type: 3}
+  projectile: {fileID: 1108164614893256794, guid: f32ea144a151acc47a6516136518a147, type: 3}
   armor: 0
   damage: 20
   hitPoints: 40

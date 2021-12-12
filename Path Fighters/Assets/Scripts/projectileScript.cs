@@ -23,6 +23,11 @@ public class projectileScript : MonoBehaviour
     void Start()
     {
         hit = false;
+
+        Vector2 direction = this.target.transform.position - this.transform.position;
+        direction.Normalize();
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        this.transform.rotation = Quaternion.Euler(Vector3.forward * (angle));
     }
 
     // Update is called once per frame
