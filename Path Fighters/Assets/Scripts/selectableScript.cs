@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class selectableScript : MonoBehaviour
     public bool active;
     public int reaserchLevel;
 
+    [SerializeField] private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +20,13 @@ public class selectableScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        try
+        {
+            animator.SetBool("Active", this.active);
+        }
+        catch (Exception e)
+        {
+        }
     }
 
     // This will activate if the mouse cursor is currently above
