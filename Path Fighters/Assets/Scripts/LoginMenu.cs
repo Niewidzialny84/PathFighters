@@ -15,7 +15,7 @@ public class LoginMenu : MonoBehaviour
     public void Login()
     {
         Debug.Log(usernameInputField.text);
-        Debug.Log(StartCoroutine(API.Login.GetUser(usernameInputField.text)));
+       // Debug.Log(StartCoroutine(API.Login.GetUser(usernameInputField.text)));
 
         //SceneManager.LoadScene("Main Menu");
     }
