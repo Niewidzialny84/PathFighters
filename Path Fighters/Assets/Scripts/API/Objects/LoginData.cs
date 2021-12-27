@@ -1,16 +1,14 @@
 using System;
 
 [Serializable]
-public class RegisterData
+public class LoginData
 {
     public string username;
-    public string email;
     public string password;
 
-    public RegisterData(string username, string email, string password)
+    public LoginData(string username, string password)
     {
         this.username = username;
-        this.email = email;
         this.password = password;
     }
 }

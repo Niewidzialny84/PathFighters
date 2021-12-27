@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: pl-PL
   m_SharedData: {fileID: 11400000, guid: b224f168b04271142934e399195148b3, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - id: 0
   m_TableData:
   - m_Id: 19549380608
     m_Localized: "Rozpocznij Rozgrywk\u0119"
@@ -31,7 +32,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 702981857280
-    m_Localized: "Podaj nazw\u0119 u\u017Cytkownika..."
+    m_Localized: Zaloguj
     m_Metadata:
       m_Items: []
   - m_Id: 944502464512
@@ -39,7 +40,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1067747893248
-    m_Localized: "Zaloguj si\u0119"
+    m_Localized: Zarejestruj
     m_Metadata:
       m_Items: []
   - m_Id: 1199084134400
@@ -78,5 +79,26 @@ MonoBehaviour:
     m_Localized: "Utw\xF3rz now\u0105 rozgrywk\u0119"
     m_Metadata:
       m_Items: []
+  - m_Id: 24940922821808128
+    m_Localized: Podaj login...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24941174769455104
+    m_Localized: 
+    m_Metadata:
+      m_Items:
+      - id: 0
+  - m_Id: 24941415329566720
+    m_Localized: Sukces
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24941705277607936
+    m_Localized: Niepowodzenie
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
+    00000000:
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 00106ac6dd9b5800

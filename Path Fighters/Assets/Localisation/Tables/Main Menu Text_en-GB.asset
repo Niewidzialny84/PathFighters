@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: en-GB
   m_SharedData: {fileID: 11400000, guid: b224f168b04271142934e399195148b3, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - id: 0
   m_TableData:
   - m_Id: 19549380608
     m_Localized: Start The Game
@@ -31,7 +32,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 702981857280
-    m_Localized: Enter login...
+    m_Localized: Log in
     m_Metadata:
       m_Items: []
   - m_Id: 944502464512
@@ -39,7 +40,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1067747893248
-    m_Localized: Log in
+    m_Localized: Register
     m_Metadata:
       m_Items: []
   - m_Id: 1199084134400
@@ -78,5 +79,26 @@ MonoBehaviour:
     m_Localized: Create new game
     m_Metadata:
       m_Items: []
+  - m_Id: 24940922821808128
+    m_Localized: Enter login...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24941174769455104
+    m_Localized: 
+    m_Metadata:
+      m_Items:
+      - id: 0
+  - m_Id: 24941415329566720
+    m_Localized: Success
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24941705277607936
+    m_Localized: Failed
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
+    00000000:
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 00106ac6dd9b5800

@@ -6,10 +6,13 @@ public class MenuScript : MonoBehaviour
 {
 
     [SerializeField]
-    LoginScreen LoginScreen;
+    LoginScreen LoginScreen = default;
     
     [SerializeField]
-    RegisterScreen RegisterScreen;
+    RegisterScreen RegisterScreen = default;
+
+    [SerializeField]
+    MainScreen MainScreen = default;
 
     /// <summary>
     /// Exit the game
@@ -24,6 +27,7 @@ public class MenuScript : MonoBehaviour
     {
         LoginScreen.Hide();
         RegisterScreen.Hide();
+        MainScreen.Hide();
     }
 
     public void RegisterButton()
@@ -35,7 +39,16 @@ public class MenuScript : MonoBehaviour
     public void GoToLoginScreen()
     {
         HideAll();
+        LoginScreen.Init();
         LoginScreen.Show();
+        LoginScreen.loginScript.OnLoginSuccess.AddListener(GoToMainScreen);
+    }
+
+    public void GoToMainScreen(LoginReturn data)
+    {
+        HideAll();
+        MainScreen.Show();
+        ApiURL.currentLoginReturn = data;
     }
 
     void Start()

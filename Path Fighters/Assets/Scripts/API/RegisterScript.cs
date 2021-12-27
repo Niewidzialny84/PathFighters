@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Networking;
 
 public class RegisterScript : MonoBehaviour
 {
+    public UnityEvent<string> OnRegisterSuccess;
+
+    public UnityEvent<string> OnRegisterFailure;
+
     /// <summary>
     /// Register a new user
     /// </summary>
@@ -29,6 +34,7 @@ public class RegisterScript : MonoBehaviour
         if (www.responseCode == 201)
         {
             // Call success callback
+            OnRegisterSuccess.Invoke("Success");
 
             // Show results as text
             Debug.Log(www.downloadHandler.text);
@@ -36,9 +42,9 @@ public class RegisterScript : MonoBehaviour
         else
         {
             // Call the error callback
+            OnRegisterFailure.Invoke("Failure");
 
             Debug.Log(www.error);
-            Debug.Log(json);
         }
     }
 }

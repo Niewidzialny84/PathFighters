@@ -28,7 +28,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 702981857280
-    m_Key: Login Login Placeholder
+    m_Key: Log in button
     m_Metadata:
       m_Items: []
   - m_Id: 944502464512
@@ -73,6 +73,22 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 1844426691043328
     m_Key: Create new
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24940922821808128
+    m_Key: username placeholder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24941174769455104
+    m_Key: Info info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24941415329566720
+    m_Key: info info success
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24941705277607936
+    m_Key: info info fail
     m_Metadata:
       m_Items: []
   m_Metadata:
