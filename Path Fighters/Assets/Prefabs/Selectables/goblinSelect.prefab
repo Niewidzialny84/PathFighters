@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 6303210101656747782}
   - component: {fileID: 7489357217457230894}
   - component: {fileID: 7047937911290283241}
-  - component: {fileID: 5356055296454653871}
+  - component: {fileID: 8527614894122327058}
+  - component: {fileID: 8276154296674630931}
   m_Layer: 0
   m_Name: goblinSelect
   m_TagString: selectable
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6383393533642368841}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.94, y: 0.75, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 2004406135
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 89f76cb608f105140bc122c57243c46c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a98f05e10c1a36447a84ef06702ca8bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,8 +100,28 @@ MonoBehaviour:
   setToSelected: {fileID: 2705502805770078684, guid: 6368182c1a061a64baee9cb80237472d, type: 3}
   active: 0
   reaserchLevel: -1
---- !u!58 &5356055296454653871
-CircleCollider2D:
+  animator: {fileID: 8527614894122327058}
+--- !u!95 &8527614894122327058
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6383393533642368841}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2d58260a7d9d4b34091018147c73acb0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &8276154296674630931
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -113,5 +134,15 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Size: {x: 0.9, y: 0.9}
+  m_EdgeRadius: 0
