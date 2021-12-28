@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6877516654985211451}
   - component: {fileID: 9070207311915387014}
   - component: {fileID: -2288884434725821374}
+  - component: {fileID: 9038443564923737888}
   m_Layer: 8
   m_Name: investorTower
   m_TagString: Untagged
@@ -102,6 +103,7 @@ MonoBehaviour:
   attackDelay: 2.5
   damage: 10
   projectile: {fileID: 560599464163978587, guid: 39a5aa2a71c6b6044a123190072d9173, type: 3}
+  animator: {fileID: 9038443564923737888}
 --- !u!114 &-2288884434725821374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,3 +116,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d695721a593784381b18b7c79113c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &9038443564923737888
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6877516654985211450}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2c86c149c6d4f7945b7938703ed5aad4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
