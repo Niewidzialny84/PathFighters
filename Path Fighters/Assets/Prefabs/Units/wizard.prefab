@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3966771907537544978}
   - component: {fileID: 7676012287525000580}
   - component: {fileID: 1474713942641958298}
+  - component: {fileID: 2453884807526177750}
   m_Layer: 7
   m_Name: wizard
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: -1496954189
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 539d4631820dbd4458d98c721bf72e57, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 228fe27e821b2464e86a8715fbbf85c0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -107,6 +108,7 @@ MonoBehaviour:
   damage: 20
   hitPoints: 40
   cost: 100
+  animator: {fileID: 2453884807526177750}
 --- !u!58 &1474713942641958298
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -123,6 +125,25 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
+--- !u!95 &2453884807526177750
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3966771907537544977}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 460816665f1e3494c9da5716cd78d7e4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &4024136416772606263
 PrefabInstance:
   m_ObjectHideFlags: 0

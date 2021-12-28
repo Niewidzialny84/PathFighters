@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2632949949722807327}
   - component: {fileID: 5656279644283288964}
   - component: {fileID: 3178694579272320963}
+  - component: {fileID: 7294245866956271231}
   m_Layer: 7
   m_Name: knight
   m_TagString: Untagged
@@ -107,6 +108,7 @@ MonoBehaviour:
   damage: 16
   hitPoints: 60
   cost: 40
+  animator: {fileID: 7294245866956271231}
 --- !u!58 &3178694579272320963
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -123,6 +125,25 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
+--- !u!95 &7294245866956271231
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2632949949722807324}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7da2348b5a956464b8509a5b463379bc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &926824216141706218
 PrefabInstance:
   m_ObjectHideFlags: 0

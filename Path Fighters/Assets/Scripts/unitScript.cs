@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,6 +23,8 @@ public class unitScript : MonoBehaviour
     public int hitPoints;
 
     public float cost;
+
+    [SerializeField] private Animator animator;
 
     //State machine enumerator
     enum State
@@ -203,7 +206,22 @@ public class unitScript : MonoBehaviour
                 if (gameHandler.GetComponent<gameHandlerScript>().upgrades[gameHandler.GetComponent<gameHandlerScript>().activePlayer - 1, 11]) { gameHandler.GetComponent<gameHandlerScript>().gold += cost * 0.5f; }
                 else { gameHandler.GetComponent<gameHandlerScript>().gold += cost * 0.3f; }
             }
-            Destroy(gameObject, 0.5f);
+            Destroy(gameObject, 0.25f);
+        }
+
+        try
+        {
+            if (this.state == State.Fighting)
+            {
+                animator.SetBool("fighting", true);
+            }
+            else
+            {
+                animator.SetBool("fighting", false);
+            }
+        }
+        catch (Exception e)
+        {
         }
     }
 }
