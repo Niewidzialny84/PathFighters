@@ -7,6 +7,8 @@ public class towerFieldScript : MonoBehaviour
     private GameObject localTower;
     public int belongsToPlayer;
 
+    [SerializeField] private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +18,15 @@ public class towerFieldScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
+        if (gameHandler.GetComponent<gameHandlerScript>().activePlayer == this.belongsToPlayer)
+        {
+            animator.SetBool("active", true);
+        }
+        else
+        {
+            animator.SetBool("active", false);
+        }
     }
 
     // This will activate if the mouse cursor is currently above
