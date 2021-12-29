@@ -114,8 +114,8 @@ public class gameHandlerScript : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        UnityEditor.Handles.color = Color.white;
-        UnityEditor.Handles.Label( this.transform.position, gold.ToString("F0"));
-        UnityEditor.Handles.Label(new Vector3(this.transform.position.x, this.transform.position.y + 0.3f ,0f), this.baseHitPoints[this.activePlayer - 1].ToString());
+        // UnityEditor.Handles.color = Color.white;
+        // UnityEditor.Handles.Label( this.transform.position, gold.ToString("F0"));
+        // UnityEditor.Handles.Label(new Vector3(this.transform.position.x, this.transform.position.y + 0.3f ,0f), this.baseHitPoints[this.activePlayer - 1].ToString());
     }
 }
