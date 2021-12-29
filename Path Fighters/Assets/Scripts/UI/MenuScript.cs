@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
 public class MenuScript : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class MenuScript : MonoBehaviour
 
     [SerializeField]
     MainScreen MainScreen = default;
+
+    [SerializeField]
+    NetworkManager NetworkManager = default;
 
     /// <summary>
     /// Exit the game
@@ -49,6 +53,7 @@ public class MenuScript : MonoBehaviour
         HideAll();
         MainScreen.Show();
         ApiURL.currentLoginReturn = data;
+        NetworkManager.StartClient();
     }
 
     void Start()

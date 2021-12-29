@@ -8,18 +8,21 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Menu Scenes/Login Window.unity
     guid: 0f6cdec96afbe774b94fcf4a21e5efb4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Menu Scenes/Main Menu.unity
     guid: d868ec84460624e429590ba8360438bd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Menu Scenes/Register Scene.unity
     guid: 3f84b8c1758cc6241859de575b78cc87
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Menu Scenes/Start Game Scene.unity
     guid: e235c6e375a57ed4f85e71f1ac58a46b
+  - enabled: 1
+    path: Assets/Scenes/Menu Scenes/Menu Scene.unity
+    guid: f2fca58dbf7ecb349bdb0c0c5a401e55
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 4edd7b2db02e6164b898603626db4598, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: a9e3e445bf7a3504196c34c20717a7ff, type: 2}
