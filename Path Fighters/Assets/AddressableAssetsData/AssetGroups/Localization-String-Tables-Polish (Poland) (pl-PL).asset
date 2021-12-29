@@ -22,6 +22,11 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-pl-PL
+  - m_GUID: 52b023d6fb2c7e242b77255faf708eb8
+    m_Address: Game Localization_pl-PL
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-pl-PL
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: bb7aae89cbdbf104a881c735c837c285, type: 2}
   m_SchemaSet:
