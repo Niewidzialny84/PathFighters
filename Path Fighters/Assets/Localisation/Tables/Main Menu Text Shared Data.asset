@@ -75,6 +75,22 @@ MonoBehaviour:
     m_Key: Create new
     m_Metadata:
       m_Items: []
+  - m_Id: 25778875459690496
+    m_Key: 'Stats '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25793771085750272
+    m_Key: Stats_played
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25794016993599488
+    m_Key: Stats_won
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25794294790742016
+    m_Key: Stats_lost
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

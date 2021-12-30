@@ -78,5 +78,21 @@ MonoBehaviour:
     m_Localized: Create new game
     m_Metadata:
       m_Items: []
+  - m_Id: 25778875459690496
+    m_Localized: Stats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25793771085750272
+    m_Localized: 'Battles played: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25794016993599488
+    m_Localized: 'Battles won: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25794294790742016
+    m_Localized: 'Battles lost:'
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
