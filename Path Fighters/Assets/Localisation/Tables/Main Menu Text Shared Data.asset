@@ -115,6 +115,14 @@ MonoBehaviour:
     m_Key: Set_MusicVolume
     m_Metadata:
       m_Items: []
+  - m_Id: 26827600604946432
+    m_Key: Reg_PopupSuccess
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26827786219675648
+    m_Key: Reg_PopupFail
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

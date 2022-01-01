@@ -118,5 +118,13 @@ MonoBehaviour:
     m_Localized: Music volume
     m_Metadata:
       m_Items: []
+  - m_Id: 26827600604946432
+    m_Localized: Account has been created!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26827786219675648
+    m_Localized: An error occured
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

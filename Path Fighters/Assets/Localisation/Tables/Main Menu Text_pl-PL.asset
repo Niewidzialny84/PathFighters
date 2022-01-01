@@ -118,5 +118,13 @@ MonoBehaviour:
     m_Localized: "G\u0142o\u015Bno\u015B\u0107 muzyki"
     m_Metadata:
       m_Items: []
+  - m_Id: 26827600604946432
+    m_Localized: "Konto zosta\u0142o utworzone!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26827786219675648
+    m_Localized: "Wyst\u0105pi\u0142 b\u0142\u0105d"
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
