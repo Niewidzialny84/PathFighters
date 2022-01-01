@@ -94,5 +94,29 @@ MonoBehaviour:
     m_Localized: 'Battles lost:'
     m_Metadata:
       m_Items: []
+  - m_Id: 26816226839486464
+    m_Localized: Master volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26816516036747264
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26816597574017024
+    m_Localized: Account settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26816732836126720
+    m_Localized: Delete account
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26817002278215680
+    m_Localized: Change password
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26817463681015808
+    m_Localized: Music volume
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
