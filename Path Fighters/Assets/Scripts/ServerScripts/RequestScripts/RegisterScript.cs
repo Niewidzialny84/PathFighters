@@ -1,8 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Networking;
+using UnityEngine.UI;
+using TMPro;
 
 public class RegisterScript : MonoBehaviour
 {
@@ -10,6 +10,60 @@ public class RegisterScript : MonoBehaviour
 
     public UnityEvent<string> OnRegisterFailure;
 
+    [SerializeField] private TMP_InputField usernameInputField = default;
+    [SerializeField] private TMP_InputField emailInputField = default;
+    [SerializeField] private TMP_InputField emailInputConfirmField = default;
+    [SerializeField] private TMP_InputField passwordInputField = default;
+    [SerializeField] private TMP_InputField passwordInputConfirmField = default;
+
+    public void OnRegisterButtonClick()
+    {
+        string username = usernameInputField.text;
+        string email = emailInputField.text;
+        string emailConfirm = emailInputConfirmField.text;
+        string password = passwordInputField.text;
+        string passwordConfirm = passwordInputConfirmField.text;
+
+        if (username == "" || email == "" || emailConfirm == "" || password == "" || passwordConfirm == "")
+        {
+            OnRegisterFailure.Invoke("Please fill in all fields.");
+            return;
+        }
+
+        if (email != emailConfirm)
+        {
+            OnRegisterFailure.Invoke("Emails do not match.");
+            return;
+        }
+
+        if (password != passwordConfirm)
+        {
+            OnRegisterFailure.Invoke("Passwords do not match.");
+            return;
+        }
+
+        RegisterClient(username, email, password);
+    }
+
+    public void Start()
+    {
+        OnRegisterSuccess.AddListener(SuccessHandler);
+        OnRegisterFailure.AddListener(FailureHandler);
+    }
+
+    public void SuccessHandler(string msg)
+    {
+        Debug.Log(msg);
+        //TODO: Add success message
+    }
+
+    public void FailureHandler(string msg)
+    {
+        Debug.Log(msg);
+        //TODO: Add fail message
+    }
+
+    #region request
     /// <summary>
     /// Register a new user
     /// </summary>
@@ -47,4 +101,5 @@ public class RegisterScript : MonoBehaviour
             Debug.Log(www.error);
         }
     }
+    #endregion
 }

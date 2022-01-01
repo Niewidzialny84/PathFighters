@@ -15,4 +15,12 @@ public class UserData
         this.email = email;
         this.password = password;
     }
+
+    public UserData()
+    {
+        this.id = 0;
+        this.username = "";
+        this.email = "";
+        this.password = "";
+    }
 }

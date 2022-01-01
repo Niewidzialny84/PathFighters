@@ -10,4 +10,9 @@ public class LoginReturn {
         this.user = user;
         this.jwt_token = jwt_token;
     }
+
+    public LoginReturn() {
+        this.user = null;
+        this.jwt_token = null;
+    }
 }

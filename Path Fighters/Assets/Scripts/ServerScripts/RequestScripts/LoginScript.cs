@@ -1,8 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Networking;
+using TMPro;
+using Mirror;
 
 public class LoginScript : MonoBehaviour
 {
@@ -10,6 +10,44 @@ public class LoginScript : MonoBehaviour
 
     public UnityEvent<string> OnLoginFailure;
 
+    [SerializeField] private TMP_InputField usernameInputField = default;
+    [SerializeField] private TMP_InputField passwordInputField = default;
+
+    public void OnLoginButtonClick()
+    {
+        string username = usernameInputField.text;
+        string password = passwordInputField.text;
+
+        if (username == "" || password == "")
+        {
+            OnLoginFailure.Invoke("Please fill in all fields.");
+            return;
+        }
+
+        LoginClient(username, password);
+    }
+
+    public void Start()
+    {
+        OnLoginSuccess.AddListener(SuccessHandler);
+        OnLoginFailure.AddListener(FailureHandler);
+    }
+
+    public void SuccessHandler(LoginReturn msg)
+    {
+        Debug.Log("Login Successful");
+        gameObject.GetComponent<Authenticator>().loginReturn = msg;
+        GameObject.Find("NetworkManager").GetComponent<NetworkManager>().StartClient();
+        GameObject.Find("NetworkManager").GetComponent<Variables>().loginReturn = msg;
+    }
+
+    public void FailureHandler(string msg)
+    {
+        Debug.Log(msg);
+        //TODO: Add fail message
+    }
+
+    #region request
     public void LoginClient(string username, string password)
     {
         StartCoroutine(__LoginClient(username, password));
@@ -43,4 +81,5 @@ public class LoginScript : MonoBehaviour
             Debug.Log(www.error);
         }
     }
+    #endregion
 }

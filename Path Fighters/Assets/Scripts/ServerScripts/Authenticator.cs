@@ -11,7 +11,12 @@ public class Authenticator : NetworkAuthenticator
 {
     #region Messages
 
-    public struct AuthRequestMessage : NetworkMessage { }
+    public struct AuthRequestMessage : NetworkMessage 
+    { 
+        public LoginReturn loginReturn; 
+    }
+
+    public LoginReturn loginReturn { get; set; }
 
     public struct AuthResponseMessage : NetworkMessage { }
 
@@ -43,6 +48,7 @@ public class Authenticator : NetworkAuthenticator
     public void OnAuthRequestMessage(NetworkConnection conn, AuthRequestMessage msg)
     {
         Debug.Log("OnAuthRequestMessage");
+        Debug.Log(msg.loginReturn.user.username);
 
         AuthResponseMessage authResponseMessage = new AuthResponseMessage();
 
@@ -74,7 +80,8 @@ public class Authenticator : NetworkAuthenticator
         Debug.Log("Authenticator.OnClientAuthenticate");
 
         AuthRequestMessage authRequestMessage = new AuthRequestMessage();
-
+        authRequestMessage.loginReturn = loginReturn;
+        
         NetworkClient.Send(authRequestMessage);
     }
 
