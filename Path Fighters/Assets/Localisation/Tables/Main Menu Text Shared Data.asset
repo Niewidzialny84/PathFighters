@@ -123,6 +123,10 @@ MonoBehaviour:
     m_Key: Reg_PopupFail
     m_Metadata:
       m_Items: []
+  - m_Id: 26915416194146304
+    m_Key: Reg_InvalidData
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

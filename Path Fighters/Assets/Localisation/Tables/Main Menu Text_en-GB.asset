@@ -123,7 +123,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 26827786219675648
-    m_Localized: An error occured
+    m_Localized: An error occurred
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26915416194146304
+    m_Localized: Invalid data provided
     m_Metadata:
       m_Items: []
   references:

@@ -126,5 +126,9 @@ MonoBehaviour:
     m_Localized: "Wyst\u0105pi\u0142 b\u0142\u0105d"
     m_Metadata:
       m_Items: []
+  - m_Id: 26915416194146304
+    m_Localized: Wprowadzono niepoprawne dane
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
