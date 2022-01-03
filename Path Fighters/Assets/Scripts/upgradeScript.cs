@@ -10,6 +10,9 @@ public class upgradeScript : MonoBehaviour
     public GameObject previousUpgrade;
     public int order;
 
+    [SerializeField]
+    private AudioSource researchS;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,9 +29,15 @@ public class upgradeScript : MonoBehaviour
         }
         else if (this.active)
         {
+            researchS.Play();
+
             this.active = false;
             GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
             gameHandler.GetComponent<gameHandlerScript>().upgrades[gameHandler.GetComponent<gameHandlerScript>().activePlayer - 1, this.order] = true;
+            if (order == 13)
+            {
+                gameHandler.GetComponent<gameHandlerScript>().baseHitPoints[gameHandler.GetComponent<gameHandlerScript>().activePlayer - 1] += 200;
+            }
         }
     }
 

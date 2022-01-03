@@ -75,6 +75,58 @@ MonoBehaviour:
     m_Key: Create new
     m_Metadata:
       m_Items: []
+  - m_Id: 25778875459690496
+    m_Key: 'Stats '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25793771085750272
+    m_Key: Stats_played
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25794016993599488
+    m_Key: Stats_won
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25794294790742016
+    m_Key: Stats_lost
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26816226839486464
+    m_Key: Set_MasterVolume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26816516036747264
+    m_Key: Set_Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26816597574017024
+    m_Key: Set_AccountSettings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26816732836126720
+    m_Key: Set_DeleteAccount
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26817002278215680
+    m_Key: Set_ChangePassword
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26817463681015808
+    m_Key: Set_MusicVolume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26827600604946432
+    m_Key: Reg_PopupSuccess
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26827786219675648
+    m_Key: Reg_PopupFail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26915416194146304
+    m_Key: Reg_InvalidData
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

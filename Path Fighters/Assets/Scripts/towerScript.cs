@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,9 @@ public class towerScript : MonoBehaviour
     public int damage;
 
     public GameObject projectile;
+
+    [SerializeField] private Animator animator;
+    [SerializeField] private AudioSource attackS;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +49,11 @@ public class towerScript : MonoBehaviour
 
         actualAttackDelay = attackDelay;
 
+        if (belongsToPlayer == 2)
+        {
+            this.transform.localScale = new Vector3(-1f, 1f, 0f);
+        }
+
     }
 
     // Update is called once per frame
@@ -58,6 +67,15 @@ public class towerScript : MonoBehaviour
 
         if (this.actualAttackDelay <= 0f)
         {
+            try
+            {
+                attackS.Play();
+            }
+            catch (Exception e)
+            {
+            }
+
+
             RaycastHit2D[] inReach = Physics2D.RaycastAll(new Vector2(-6f * this.attckDirection, attackHight), new Vector2((1f * attckDirection), 0f), reach, (LayerMask.GetMask("Unit")));
             for (int i = 0; i < inReach.Length; i++)
             {
@@ -69,6 +87,15 @@ public class towerScript : MonoBehaviour
                     var tempProjectile = Instantiate(projectile, new Vector3(this.belongsToPlayer == 1 ? -5.9f : 5.9f, this.transform.position.y, 0), Quaternion.identity);
                     tempProjectile.GetComponent<projectileScript>().setTarget(enemy);
                     tempProjectile.GetComponent<projectileScript>().setDamage(damage);
+
+                    try
+                    {
+                        animator.ResetTrigger("attack");
+                        animator.SetTrigger("attack");
+                    }
+                    catch (Exception e)
+                    {
+                    }
 
                     break;
                 }

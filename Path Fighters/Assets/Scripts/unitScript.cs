@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,6 +24,9 @@ public class unitScript : MonoBehaviour
 
     public float cost;
 
+    [SerializeField] private Animator animator;
+    [SerializeField] private AudioSource deathS, attackS;
+
     //State machine enumerator
     enum State
     {
@@ -36,6 +40,20 @@ public class unitScript : MonoBehaviour
     void EndDefenderFury()
     {
         this.damage -= 1;
+        //If right upgrades are developed this will boost the unit
+        GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
+        if (gameHandler.GetComponent<gameHandlerScript>().upgrades[this.belongsToPlayer - 1, 5])
+        {
+            if (this.reach < 1.1)
+            {
+                this.damage += 3;
+            }
+            else
+            {
+                this.damage += 1;
+            }
+            this.speed = this.speed * 1.2f;
+        }
     }
     private bool defender;
 
@@ -63,6 +81,7 @@ public class unitScript : MonoBehaviour
         else
         {
             moveDirection = 1;
+            this.transform.localScale = new Vector3(-1f, 1f, 0f);
         }
         actualAttackDelay = 0f;
 
@@ -70,7 +89,12 @@ public class unitScript : MonoBehaviour
 
         //Here will be some bonuses due to upgrades
         GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
-        if (gameHandler.GetComponent<gameHandlerScript>().upgrades[this.belongsToPlayer - 1, 1]) hitPoints += 20;
+        if (gameHandler.GetComponent<gameHandlerScript>().upgrades[this.belongsToPlayer - 1, 3] && this.speed == 0.5f)
+        {
+            this.speed += 0.1f;
+            this.reach = this.reach * 1.4f;
+            this.cost -= 5;
+        }
     }
 
 
@@ -127,6 +151,7 @@ public class unitScript : MonoBehaviour
             // Actual attack
             if (this.actualAttackDelay <= 0f)
             {
+                attackS.Play();
                 RaycastHit2D[] inReach = Physics2D.RaycastAll(new Vector2(this.transform.position.x - ((GetComponent<CircleCollider2D>().radius + rayOffset) * moveDirection), this.transform.position.y), new Vector2((-1f * moveDirection), 0f), reach, (LayerMask.GetMask("Unit") | LayerMask.GetMask("Gate")));
                 for (int i = 0; i < inReach.Length; i++)
                 {
@@ -177,10 +202,30 @@ public class unitScript : MonoBehaviour
         //Soldier dies and is destroyed. TODO: Combat; TODO: Animation?; TODO: Blood?
         if (this.hitPoints <= 0 && this.state != State.Dying)
         {
+            deathS.Play();
+
             this.state = State.Dying;
             var gameHandler = GameObject.Find("gameHandler");
-            if (this.belongsToPlayer != gameHandler.GetComponent<gameHandlerScript>().activePlayer) gameHandler.GetComponent<gameHandlerScript>().gold += cost * 0.3f;
-            Destroy(gameObject, 0.1f);
+            if (this.belongsToPlayer != gameHandler.GetComponent<gameHandlerScript>().activePlayer) {
+                if (gameHandler.GetComponent<gameHandlerScript>().upgrades[gameHandler.GetComponent<gameHandlerScript>().activePlayer - 1, 11]) { gameHandler.GetComponent<gameHandlerScript>().gold += cost * 0.5f; }
+                else { gameHandler.GetComponent<gameHandlerScript>().gold += cost * 0.3f; }
+            }
+            Destroy(gameObject, 0.5f);
+        }
+
+        try
+        {
+            if (this.state == State.Fighting)
+            {
+                animator.SetBool("fighting", true);
+            }
+            else
+            {
+                animator.SetBool("fighting", false);
+            }
+        }
+        catch (Exception e)
+        {
         }
     }
 }

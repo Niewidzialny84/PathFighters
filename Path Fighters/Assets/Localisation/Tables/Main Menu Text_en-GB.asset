@@ -78,5 +78,57 @@ MonoBehaviour:
     m_Localized: Create new game
     m_Metadata:
       m_Items: []
+  - m_Id: 25778875459690496
+    m_Localized: Stats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25793771085750272
+    m_Localized: 'Battles played: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25794016993599488
+    m_Localized: 'Battles won: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25794294790742016
+    m_Localized: 'Battles lost:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26816226839486464
+    m_Localized: Master volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26816516036747264
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26816597574017024
+    m_Localized: Account settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26816732836126720
+    m_Localized: Delete account
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26817002278215680
+    m_Localized: Change password
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26817463681015808
+    m_Localized: Music volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26827600604946432
+    m_Localized: Account has been created!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26827786219675648
+    m_Localized: An error occurred
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26915416194146304
+    m_Localized: Invalid data provided
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

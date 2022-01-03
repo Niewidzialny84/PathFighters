@@ -91,7 +91,8 @@ public class gameHandlerScript : MonoBehaviour
 
             if (gold < 1000000000000f)
             {
-                gold += (5f * Time.deltaTime);
+                if (upgrades[activePlayer - 1, 7]) { gold += (7f * Time.deltaTime); }
+                else { gold += (5f * Time.deltaTime); }  
             }
         }
 
@@ -110,12 +111,5 @@ public class gameHandlerScript : MonoBehaviour
                 aP = true;
             }
         }
-    }
-
-    void OnDrawGizmos()
-    {
-        UnityEditor.Handles.color = Color.white;
-        UnityEditor.Handles.Label( this.transform.position, gold.ToString("F0"));
-        UnityEditor.Handles.Label(new Vector3(this.transform.position.x, this.transform.position.y + 0.3f ,0f), this.baseHitPoints[this.activePlayer - 1].ToString());
     }
 }

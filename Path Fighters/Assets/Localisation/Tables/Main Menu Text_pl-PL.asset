@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 19549380608
-    m_Localized: "Rozpocznij Rozgrywk\u0119"
+    m_Localized: "Rozpocznij Gr\u0119"
     m_Metadata:
       m_Items: []
   - m_Id: 368309952512
@@ -67,15 +67,67 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1844177016709120
-    m_Localized: Szybka rozgrywka
+    m_Localized: Szybka gra
     m_Metadata:
       m_Items: []
   - m_Id: 1844258113576960
-    m_Localized: "Do\u0142\u0105cz do rozgrywki"
+    m_Localized: "Do\u0142\u0105cz do gry"
     m_Metadata:
       m_Items: []
   - m_Id: 1844426691043328
-    m_Localized: "Utw\xF3rz now\u0105 rozgrywk\u0119"
+    m_Localized: "Utw\xF3rz now\u0105 gr\u0119"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25778875459690496
+    m_Localized: Statystyki
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25793771085750272
+    m_Localized: 'Rozegrane bitwy: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25794016993599488
+    m_Localized: 'Wygrane bitwy: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25794294790742016
+    m_Localized: "Pora\u017Cki: "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26816226839486464
+    m_Localized: "G\u0142o\u015Bno\u015B\u0107 og\xF3lna"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26816516036747264
+    m_Localized: "J\u0119zyk"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26816597574017024
+    m_Localized: Ustawienia konta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26816732836126720
+    m_Localized: "Usu\u0144 konto"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26817002278215680
+    m_Localized: "Zmie\u0144 has\u0142o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26817463681015808
+    m_Localized: "G\u0142o\u015Bno\u015B\u0107 muzyki"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26827600604946432
+    m_Localized: "Konto zosta\u0142o utworzone!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26827786219675648
+    m_Localized: "Wyst\u0105pi\u0142 b\u0142\u0105d"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26915416194146304
+    m_Localized: Wprowadzono niepoprawne dane
     m_Metadata:
       m_Items: []
   references:

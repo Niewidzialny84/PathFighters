@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class BackgroundScroll : MonoBehaviour
 {
-    public float speed = 4f;
-    private Vector3 StartPosition;
+    public float speed = 5f;
+    private Vector2 StartPosition;
+    private float modifier = 1f;
 
     void Start()
     {
@@ -15,10 +16,12 @@ public class BackgroundScroll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.left * speed * Time.deltaTime);
-        if(transform.position.x< -34.80194f)
+        float newPos = Mathf.Repeat(Time.time * speed, 220);
+        transform.position = StartPosition + Vector2.left * (newPos*modifier);
+        if((StartPosition + Vector2.left * (newPos * modifier)).Equals(StartPosition+(new Vector2(220,0))))
         {
-            transform.position = StartPosition;
+            modifier = modifier * (-1f);
         }
+        
     }
 }

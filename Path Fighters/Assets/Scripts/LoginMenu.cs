@@ -30,4 +30,12 @@ public class LoginMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Login Window");
     }
+    public void Stats()
+    {
+        SceneManager.LoadScene("Stats Scene");
+    }
+    public void Settings()
+    {
+        SceneManager.LoadScene("Settings Scene");
+    }
 }

@@ -7,6 +7,8 @@ public class towerFieldScript : MonoBehaviour
     private GameObject localTower;
     public int belongsToPlayer;
 
+    [SerializeField] private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +18,15 @@ public class towerFieldScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
+        if (gameHandler.GetComponent<gameHandlerScript>().activePlayer == this.belongsToPlayer)
+        {
+            animator.SetBool("active", true);
+        }
+        else
+        {
+            animator.SetBool("active", false);
+        }
     }
 
     // This will activate if the mouse cursor is currently above
@@ -47,7 +57,8 @@ public class towerFieldScript : MonoBehaviour
             //Destroy tower
             else if (tower == null && localTower != null)
             {
-                gameHandler.GetComponent<gameHandlerScript>().gold += (localTower.GetComponent<towerScript>().cost * 0.2f);
+                if(gameHandler.GetComponent<gameHandlerScript>().upgrades[this.belongsToPlayer - 1, 9]) { gameHandler.GetComponent<gameHandlerScript>().gold += (localTower.GetComponent<towerScript>().cost * 0.35f); }
+                else { gameHandler.GetComponent<gameHandlerScript>().gold += (localTower.GetComponent<towerScript>().cost * 0.2f); }
                 Destroy(localTower);
                 localTower = null;
             }
