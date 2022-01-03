@@ -18,6 +18,7 @@ public class towerScript : MonoBehaviour
     public GameObject projectile;
 
     [SerializeField] private Animator animator;
+    [SerializeField] private AudioSource attackS;
 
     // Start is called before the first frame update
     void Start()
@@ -66,6 +67,15 @@ public class towerScript : MonoBehaviour
 
         if (this.actualAttackDelay <= 0f)
         {
+            try
+            {
+                attackS.Play();
+            }
+            catch (Exception e)
+            {
+            }
+
+
             RaycastHit2D[] inReach = Physics2D.RaycastAll(new Vector2(-6f * this.attckDirection, attackHight), new Vector2((1f * attckDirection), 0f), reach, (LayerMask.GetMask("Unit")));
             for (int i = 0; i < inReach.Length; i++)
             {

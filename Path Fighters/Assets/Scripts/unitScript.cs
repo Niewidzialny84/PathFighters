@@ -25,6 +25,7 @@ public class unitScript : MonoBehaviour
     public float cost;
 
     [SerializeField] private Animator animator;
+    [SerializeField] private AudioSource deathS, attackS;
 
     //State machine enumerator
     enum State
@@ -150,6 +151,7 @@ public class unitScript : MonoBehaviour
             // Actual attack
             if (this.actualAttackDelay <= 0f)
             {
+                attackS.Play();
                 RaycastHit2D[] inReach = Physics2D.RaycastAll(new Vector2(this.transform.position.x - ((GetComponent<CircleCollider2D>().radius + rayOffset) * moveDirection), this.transform.position.y), new Vector2((-1f * moveDirection), 0f), reach, (LayerMask.GetMask("Unit") | LayerMask.GetMask("Gate")));
                 for (int i = 0; i < inReach.Length; i++)
                 {
@@ -200,13 +202,15 @@ public class unitScript : MonoBehaviour
         //Soldier dies and is destroyed. TODO: Combat; TODO: Animation?; TODO: Blood?
         if (this.hitPoints <= 0 && this.state != State.Dying)
         {
+            deathS.Play();
+
             this.state = State.Dying;
             var gameHandler = GameObject.Find("gameHandler");
             if (this.belongsToPlayer != gameHandler.GetComponent<gameHandlerScript>().activePlayer) {
                 if (gameHandler.GetComponent<gameHandlerScript>().upgrades[gameHandler.GetComponent<gameHandlerScript>().activePlayer - 1, 11]) { gameHandler.GetComponent<gameHandlerScript>().gold += cost * 0.5f; }
                 else { gameHandler.GetComponent<gameHandlerScript>().gold += cost * 0.3f; }
             }
-            Destroy(gameObject, 0.25f);
+            Destroy(gameObject, 0.5f);
         }
 
         try
