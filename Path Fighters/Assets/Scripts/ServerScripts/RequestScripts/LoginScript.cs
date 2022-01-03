@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
 using Mirror;
+using UnityEngine.Localization;
 
 public class LoginScript : MonoBehaviour
 {
@@ -44,7 +45,11 @@ public class LoginScript : MonoBehaviour
     public void FailureHandler(string msg)
     {
         Debug.Log(msg);
-        //TODO: Add fail message
+        InfoPopup popup = UIController.Instance.CreatePopup();
+        LocalizedString message = new LocalizedString();
+        message.TableReference = "Main Menu Text";
+        message.TableEntryReference = "Reg_InvalidData";
+        popup.Init(UIController.Instance.MainCanvas, message.GetLocalizedString());
     }
 
     #region request

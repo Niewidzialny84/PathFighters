@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 141752225}
   - component: {fileID: 141752224}
   - component: {fileID: 141752226}
-  - component: {fileID: 141752227}
   m_Layer: 5
   m_Name: GamesLost
   m_TagString: Untagged
@@ -298,18 +297,6 @@ MonoBehaviour:
         m_CallState: 2
   references:
     version: 1
---- !u!114 &141752227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 141752222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3afdbf456cc515a4abe2b8239ad1b431, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &220032706
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,9 +329,6 @@ MonoBehaviour:
   total: {fileID: 1823477693}
   win: {fileID: 306913067}
   lose: {fileID: 1474482640}
-  OnStatsSuccess:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &220032708
 Transform:
   m_ObjectHideFlags: 0
@@ -567,7 +551,6 @@ GameObject:
   - component: {fileID: 303200552}
   - component: {fileID: 303200551}
   - component: {fileID: 303200553}
-  - component: {fileID: 303200554}
   m_Layer: 5
   m_Name: TotalGames
   m_TagString: Untagged
@@ -737,18 +720,6 @@ MonoBehaviour:
       type: {class: StringVariable, ns: UnityEngine.Localization.SmartFormat.PersistentVariables, asm: Unity.Localization}
       data:
         m_Value: 12
---- !u!114 &303200554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 303200549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3afdbf456cc515a4abe2b8239ad1b431, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &306913063
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,7 +732,6 @@ GameObject:
   - component: {fileID: 306913068}
   - component: {fileID: 306913067}
   - component: {fileID: 306913066}
-  - component: {fileID: 306913065}
   m_Layer: 5
   m_Name: WonVal
   m_TagString: Untagged
@@ -788,18 +758,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -30}
   m_SizeDelta: {x: 360, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &306913065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 306913063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3afdbf456cc515a4abe2b8239ad1b431, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &306913066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1348,7 +1306,6 @@ GameObject:
   - component: {fileID: 938847546}
   - component: {fileID: 938847545}
   - component: {fileID: 938847547}
-  - component: {fileID: 938847548}
   m_Layer: 5
   m_Name: GamesWon
   m_TagString: Untagged
@@ -1511,18 +1468,6 @@ MonoBehaviour:
         m_CallState: 2
   references:
     version: 1
---- !u!114 &938847548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 938847543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3afdbf456cc515a4abe2b8239ad1b431, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1050361801
 GameObject:
   m_ObjectHideFlags: 0
@@ -1801,7 +1746,6 @@ GameObject:
   - component: {fileID: 1823477694}
   - component: {fileID: 1823477693}
   - component: {fileID: 1823477692}
-  - component: {fileID: 1823477691}
   m_Layer: 5
   m_Name: TotalVal
   m_TagString: Untagged
@@ -1828,18 +1772,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 30}
   m_SizeDelta: {x: 360, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1823477691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1823477689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3afdbf456cc515a4abe2b8239ad1b431, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1823477692
 MonoBehaviour:
   m_ObjectHideFlags: 0

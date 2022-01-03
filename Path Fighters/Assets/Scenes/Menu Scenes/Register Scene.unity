@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 19460759}
   - component: {fileID: 19460758}
   - component: {fileID: 19460757}
-  - component: {fileID: 19460760}
   m_Layer: 5
   m_Name: RegisterButton
   m_TagString: Untagged
@@ -257,23 +256,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 19460755}
   m_CullTransparentMesh: 1
---- !u!114 &19460760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 19460755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d86125475b5b06642bd4f22f00017c0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _login: {fileID: 189025889}
-  _email: {fileID: 1117858990}
-  _confirm_email: {fileID: 1798098784}
-  _password: {fileID: 1175177433}
-  _confirm_password: {fileID: 1114274512}
 --- !u!1 &22510824
 GameObject:
   m_ObjectHideFlags: 0
@@ -2792,7 +2774,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1421627573
 MonoBehaviour:

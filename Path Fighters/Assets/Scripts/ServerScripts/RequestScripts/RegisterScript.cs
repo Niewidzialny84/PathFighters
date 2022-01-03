@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Localization;
+using System.Text.RegularExpressions;
 
 public class RegisterScript : MonoBehaviour
 {
@@ -24,15 +26,18 @@ public class RegisterScript : MonoBehaviour
         string password = passwordInputField.text;
         string passwordConfirm = passwordInputConfirmField.text;
 
+        var regex = @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z";
+        bool isValid = Regex.IsMatch(email, regex);
+
         if (username == "" || email == "" || emailConfirm == "" || password == "" || passwordConfirm == "")
         {
             OnRegisterFailure.Invoke("Please fill in all fields.");
             return;
         }
 
-        if (email != emailConfirm)
+        if (email != emailConfirm || !isValid)
         {
-            OnRegisterFailure.Invoke("Emails do not match.");
+            OnRegisterFailure.Invoke("Email is not valid.");
             return;
         }
 
@@ -54,13 +59,28 @@ public class RegisterScript : MonoBehaviour
     public void SuccessHandler(string msg)
     {
         Debug.Log(msg);
-        //TODO: Add success message
+        InfoPopup popup = UIController.Instance.CreatePopup();
+        LocalizedString message = new LocalizedString();
+        message.TableReference = "Main Menu Text";
+        message.TableEntryReference = "Reg_PopupSuccess";
+        popup.Init(UIController.Instance.MainCanvas, message.GetLocalizedString());
     }
 
     public void FailureHandler(string msg)
     {
         Debug.Log(msg);
-        //TODO: Add fail message
+
+        InfoPopup popup = UIController.Instance.CreatePopup();
+        LocalizedString message = new LocalizedString();
+        message.TableReference = "Main Menu Text";
+        if(msg == "F")
+        {
+            message.TableEntryReference = "Reg_PopupFail";
+        } else 
+        {
+            message.TableEntryReference = "Reg_InvalidData";
+        }
+         popup.Init(UIController.Instance.MainCanvas, message.GetLocalizedString());
     }
 
     #region request
@@ -96,7 +116,7 @@ public class RegisterScript : MonoBehaviour
         else
         {
             // Call the error callback
-            OnRegisterFailure.Invoke("Failure");
+            OnRegisterFailure.Invoke("F");
 
             Debug.Log(www.error);
         }
