@@ -34,7 +34,6 @@ public class LoginMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Stats Scene");
     }
-
     public void Settings()
     {
         SceneManager.LoadScene("Settings Scene");

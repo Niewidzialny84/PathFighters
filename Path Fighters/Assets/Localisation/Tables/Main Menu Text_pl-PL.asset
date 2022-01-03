@@ -94,5 +94,41 @@ MonoBehaviour:
     m_Localized: "Pora\u017Cki: "
     m_Metadata:
       m_Items: []
+  - m_Id: 26816226839486464
+    m_Localized: "G\u0142o\u015Bno\u015B\u0107 og\xF3lna"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26816516036747264
+    m_Localized: "J\u0119zyk"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26816597574017024
+    m_Localized: Ustawienia konta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26816732836126720
+    m_Localized: "Usu\u0144 konto"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26817002278215680
+    m_Localized: "Zmie\u0144 has\u0142o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26817463681015808
+    m_Localized: "G\u0142o\u015Bno\u015B\u0107 muzyki"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26827600604946432
+    m_Localized: "Konto zosta\u0142o utworzone!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26827786219675648
+    m_Localized: "Wyst\u0105pi\u0142 b\u0142\u0105d"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26915416194146304
+    m_Localized: Wprowadzono niepoprawne dane
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
