@@ -106,7 +106,7 @@ MonoBehaviour:
   projectile: {fileID: 0}
   armor: 5
   damage: 3
-  hitPoints: 30
+  hitPoints: 20
   cost: 0
   animator: {fileID: 849298435398660801}
 --- !u!58 &5073676788008564916

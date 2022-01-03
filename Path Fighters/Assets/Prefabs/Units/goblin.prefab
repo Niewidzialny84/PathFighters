@@ -105,8 +105,8 @@ MonoBehaviour:
   attackDelay: 0.5
   projectile: {fileID: 0}
   armor: 0
-  damage: 17
-  hitPoints: 50
+  damage: 15
+  hitPoints: 45
   cost: 25
   animator: {fileID: 7883773570109828028}
 --- !u!58 &3250758427116257795
