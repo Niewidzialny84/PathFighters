@@ -39,11 +39,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1067747893248
-    m_Localized: Log in
+    m_Localized: Register
     m_Metadata:
       m_Items: []
   - m_Id: 1199084134400
-    m_Localized: Log in to the game server
+    m_Localized: Log in to game server
     m_Metadata:
       m_Items: []
   - m_Id: 1416378441728
@@ -128,6 +128,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 26915416194146304
     m_Localized: Invalid data provided
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27943051950424064
+    m_Localized: Log in
     m_Metadata:
       m_Items: []
   references:

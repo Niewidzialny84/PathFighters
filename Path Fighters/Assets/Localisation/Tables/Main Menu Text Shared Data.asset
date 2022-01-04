@@ -127,6 +127,10 @@ MonoBehaviour:
     m_Key: Reg_InvalidData
     m_Metadata:
       m_Items: []
+  - m_Id: 27943051950424064
+    m_Key: Login
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
