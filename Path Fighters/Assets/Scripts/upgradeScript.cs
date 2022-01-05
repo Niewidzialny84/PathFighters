@@ -23,12 +23,16 @@ public class upgradeScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameObject canvas = GameObject.FindGameObjectWithTag("canvas");
+
         if (this.active && researche <= researcheGoal)
         {
             researche += Time.deltaTime;
+            canvas.GetComponent<updateGameParameters>()._Research.text = (researcheGoal - researche).ToString("F0");
         }
         else if (this.active)
         {
+            canvas.GetComponent<updateGameParameters>()._Research.text = "-";
             researchS.Play();
 
             this.active = false;

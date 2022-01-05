@@ -8,6 +8,7 @@ TagManager:
   - path
   - unit
   - upgrade
+  - canvas
   layers:
   - Default
   - TransparentFX

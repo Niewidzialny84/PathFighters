@@ -25,15 +25,15 @@ public class towerScript : MonoBehaviour
     {
         if(this.transform.position.y <= 0.5)
         {
-            attackHight = 0f;
+            attackHight = -0.5f;
         }
         else if(this.transform.position.y >= 3.5)
         {
-            attackHight = 4f;
+            attackHight = 3.5f;
         }
         else
         {
-            attackHight = 2f;
+            attackHight = 1.5f;
         }
 
         if (this.transform.position.x > 0)
