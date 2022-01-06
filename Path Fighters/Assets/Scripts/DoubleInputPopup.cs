@@ -1,0 +1,41 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Localization;
+using TMPro;
+using System;
+public class DoubleInputPopup : MonoBehaviour
+{
+    [SerializeField] Button _leftButton;
+    [SerializeField] Button _rightButton;
+    [SerializeField] Text _popupName;
+    [SerializeField] Text _leftButtonName;
+    [SerializeField] Text _rightButtonName;
+    [SerializeField] TMP_InputField _firstInput;
+    [SerializeField] TMP_InputField _secondInput;
+
+    // Start is called before the first frame update
+    public void Init(Transform canvas, string title, string leftButton, string rightButton, string firstPlaceholder, string secondPlaceholder, Action action)
+    {
+        _popupName.text = title;
+        _leftButtonName.text = leftButton;
+        _rightButtonName.text = rightButton;
+        _firstInput.placeholder.GetComponent<Text>().text = firstPlaceholder;
+        _secondInput.placeholder.GetComponent<Text>().text = secondPlaceholder;
+        transform.SetParent(canvas);
+        transform.localScale = Vector3.one;
+        GetComponent<RectTransform>().offsetMin = Vector2.zero;
+        GetComponent<RectTransform>().offsetMax = Vector2.zero;
+        _leftButton.onClick.AddListener(() => {
+            GameObject.Destroy(this.gameObject);
+        });
+        _rightButton.onClick.AddListener(() => {
+            action();
+            GameObject.Destroy(this.gameObject);
+        });
+    }
+
+}
+
+

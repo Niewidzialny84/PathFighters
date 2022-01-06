@@ -21,4 +21,9 @@ public class UIController : MonoBehaviour
         GameObject popup = Instantiate(Resources.Load("InfoPopup") as GameObject);
         return popup.GetComponent<InfoPopup>();
     }
+    public DoubleInputPopup CreateDoubleInputPopup()
+    {
+        GameObject popup = Instantiate(Resources.Load("DoubleInputPopup") as GameObject);
+        return popup.GetComponent<DoubleInputPopup>();
+    }
 }

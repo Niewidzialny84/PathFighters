@@ -134,5 +134,25 @@ MonoBehaviour:
     m_Localized: "Zaloguj si\u0119"
     m_Metadata:
       m_Items: []
+  - m_Id: 27978724384309248
+    m_Localized: "Zmie\u0144 has\u0142o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27978946841804800
+    m_Localized: Anuluj
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27979025292066816
+    m_Localized: "Potwierd\u017A"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27979107164880896
+    m_Localized: "Stare has\u0142o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27979228636119040
+    m_Localized: "Nowe has\u0142o"
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

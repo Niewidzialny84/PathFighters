@@ -134,5 +134,25 @@ MonoBehaviour:
     m_Localized: Log in
     m_Metadata:
       m_Items: []
+  - m_Id: 27978724384309248
+    m_Localized: Change password
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27978946841804800
+    m_Localized: Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27979025292066816
+    m_Localized: Confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27979107164880896
+    m_Localized: Old password
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27979228636119040
+    m_Localized: New Password
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

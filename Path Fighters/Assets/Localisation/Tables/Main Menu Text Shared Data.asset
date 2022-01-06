@@ -131,6 +131,26 @@ MonoBehaviour:
     m_Key: Login
     m_Metadata:
       m_Items: []
+  - m_Id: 27978724384309248
+    m_Key: DP_ChangePassword
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27978946841804800
+    m_Key: DP_Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27979025292066816
+    m_Key: DP_Confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27979107164880896
+    m_Key: DP_OldPass
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27979228636119040
+    m_Key: DP_NewPass
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
