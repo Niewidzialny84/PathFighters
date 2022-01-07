@@ -26,5 +26,133 @@ MonoBehaviour:
     m_Localized: Research
     m_Metadata:
       m_Items: []
+  - m_Id: 3179620278075392
+    m_Localized: Goblin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3179715807543296
+    m_Localized: Crossbowman
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3179885760741376
+    m_Localized: Knight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3180009744367616
+    m_Localized: Elf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3180113595334656
+    m_Localized: Orc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3180194092417024
+    m_Localized: Dwarf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3180265060040704
+    m_Localized: Wizard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276768910901248
+    m_Localized: Delete tower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276794642956288
+    m_Localized: Archers tower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276823197777920
+    m_Localized: Investors tower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276852457242624
+    m_Localized: Balista tower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276874670276608
+    m_Localized: Catapult tower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276905204809728
+    m_Localized: Necromancers tower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276940067864576
+    m_Localized: Warlocks tower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280294609289216
+    m_Localized: Unlock knights
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280345402310656
+    m_Localized: Unlock orcs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280368319987712
+    m_Localized: Unlock dwarves
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280393888464896
+    m_Localized: Unlock elves
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280414159536128
+    m_Localized: Unlock wizard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280486733578240
+    m_Localized: Increase warriors spirit while on hostile territory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280935926759424
+    m_Localized: Goblins upgrade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3281169574658048
+    m_Localized: Unlock Balista tower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3281219734339584
+    m_Localized: Unlock Catapult tower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3281272276385792
+    m_Localized: Unlock Necromants tower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3281972062453760
+    m_Localized: Unlock Warlocks tower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3282096876552192
+    m_Localized: Increase Income
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3282130531647488
+    m_Localized: Increase looting income
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3283836304752640
+    m_Localized: Rebuild your walls!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3295387279556608
+    m_Localized: Switch to Polish Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3295410591498240
+    m_Localized: Surrender
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3295913341747200
+    m_Localized: Master volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3296187481456640
+    m_Localized: Music volume
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

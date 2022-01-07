@@ -37,7 +37,7 @@ public class changePassword : MonoBehaviour
     }
     void ChangePassword()
     {
-        Debug.Log("Pressed Button")
+        Debug.Log("Pressed Button");
     }
     // Update is called once per frame
     void Update()

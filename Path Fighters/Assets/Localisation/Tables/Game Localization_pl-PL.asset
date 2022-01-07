@@ -26,5 +26,133 @@ MonoBehaviour:
     m_Localized: Badania
     m_Metadata:
       m_Items: []
+  - m_Id: 3179620278075392
+    m_Localized: Goblin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3179715807543296
+    m_Localized: Kusznik
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3179885760741376
+    m_Localized: Rycerz
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3180009744367616
+    m_Localized: Elf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3180113595334656
+    m_Localized: Ork
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3180194092417024
+    m_Localized: Krasnolud
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3180265060040704
+    m_Localized: Czarodziej
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276768910901248
+    m_Localized: "Usu\u0144 wie\u017C\u0119"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276794642956288
+    m_Localized: "Wie\u017Ca \u0142ucznik\xF3w"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276823197777920
+    m_Localized: "Wie\u017Ca inwestora"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276852457242624
+    m_Localized: "Wie\u017Ca z balist\u0105"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276874670276608
+    m_Localized: "Wie\u017Ca z katapult\u0105"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276905204809728
+    m_Localized: "Wie\u017Ca nekromanty"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276940067864576
+    m_Localized: "Wie\u017Ca druida"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280294609289216
+    m_Localized: Odblokowanie rycerzy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280345402310656
+    m_Localized: "Odblokowanie ork\xF3w"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280368319987712
+    m_Localized: "Odblokowanie krasnolud\xF3w"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280393888464896
+    m_Localized: "Odblokowanie elf\xF3w"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280414159536128
+    m_Localized: "Odblokuj pote\u017Cnego maga"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280486733578240
+    m_Localized: Podniesienie woli walki na terytorium przeciwnika
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280935926759424
+    m_Localized: "Ulepszenie Goblin\xF3w"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3281169574658048
+    m_Localized: "Odblokowanie wie\u017Cy z balist\u0105"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3281219734339584
+    m_Localized: "Odblokowanie wie\u017Cy z katapult\u0105"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3281272276385792
+    m_Localized: "Odblokowanie wie\u017Cy nekromant\xF3w"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3281972062453760
+    m_Localized: "Odblokowanie wie\u017Cy druid\xF3w"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3282096876552192
+    m_Localized: "Zwi\u0119ksz dochody"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3283836304752640
+    m_Localized: Napraw bramy!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3282130531647488
+    m_Localized: "Zwi\u0119ksz doch\xF3d z \u0142up\xF3w"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3295387279556608
+    m_Localized: "Zamie\u0144 na j\u0119zyk angielski"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3295410591498240
+    m_Localized: "Poddaj si\u0119"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3295913341747200
+    m_Localized: "G\u0142o\u015Bno\u015B\u0107 ca\u0142kowita"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3296187481456640
+    m_Localized: "G\u0142o\u015Bno\u015B\u0107 muzyki"
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
