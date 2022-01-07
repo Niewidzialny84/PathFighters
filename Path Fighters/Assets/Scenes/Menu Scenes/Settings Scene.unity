@@ -506,6 +506,7 @@ GameObject:
   - component: {fileID: 248634975}
   - component: {fileID: 248634974}
   - component: {fileID: 248634977}
+  - component: {fileID: 248634978}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -606,6 +607,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 076da3b5ccb9c3a4bb9f85dcb3ff0b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &248634978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248634972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb7bf441ef1d6d458907df79a324a9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gbSprite: {fileID: 0}
+  _plSprite: {fileID: 0}
+  _button: {fileID: 0}
+  _dropdown: {fileID: 1945406979}
 --- !u!1 &274221166
 GameObject:
   m_ObjectHideFlags: 0
@@ -3171,7 +3188,19 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 248634978}
+        m_TargetAssemblyTypeName: changeLanguage, Assembly-CSharp
+        m_MethodName: ChangeDropdownLanguage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &1945406980
 MonoBehaviour:
