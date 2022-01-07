@@ -154,5 +154,21 @@ MonoBehaviour:
     m_Localized: New Password
     m_Metadata:
       m_Items: []
+  - m_Id: 29015144133689344
+    m_Localized: Enter password
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29015237981241344
+    m_Localized: Delete account
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29027122789089280
+    m_Localized: will face
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29027610666336256
+    m_Localized: Fight!
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

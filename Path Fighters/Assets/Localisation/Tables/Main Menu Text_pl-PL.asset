@@ -154,5 +154,21 @@ MonoBehaviour:
     m_Localized: "Nowe has\u0142o"
     m_Metadata:
       m_Items: []
+  - m_Id: 29015144133689344
+    m_Localized: "Podaj has\u0142o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29015237981241344
+    m_Localized: "Usu\u0144 konto"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29027122789089280
+    m_Localized: "zmierzy si\u0119 z"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29027610666336256
+    m_Localized: Do boju!
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

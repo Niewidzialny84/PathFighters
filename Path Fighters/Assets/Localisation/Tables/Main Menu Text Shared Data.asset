@@ -151,6 +151,22 @@ MonoBehaviour:
     m_Key: DP_NewPass
     m_Metadata:
       m_Items: []
+  - m_Id: 29015144133689344
+    m_Key: SP_Password
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29015237981241344
+    m_Key: SP_DeleteAccount
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29027122789089280
+    m_Key: lb_vs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29027610666336256
+    m_Key: lb_start
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

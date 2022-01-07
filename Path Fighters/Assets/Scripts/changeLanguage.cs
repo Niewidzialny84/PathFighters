@@ -38,17 +38,11 @@ public class changeLanguage : MonoBehaviour
                
                 if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[polish])
                 {
-                    Debug.Log(_dropdown.value);
                     _dropdown.value = 1;
-                    Debug.Log(_dropdown.value);
-                    Debug.Log("Wrong");
                 }
                 else if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[english])
                 {
-                    Debug.Log(_dropdown.value);
                     _dropdown.value = 0;
-                    Debug.Log(_dropdown.value);
-                    Debug.Log("English");
                 }
             }
             catch (ArgumentOutOfRangeException e)
