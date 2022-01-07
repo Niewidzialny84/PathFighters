@@ -14,26 +14,34 @@ public class changePassword : MonoBehaviour
         {
             ChangePassword();
         };
-        DoubleInputPopup doubleInput = UIController.Instance.CreateDoubleInputPopup();
-        LocalizedString title, leftButton, rightButton, oldPassword, newPassword;
-        title=leftButton=rightButton=oldPassword=newPassword = new LocalizedString();
+        Button button = GetComponent<Button>();
+        button.onClick.AddListener(() =>
+        {
+            DoubleInputPopup doubleInput = UIController.Instance.CreateDoubleInputPopup();
+            LocalizedString title, leftButton, rightButton, oldPassword, newPassword;
+            title = new LocalizedString();
+            leftButton = new LocalizedString();
+            rightButton = new LocalizedString();
+            oldPassword = new LocalizedString();
+            newPassword = new LocalizedString();
 
-        title.TableReference = "Main Menu Text";
-        title.TableEntryReference = "DP_ChangePassword";
+            title.TableReference = "Main Menu Text";
+            title.TableEntryReference = "DP_ChangePassword";
 
-        leftButton.TableReference = "Main Menu Text";
-        leftButton.TableEntryReference = "DP_Cancel";
+            leftButton.TableReference = "Main Menu Text";
+            leftButton.TableEntryReference = "DP_Cancel";
 
-        rightButton.TableReference = "Main Menu Text";
-        rightButton.TableEntryReference = "DP_Confirm";
+            rightButton.TableReference = "Main Menu Text";
+            rightButton.TableEntryReference = "DP_Confirm";
 
-        oldPassword.TableReference = "Main Menu Text";
-        oldPassword.TableEntryReference = "DP_OldPass";
+            oldPassword.TableReference = "Main Menu Text";
+            oldPassword.TableEntryReference = "DP_OldPass";
 
-        newPassword.TableReference = "Main Menu Text";
-        newPassword.TableEntryReference = "DP_NewPass";
+            newPassword.TableReference = "Main Menu Text";
+            newPassword.TableEntryReference = "DP_NewPass";
 
-        doubleInput.Init(UIController.Instance.MainCanvas, title.GetLocalizedString(), leftButton.GetLocalizedString(), rightButton.GetLocalizedString(), oldPassword.GetLocalizedString(), newPassword.GetLocalizedString(), action) ;
+            doubleInput.Init(UIController.Instance.MainCanvas, title.GetLocalizedString(), leftButton.GetLocalizedString(), rightButton.GetLocalizedString(), oldPassword.GetLocalizedString(), newPassword.GetLocalizedString(), action);
+        });
     }
     void ChangePassword()
     {

@@ -12,8 +12,8 @@ public class DoubleInputPopup : MonoBehaviour
     [SerializeField] Text _popupName;
     [SerializeField] Text _leftButtonName;
     [SerializeField] Text _rightButtonName;
-    [SerializeField] TMP_InputField _firstInput;
-    [SerializeField] TMP_InputField _secondInput;
+    [SerializeField] TextMeshProUGUI _firstInput;
+    [SerializeField] TextMeshProUGUI _secondInput;
 
     // Start is called before the first frame update
     public void Init(Transform canvas, string title, string leftButton, string rightButton, string firstPlaceholder, string secondPlaceholder, Action action)
@@ -21,8 +21,9 @@ public class DoubleInputPopup : MonoBehaviour
         _popupName.text = title;
         _leftButtonName.text = leftButton;
         _rightButtonName.text = rightButton;
-        _firstInput.placeholder.GetComponent<Text>().text = firstPlaceholder;
-        _secondInput.placeholder.GetComponent<Text>().text = secondPlaceholder;
+
+        _firstInput.text = firstPlaceholder;
+        _secondInput.text = secondPlaceholder;
         transform.SetParent(canvas);
         transform.localScale = Vector3.one;
         GetComponent<RectTransform>().offsetMin = Vector2.zero;
