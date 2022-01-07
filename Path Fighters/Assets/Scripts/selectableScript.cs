@@ -29,6 +29,17 @@ public class selectableScript : MonoBehaviour
         }
     }
 
+    public void SetAnimator()
+    {
+        try
+        {
+            animator.SetTrigger("Unlock");
+        }
+        catch (Exception e)
+        {
+        }
+    }
+
     // This will activate if the mouse cursor is currently above
     void OnMouseOver()
     {

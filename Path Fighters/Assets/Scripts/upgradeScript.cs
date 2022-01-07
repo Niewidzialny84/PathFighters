@@ -32,6 +32,16 @@ public class upgradeScript : MonoBehaviour
         }
         else if (this.active)
         {
+            GameObject[] selectables = GameObject.FindGameObjectsWithTag("selectable");
+
+            foreach (GameObject s in selectables)
+            {
+                if (s.GetComponent<selectableScript>().reaserchLevel == order)
+                {
+                    s.GetComponent<selectableScript>().SetAnimator();
+                }
+            }
+
             canvas.GetComponent<updateGameParameters>()._Research.text = "-";
             researchS.Play();
 
