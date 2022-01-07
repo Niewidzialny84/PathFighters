@@ -82,11 +82,11 @@ public class researchOnHover : MonoBehaviour
         log.TableEntryReference = "Unlock_Catapult";
         _logField.text = log.GetLocalizedString();
     }
-    public void Unlock_Warlock()
+    public void Upgrade_Refunds()
     {
         LocalizedString log = new LocalizedString();
         log.TableReference = "Game Localization";
-        log.TableEntryReference = "Unlock_Warlock";
+        log.TableEntryReference = "Upgrade_Refunds";
         _logField.text = log.GetLocalizedString();
     }
     public void Unlock_Necromant()
@@ -146,8 +146,8 @@ public class researchOnHover : MonoBehaviour
             case Research.Unlock_Catapult:
                 Unlock_Catapult();
                 break;
-            case Research.Unlock_Warlock:
-                Unlock_Warlock();
+            case Research.Upgrade_Refunds:
+                Upgrade_Refunds();
                 break;
             case Research.Unlock_Necromant:
                 Unlock_Necromant();
@@ -180,7 +180,7 @@ public enum Research
     Upgrade_Goblins,
     Unlock_Balista,
     Unlock_Catapult,
-    Unlock_Warlock,
+    Upgrade_Refunds,
     Unlock_Necromant,
     Upgrade_Income,
     Unlock_Health

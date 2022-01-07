@@ -728,7 +728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff38eb16e1903c846a3f0bb2f79aaf75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 7
+  _type: 4
   _logField: {fileID: 1920962543}
 --- !u!1001 &189365125
 PrefabInstance:
@@ -1339,7 +1339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 32
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
@@ -1359,7 +1359,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1430,8 +1430,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95168ae131fd95a49bc9b240f14869a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 0
-  _logField: {fileID: 1920962543}
 --- !u!114 &495350708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1447,6 +1445,7 @@ MonoBehaviour:
   _gbSprite: {fileID: 21300000, guid: 9ff2b41601c27f64090539ea65a7103a, type: 3}
   _plSprite: {fileID: 21300000, guid: f7c2f2ed0ffe70a4aab962d662dc3fe1, type: 3}
   _button: {fileID: 1294447917}
+  _dropdown: {fileID: 0}
 --- !u!1001 &497573635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2364,7 +2363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff38eb16e1903c846a3f0bb2f79aaf75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 8
+  _type: 12
   _logField: {fileID: 1920962543}
 --- !u!1 &904938341
 GameObject:
@@ -5226,8 +5225,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.3
-  m_fontSizeBase: 0.3
+  m_fontSize: 0.25
+  m_fontSizeBase: 0.25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6131,7 +6130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff38eb16e1903c846a3f0bb2f79aaf75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 1
+  _type: 3
   _logField: {fileID: 1920962543}
 --- !u!1001 &1428075021464881047
 PrefabInstance:
@@ -6207,7 +6206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff38eb16e1903c846a3f0bb2f79aaf75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 3
+  _type: 7
   _logField: {fileID: 1920962543}
 --- !u!1 &1977595436488217108 stripped
 GameObject:
@@ -6226,7 +6225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff38eb16e1903c846a3f0bb2f79aaf75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 10
+  _type: 11
   _logField: {fileID: 1920962543}
 --- !u!1001 &2171545269352864391
 PrefabInstance:
@@ -6521,7 +6520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff38eb16e1903c846a3f0bb2f79aaf75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 12
+  _type: 6
   _logField: {fileID: 1920962543}
 --- !u!1001 &2955880442540917450
 PrefabInstance:
@@ -7122,7 +7121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff38eb16e1903c846a3f0bb2f79aaf75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 4
+  _type: 2
   _logField: {fileID: 1920962543}
 --- !u!1001 &5711432717077009341
 PrefabInstance:
@@ -7393,7 +7392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff38eb16e1903c846a3f0bb2f79aaf75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 9
+  _type: 8
   _logField: {fileID: 1920962543}
 --- !u!1001 &6856073790650588477
 PrefabInstance:
@@ -7562,7 +7561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff38eb16e1903c846a3f0bb2f79aaf75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 2
+  _type: 1
   _logField: {fileID: 1920962543}
 --- !u!1001 &7233083719470878175
 PrefabInstance:
@@ -7833,7 +7832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff38eb16e1903c846a3f0bb2f79aaf75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 6
+  _type: 9
   _logField: {fileID: 1920962543}
 --- !u!1001 &8112181391274559227
 PrefabInstance:
@@ -7998,7 +7997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff38eb16e1903c846a3f0bb2f79aaf75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 11
+  _type: 10
   _logField: {fileID: 1920962543}
 --- !u!1001 &8591724971756263786
 PrefabInstance:

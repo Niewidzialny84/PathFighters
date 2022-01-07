@@ -109,7 +109,7 @@ MonoBehaviour:
   armor: 0
   damage: 20
   hitPoints: 40
-  cost: 100
+  cost: 75
   animator: {fileID: 2453884807526177750}
   deathS: {fileID: 3085196362399935149}
   attackS: {fileID: -920870881975003656}

@@ -24,7 +24,7 @@ public class investorScript : MonoBehaviour
             var gameHandler = GameObject.FindGameObjectWithTag("GameController");
             if (gameObject.GetComponent<towerScript>().getPlayer() == gameHandler.GetComponent<gameHandlerScript>().activePlayer)
             {
-                gameHandler.GetComponent<gameHandlerScript>().gold += 1.5f;
+                gameHandler.GetComponent<gameHandlerScript>().gold += 1f;
             }
             paymentTime = 1.0f;
         }

@@ -40,7 +40,7 @@ public class upgradeScript : MonoBehaviour
             gameHandler.GetComponent<gameHandlerScript>().upgrades[gameHandler.GetComponent<gameHandlerScript>().activePlayer - 1, this.order] = true;
             if (order == 13)
             {
-                gameHandler.GetComponent<gameHandlerScript>().baseHitPoints[gameHandler.GetComponent<gameHandlerScript>().activePlayer - 1] += 200;
+                gameHandler.GetComponent<gameHandlerScript>().baseHitPoints[gameHandler.GetComponent<gameHandlerScript>().activePlayer - 1] += 300;
             }
         }
     }
