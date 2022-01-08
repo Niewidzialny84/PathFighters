@@ -178,5 +178,9 @@ MonoBehaviour:
     m_Localized: Join code
     m_Metadata:
       m_Items: []
+  - m_Id: 29397209451323392
+    m_Localized: Password changed
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

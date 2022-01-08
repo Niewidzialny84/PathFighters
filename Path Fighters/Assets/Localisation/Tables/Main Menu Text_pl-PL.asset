@@ -178,5 +178,9 @@ MonoBehaviour:
     m_Localized: Kod rozgrywki
     m_Metadata:
       m_Items: []
+  - m_Id: 29397209451323392
+    m_Localized: "Has\u0142o zmienione"
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
