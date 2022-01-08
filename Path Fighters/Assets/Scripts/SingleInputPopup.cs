@@ -34,6 +34,8 @@ public class SingleInputPopup : MonoBehaviour
             GameObject.Destroy(this.gameObject);
         });
     }
+
+
 }
 
 

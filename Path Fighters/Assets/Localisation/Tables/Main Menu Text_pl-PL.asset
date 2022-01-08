@@ -75,7 +75,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1844426691043328
-    m_Localized: "Utw\xF3rz now\u0105 gr\u0119"
+    m_Localized: "Utw\xF3rz gr\u0119"
     m_Metadata:
       m_Items: []
   - m_Id: 25778875459690496
@@ -168,6 +168,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 29027610666336256
     m_Localized: Do boju!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29239749809143808
+    m_Localized: "Do\u0142\u0105cz"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29239891769556992
+    m_Localized: Kod rozgrywki
     m_Metadata:
       m_Items: []
   references:

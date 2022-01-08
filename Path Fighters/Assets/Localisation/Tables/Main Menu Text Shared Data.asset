@@ -167,6 +167,14 @@ MonoBehaviour:
     m_Key: lb_start
     m_Metadata:
       m_Items: []
+  - m_Id: 29239749809143808
+    m_Key: Join
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29239891769556992
+    m_Key: Join_code
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

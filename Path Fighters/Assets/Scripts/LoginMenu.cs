@@ -38,4 +38,30 @@ public class LoginMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Settings Scene");
     }
+    public void CreateGame()
+    {
+        SceneManager.LoadScene("Lobby Scene");
+        ParamsPasser.lobbyType = LobbyType.Create;
+    }
+    public void JoinGame()
+    {
+        var tmp = new joinGame();
+        tmp.Popup();
+        ParamsPasser.lobbyType = LobbyType.Join;
+    }
+    public void QuickGame()
+    {
+        SceneManager.LoadScene("Lobby Scene");
+        ParamsPasser.lobbyType = LobbyType.Fast;
+    }
+}
+public static class ParamsPasser
+{
+    public static LobbyType lobbyType { get; set; }
+} 
+public enum LobbyType
+{
+    Create,
+    Join,
+    Fast
 }
