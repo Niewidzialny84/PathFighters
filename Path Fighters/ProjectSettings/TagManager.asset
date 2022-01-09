@@ -9,6 +9,8 @@ TagManager:
   - unit
   - upgrade
   - canvas
+  - MatchMaker
+  - NetworkPlayer
   layers:
   - Default
   - TransparentFX
