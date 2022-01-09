@@ -397,7 +397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3413090586440996543, guid: 0e569620a502bfe44aad5f1575e3ab3a, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3413090586440996543, guid: 0e569620a502bfe44aad5f1575e3ab3a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -655,9 +655,9 @@ RectTransform:
   - {fileID: 1050361802}
   - {fileID: 729845200}
   - {fileID: 141752223}
-  - {fileID: 324503932}
   - {fileID: 1945406978}
   - {fileID: 385092230}
+  - {fileID: 324503932}
   - {fileID: 721843218}
   m_Father: {fileID: 936886357}
   m_RootOrder: 0
@@ -757,6 +757,7 @@ GameObject:
   - component: {fileID: 374079841}
   - component: {fileID: 374079840}
   - component: {fileID: 374079839}
+  - component: {fileID: 374079842}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -830,6 +831,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &374079842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374079838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AssetsPPU: 32
+  m_RefResolutionX: 640
+  m_RefResolutionY: 352
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 1
+  m_CropFrameY: 1
+  m_StretchFill: 0
 --- !u!1 &385092229
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,7 +882,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 274221167}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1220,6 +1241,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c9e4e3b9ecdb1d43b0f381e9da44efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnChangeAccountSuccess:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &681875761
 GameObject:
   m_ObjectHideFlags: 0
@@ -1675,6 +1699,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d30e25beeaea4f42852b3e1a4f47755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDeleteAccountSuccess:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1050361801
 GameObject:
   m_ObjectHideFlags: 0
@@ -2550,7 +2577,7 @@ RectTransform:
   - {fileID: 1578137695}
   - {fileID: 841180416}
   m_Father: {fileID: 274221167}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
