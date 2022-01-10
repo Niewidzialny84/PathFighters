@@ -2,8 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class unitScript : MonoBehaviour
+public class unitScript : NetworkBehaviour
 {
     public int belongsToPlayer;
     private int moveDirection;
@@ -69,31 +70,34 @@ public class unitScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rayDistance = 0.05f;
-        rayOffset = 0.01f;
-
-        this.state = State.Moving;
-
-        if (belongsToPlayer == 1)
+        if(!isServer)
         {
-            moveDirection = -1;
-        }
-        else
-        {
-            moveDirection = 1;
-            this.transform.localScale = new Vector3(-1f, 1f, 0f);
-        }
-        actualAttackDelay = 0f;
+            rayDistance = 0.05f;
+            rayOffset = 0.01f;
 
-        this.defender = true;
+            this.state = State.Moving;
 
-        //Here will be some bonuses due to upgrades
-        GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
-        if (gameHandler.GetComponent<gameHandlerScript>().upgrades[this.belongsToPlayer - 1, 3] && this.speed == 0.5f)
-        {
-            this.speed += 0.1f;
-            this.reach = this.reach * 1.4f;
-            this.cost -= 5;
+            if (belongsToPlayer == 1)
+            {
+                moveDirection = -1;
+            }
+            else
+            {
+                moveDirection = 1;
+                this.transform.localScale = new Vector3(-1f, 1f, 0f);
+            }
+            actualAttackDelay = 0f;
+
+            this.defender = true;
+
+            //Here will be some bonuses due to upgrades
+            GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
+            if (gameHandler.GetComponent<gameHandlerScript>().upgrades[this.belongsToPlayer - 1, 3] && this.speed == 0.5f)
+            {
+                this.speed += 0.1f;
+                this.reach = this.reach * 1.4f;
+                this.cost -= 5;
+            }
         }
     }
 

@@ -1100,7 +1100,7 @@ MonoBehaviour:
   sslEnabled: 0
   sslCertJson: ./cert.json
   sslProtocols: 3072
-  _logLevels: 0
+  _logLevels: 3
 --- !u!114 &699752035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1127,7 +1127,27 @@ MonoBehaviour:
   playerPrefab: {fileID: 716457668215599647, guid: a2391cfcf0245e848abdfafc573d2aef, type: 3}
   autoCreatePlayer: 0
   playerSpawnMethod: 0
-  spawnPrefabs: []
+  spawnPrefabs:
+  - {fileID: 5498631155754670395, guid: 6f57a6836110f63479eb95cb5e6c73ac, type: 3}
+  - {fileID: 910834734488052145, guid: 3fd75ced4a4134d4984749ce69ef9ff0, type: 3}
+  - {fileID: 1108164614893256794, guid: f32ea144a151acc47a6516136518a147, type: 3}
+  - {fileID: 8364407174867770442, guid: e210b79feea74424985fdd70217a93ef, type: 3}
+  - {fileID: 560599464163978587, guid: 39a5aa2a71c6b6044a123190072d9173, type: 3}
+  - {fileID: 2570605869002738729, guid: ed46bead20dbcca4d93decd7196f4227, type: 3}
+  - {fileID: 7669918608457730720, guid: 72104d1c35cbf7d419c997114cc7bdd2, type: 3}
+  - {fileID: 4383871591033965869, guid: 18864b226d4ff5949a299de9959a1eb6, type: 3}
+  - {fileID: 6877516654985211450, guid: c3a94a0b6afe1be49ba0fff97d99da28, type: 3}
+  - {fileID: 2382644428202671887, guid: 015fb71b8fe0d454590cd0b5d487c303, type: 3}
+  - {fileID: 8694937999510855994, guid: 03e21e85eabe45c41958cf17f5ea5c6b, type: 3}
+  - {fileID: 4678590452627709636, guid: c10d0d206bfa31048ba23344fd9fef24, type: 3}
+  - {fileID: 5519196174165333633, guid: 58578b0c6eb621e498cec825e3d219a5, type: 3}
+  - {fileID: 2705502805770078684, guid: 6368182c1a061a64baee9cb80237472d, type: 3}
+  - {fileID: 2632949949722807324, guid: c2268fe44a612214f9e704cf4655f22c, type: 3}
+  - {fileID: 2864844813930655321, guid: 3aed52af309b3c84090a1866aed2045d, type: 3}
+  - {fileID: 6045984558694664280, guid: ff9c1a2ff8c74a6499dd61acdf946de9, type: 3}
+  - {fileID: 5692463958246945643, guid: 3bc0ae9611e943b4b9f9486c8d9bd4fb, type: 3}
+  - {fileID: 3966771907537544977, guid: 508b95acf0b91134eb090764f821465b, type: 3}
+  - {fileID: 8357042920024325251, guid: 141e0c0fce754c94c91077d1c38c0fee, type: 3}
 --- !u!4 &699752036
 Transform:
   m_ObjectHideFlags: 0

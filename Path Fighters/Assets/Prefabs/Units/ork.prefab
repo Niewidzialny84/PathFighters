@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7621668452870504435}
   - component: {fileID: 7150221066507067488}
   - component: {fileID: 2368025313965743361}
+  - component: {fileID: -2096148241232051999}
   m_Layer: 7
   m_Name: ork
   m_TagString: Untagged
@@ -340,6 +341,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-2096148241232051999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2864844813930655321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 3aed52af309b3c84090a1866aed2045d
+  hasSpawned: 0
 --- !u!1001 &1123466261103350191
 PrefabInstance:
   m_ObjectHideFlags: 0

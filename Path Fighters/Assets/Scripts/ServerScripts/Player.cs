@@ -244,7 +244,91 @@ using UnityEngine.Localization;
         void TargetBeginGame () {
             Debug.Log ($"MatchID: {matchID} | Beginning");
             //Additively load game scene
-            SceneManager.LoadScene (6, LoadSceneMode.Additive);
+            //SceneManager.LoadScene ("SampleScene", LoadSceneMode.Additive);
+            //SceneManager.LoadScene ("SampleScene");
+            NetworkManager.singleton.ServerChangeScene ("SampleScene");
+            
         }
 
+        public void SpawnObj()
+        {
+            spawnObj();
+        }
+
+        [Command]
+        void spawnObj()
+        {
+            Debug.Log("Spawnobj");
+            // GameObject obj = Instantiate(NetworkManager.singleton.spawnPrefabs[19]);
+            // GameObject[] objects = GameObject.FindGameObjectsWithTag("path");
+
+            // foreach (GameObject p in objects)
+            // {
+            //     Debug.Log($"{p.name}");
+            //     GameObject o = Instantiate(p.gameObject);
+            //     NetworkServer.Spawn(o);
+            // }
+            GameObject prefab = NetworkManager.singleton.spawnPrefabs[19];
+            Debug.Log($"{prefab.name}");
+            float val = 3.5f;
+            for (int i=1; i<=3;i++)
+            {
+                GameObject obj1 = Instantiate(prefab, new Vector3(0, val, 0), Quaternion.identity);
+                Debug.Log($"{obj1.name}");
+                NetworkServer.Spawn(obj1);
+                val -= 2.0f;
+            }
+            //GameObject obj = Instantiate(Resources.Load("Prefabs/Path")) as GameObject;
+            //Debug.Log($"Spawning {obj.name}");
+            //NetworkServer.SpawnObjects();
+            //NetworkServer.Spawn(obj.gameObject);
+
+
+        }
+
+        public void SpawnUnit(int unit, Vector3 pos, int player)
+        {
+            Debug.Log($"Spawnunit {unit}; {pos}; {player}");
+            CmdSpawnUnit(unit, pos, player);
+        }
+
+        [Command]
+        private void CmdSpawnUnit(int unit, Vector3 pos, int player)
+        {
+            // Debug.Log($"Spawning unit {unit.name}");
+            GameObject o = NetworkManager.singleton.spawnPrefabs[unit];
+            GameObject obj = Instantiate(o, pos, Quaternion.identity);
+            Debug.Log($"Spawning unit {obj.name}");
+            NetworkServer.Spawn(obj);
+            abc(obj, player);
+        }
+
+        [ClientRpc]
+        private void abc(GameObject o, int player)
+        {
+            Debug.Log($"{o.name}");
+            try 
+            {
+                o.GetComponent<unitScript>().belongsToPlayer = player;
+            } 
+            catch (Exception e)
+            {
+                Debug.Log("Exception in abc as unitScript was null" + e.GetType());
+            }
+        }
+
+        public static int getPrefabFromName(string name)
+        {
+            List<GameObject> prefabs = NetworkManager.singleton.spawnPrefabs;
+            int i = 0;
+            foreach (GameObject p in prefabs)
+            {
+                if (p.name == name)
+                {
+                    break;
+                }
+                i++;
+            }
+            return i;
+        } 
     }

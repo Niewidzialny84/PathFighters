@@ -50,9 +50,12 @@ public class towerFieldScript : MonoBehaviour
             //Create selected tower
             if (tower != null && tower.layer == 8 && localTower == null && gameHandler.GetComponent<gameHandlerScript>().gold >= tower.GetComponent<towerScript>().cost)
             {
-                var tempUnit = Instantiate(tower, new Vector3(this.transform.position.x, this.transform.position.y, 0), Quaternion.identity);
+                var v = new Vector3(this.transform.position.x, this.transform.position.y, 0);
+                //var tempUnit = Instantiate(tower, v, Quaternion.identity);
                 gameHandler.GetComponent<gameHandlerScript>().gold -= tower.GetComponent<towerScript>().cost;
-                localTower = tempUnit;
+                int i = Player.getPrefabFromName(tower.name);
+                Player.localPlayer.SpawnUnit(i, v, this.belongsToPlayer);
+                //localTower = tempUnit;
             }
             //Destroy tower
             else if (tower == null && localTower != null)

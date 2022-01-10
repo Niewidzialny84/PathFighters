@@ -2,8 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class towerScript : MonoBehaviour
+public class towerScript : NetworkBehaviour
 {
     public float cost;
     public float attackHight;
@@ -59,6 +60,10 @@ public class towerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(isServer)
+        {
+            return;
+        }
         //Reduce the actual attack delay to allow the unit to be ready to attack.
         if (this.actualAttackDelay > 0f)
         {
