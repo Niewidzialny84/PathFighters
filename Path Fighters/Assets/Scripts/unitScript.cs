@@ -97,6 +97,24 @@ public class unitScript : MonoBehaviour
         }
     }
 
+    void attackEnemy(GameObject enemy)
+    {
+        if (Mathf.Abs(this.transform.position.x - enemy.transform.position.x) <= this.meleeReach + GetComponent<CircleCollider2D>().radius + enemy.GetComponent<CircleCollider2D>().radius)
+        {
+            enemy.GetComponent<unitScript>().hitPoints -= Mathf.Max(1, ((int)(this.damage / 2) - enemy.GetComponent<unitScript>().armor));
+        }
+        else if (this.projectile != null)
+        {
+            var tempProjectile = Instantiate(projectile, this.transform.position, Quaternion.identity);
+            tempProjectile.GetComponent<projectileScript>().setTarget(enemy);
+            tempProjectile.GetComponent<projectileScript>().setDamage(damage);
+        }
+        else
+        {
+            enemy.GetComponent<unitScript>().hitPoints -= Mathf.Max(1, (this.damage - enemy.GetComponent<unitScript>().armor));
+        }
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -158,20 +176,7 @@ public class unitScript : MonoBehaviour
                     var enemy = inReach[i].collider.gameObject;
                     if (enemy.layer == 7 && enemy.GetComponent<unitScript>().belongsToPlayer != this.belongsToPlayer)
                     {
-                        if (Mathf.Abs(this.transform.position.x - enemy.transform.position.x) <= this.meleeReach + GetComponent<CircleCollider2D>().radius + enemy.GetComponent<CircleCollider2D>().radius)
-                        {
-                            enemy.GetComponent<unitScript>().hitPoints -= Mathf.Max(1, ((int)(this.damage/2) - enemy.GetComponent<unitScript>().armor));
-                        }
-                        else if(this.projectile != null)
-                        {
-                            var tempProjectile = Instantiate(projectile, this.transform.position, Quaternion.identity);
-                            tempProjectile.GetComponent<projectileScript>().setTarget(enemy);
-                            tempProjectile.GetComponent<projectileScript>().setDamage(damage);
-                        }
-                        else
-                        {
-                            enemy.GetComponent<unitScript>().hitPoints -= Mathf.Max(1, (this.damage - enemy.GetComponent<unitScript>().armor));
-                        }
+                        attackEnemy(enemy);
                         break;
                     }
                     else if (enemy.layer == 9 && enemy.GetComponent<gateScript>().belongsToPlayer != this.belongsToPlayer)
