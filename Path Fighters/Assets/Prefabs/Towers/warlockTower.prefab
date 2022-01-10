@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6486486942770005894}
   - component: {fileID: 8310012193798023034}
   - component: {fileID: 3207209978673360916}
+  - component: {fileID: 8297961630806200020}
   m_Layer: 8
   m_Name: warlockTower
   m_TagString: Untagged
@@ -220,3 +221,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8297961630806200020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8694937999510855994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 03e21e85eabe45c41958cf17f5ea5c6b
+  hasSpawned: 0

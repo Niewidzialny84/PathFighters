@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6248460143668144370}
   - component: {fileID: 6060481257490898930}
   - component: {fileID: 2235166865928681005}
+  - component: {fileID: -7523046275822302757}
   m_Layer: 7
   m_Name: dwarf
   m_TagString: Untagged
@@ -340,6 +341,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-7523046275822302757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4678590452627709636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: c10d0d206bfa31048ba23344fd9fef24
+  hasSpawned: 0
 --- !u!1001 &7546645989716648242
 PrefabInstance:
   m_ObjectHideFlags: 0

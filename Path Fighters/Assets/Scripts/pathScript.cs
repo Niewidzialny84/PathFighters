@@ -1,19 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class pathScript : MonoBehaviour
+public class pathScript : NetworkBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     // This will activate if the mouse cursor is currently above
@@ -45,10 +46,14 @@ public class pathScript : MonoBehaviour
 
         if (unit != null && unit.layer == 7 && gameHandler.GetComponent<gameHandlerScript>().recruitmentTime <= 0f && gameHandler.GetComponent<gameHandlerScript>().gold >= unit.GetComponent<unitScript>().cost && !blocked)
         {
-            var tempUnit = Instantiate(unit, new Vector3(activePlayer==1 ? -5.9f : 5.9f, this.transform.position.y, 0), Quaternion.identity);
+            var v = new Vector3(activePlayer==1 ? -5.9f : 5.9f, this.transform.position.y, 0);
+            //var tempUnit = Instantiate(unit, v, Quaternion.identity);
             gameHandler.GetComponent<gameHandlerScript>().gold -= unit.GetComponent<unitScript>().cost;
-            tempUnit.GetComponent<unitScript>().belongsToPlayer = activePlayer;
+            //tempUnit.GetComponent<unitScript>().belongsToPlayer = activePlayer;
             gameHandler.GetComponent<gameHandlerScript>().recruitmentTime = 1.0f;
+            int i = Player.getPrefabFromName(unit.name);
+
+            Player.localPlayer.SpawnUnit(i, v, activePlayer);
         }
     }
 }

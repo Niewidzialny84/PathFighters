@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 849298435398660801}
   - component: {fileID: -8735115991016667495}
   - component: {fileID: 7242218850237133136}
+  - component: {fileID: 5282763716617076710}
   m_Layer: 7
   m_Name: thrall
   m_TagString: Untagged
@@ -340,6 +341,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5282763716617076710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5692463958246945643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 3bc0ae9611e943b4b9f9486c8d9bd4fb
+  hasSpawned: 0
 --- !u!1001 &7397464196058877085
 PrefabInstance:
   m_ObjectHideFlags: 0

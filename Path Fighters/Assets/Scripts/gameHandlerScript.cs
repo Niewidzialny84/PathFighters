@@ -35,7 +35,15 @@ public class gameHandlerScript : MonoBehaviour
     void Start()
     {
         //This will be handeled by the server
-        activePlayer = 1;
+        if(Player.localPlayer.currentMatch.players.Count == 2)
+        {
+            activePlayer = 2;
+        } else {
+            activePlayer = 1;
+        }
+
+        Debug.Log("Active player: " + activePlayer);
+        
         recruitmentTime = 5.0f;
         gold = 150.0f;
 
@@ -98,18 +106,18 @@ public class gameHandlerScript : MonoBehaviour
 
 
         //THIS IS ONLY A TEST DELETE IS AFTERWARDS
-        if (Input.GetMouseButtonDown(1))
-        {
-            if (aP)
-            {
-                activePlayer++;
-                aP = false;
-            }
-            else if (!aP)
-            {
-                activePlayer--;
-                aP = true;
-            }
-        }
+        // if (Input.GetMouseButtonDown(1))
+        // {
+        //     if (aP)
+        //     {
+        //         activePlayer++;
+        //         aP = false;
+        //     }
+        //     else if (!aP)
+        //     {
+        //         activePlayer--;
+        //         aP = true;
+        //     }
+        // }
     }
 }

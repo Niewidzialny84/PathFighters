@@ -37,6 +37,11 @@ public class codeInit : MonoBehaviour
             
     }
 
+    public void BeginGame()
+    {
+        Player.localPlayer.BeginGame();
+    }
+
     public void UpdatePlayers(List<Player> players)
     {
         Debug.Log($"Update Players {players.Count} ");
