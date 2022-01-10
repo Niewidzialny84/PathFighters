@@ -626,6 +626,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Code: {fileID: 1457361046}
   _InputField: {fileID: 401259764}
+  User1: {fileID: 374819636}
+  User2: {fileID: 559881161}
 --- !u!1 &258171489
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,7 +948,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: user 1
+  m_text: ---
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 366dd4a7c8139f44381fedf77779cbb9, type: 2}
   m_sharedMaterial: {fileID: 7241430867664106316, guid: 366dd4a7c8139f44381fedf77779cbb9, type: 2}
@@ -1321,7 +1323,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: user 1
+  m_text: ---
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 366dd4a7c8139f44381fedf77779cbb9, type: 2}
   m_sharedMaterial: {fileID: 7241430867664106316, guid: 366dd4a7c8139f44381fedf77779cbb9, type: 2}

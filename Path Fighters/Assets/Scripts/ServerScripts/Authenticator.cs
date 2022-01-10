@@ -54,6 +54,10 @@ public class Authenticator : NetworkAuthenticator
 
         conn.Send(authResponseMessage);
 
+        GameObject player = Instantiate(NetworkManager.singleton.playerPrefab);
+        player.GetComponent<Player>().username = msg.loginReturn.user.username;
+        NetworkServer.AddPlayerForConnection(conn, player);
+
         // Accept the successful authentication
         ServerAccept(conn);
     }

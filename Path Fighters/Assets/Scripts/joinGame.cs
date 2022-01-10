@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System;
 using UnityEngine.Localization;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class joinGame : MonoBehaviour
 {
@@ -40,19 +41,7 @@ public class joinGame : MonoBehaviour
     }
     void Join()
     {
-        if(CodeValidation())
-        {
-            SceneManager.LoadScene("Lobby Scene");
-            ParamsPasser.lobbyType = LobbyType.Join;
-        }
-    }
-    bool CodeValidation()
-    {
-        return true;
-    }
-    // Update is called once per frame
-    void Update()
-    {
-
+        string id = GameObject.Find("SingleInputPopup(Clone)").GetComponent<SingleInputPopup>().GetComponentInChildren<TMP_InputField>().text;
+        Player.localPlayer.JoinGame(id);
     }
 }

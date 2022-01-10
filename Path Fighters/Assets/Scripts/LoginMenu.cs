@@ -40,12 +40,12 @@ public class LoginMenu : MonoBehaviour
     }
     public void CreateGame()
     {
-        SceneManager.LoadScene("Lobby Scene");
+        Player.localPlayer.HostGame(true);
         ParamsPasser.lobbyType = LobbyType.Create;
     }
     public void JoinGame()
     {
-        var tmp = new joinGame();
+        var tmp = GameObject.Find("JoinGamePopUp").GetComponent<joinGame>();
         tmp.Popup();
         ParamsPasser.lobbyType = LobbyType.Join;
     }

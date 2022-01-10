@@ -1125,7 +1125,7 @@ MonoBehaviour:
   maxConnections: 100
   authenticator: {fileID: 648460802}
   playerPrefab: {fileID: 716457668215599647, guid: a2391cfcf0245e848abdfafc573d2aef, type: 3}
-  autoCreatePlayer: 1
+  autoCreatePlayer: 0
   playerSpawnMethod: 0
   spawnPrefabs: []
 --- !u!4 &699752036
@@ -1251,7 +1251,7 @@ GameObject:
   - component: {fileID: 957398226}
   - component: {fileID: 957398225}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: UIControler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
