@@ -6438,6 +6438,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 413306653}
     m_Modifications:
+    - target: {fileID: 1053225354158517437, guid: a9005b0e48daf5046a9b669035cb3d4e, type: 3}
+      propertyPath: _logField
+      value: 
+      objectReference: {fileID: 1920962543}
     - target: {fileID: 6514448446677540905, guid: a9005b0e48daf5046a9b669035cb3d4e, type: 3}
       propertyPath: m_RootOrder
       value: 2

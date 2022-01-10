@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 136265347482697033}
   - component: {fileID: -1678006493562725446}
   - component: {fileID: -2751494220129267524}
+  - component: {fileID: 7307418638332871728}
   m_Layer: 0
   m_Name: Upgrade13
   m_TagString: upgrade
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c1c573e57a8ddc640b4a8fba820da9f8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6adcb277e61560048808f6d3ca82bbb6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,6 +103,7 @@ MonoBehaviour:
   previousUpgrade: {fileID: 3167038551987855200, guid: 6ba79061413423f47be54ba112d4b1b5, type: 3}
   order: 12
   researchS: {fileID: -1678006493562725446}
+  animator: {fileID: 7307418638332871728}
 --- !u!82 &-1678006493562725446
 AudioSource:
   m_ObjectHideFlags: 0
@@ -215,7 +217,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -224,3 +226,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9, y: 0.9}
   m_EdgeRadius: 0
+--- !u!95 &7307418638332871728
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463767141395591227}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 144c705b138f0244b861c40e7a72f9f1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3131243129410168447}
   - component: {fileID: 6223786393394691821}
   - component: {fileID: 8942174166442167606}
+  - component: {fileID: 2421938119698391631}
   m_Layer: 0
   m_Name: Upgrade3
   m_TagString: upgrade
@@ -102,6 +103,7 @@ MonoBehaviour:
   previousUpgrade: {fileID: 3911840892729065003, guid: d185a75dfcfac31458c566008976de27, type: 3}
   order: 2
   researchS: {fileID: 6223786393394691821}
+  animator: {fileID: 2421938119698391631}
 --- !u!82 &6223786393394691821
 AudioSource:
   m_ObjectHideFlags: 0
@@ -224,3 +226,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9, y: 0.9}
   m_EdgeRadius: 0
+--- !u!95 &2421938119698391631
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4458869671837979662}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5a2e81b1daa0a634aa315a06e5c79234, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
