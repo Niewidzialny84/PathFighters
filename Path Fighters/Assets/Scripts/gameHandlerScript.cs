@@ -27,10 +27,6 @@ public class gameHandlerScript : MonoBehaviour
     }
     State state;
 
-
-    // TODO DELETE THIS
-    bool aP = true;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -92,23 +88,7 @@ public class gameHandlerScript : MonoBehaviour
             if (gold < 1000000000000f)
             {
                 if (upgrades[activePlayer - 1, 7]) { gold += (7f * Time.deltaTime); }
-                else { gold += (5f * Time.deltaTime); }  
-            }
-        }
-
-
-        //THIS IS ONLY A TEST DELETE IS AFTERWARDS
-        if (Input.GetMouseButtonDown(1))
-        {
-            if (aP)
-            {
-                activePlayer++;
-                aP = false;
-            }
-            else if (!aP)
-            {
-                activePlayer--;
-                aP = true;
+                else { gold += (5f * Time.deltaTime); }
             }
         }
     }
