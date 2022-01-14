@@ -60,10 +60,19 @@ public class upgradeScript : MonoBehaviour
 
             this.active = false;
             GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
-            gameHandler.GetComponent<gameHandlerScript>().upgrades[gameHandler.GetComponent<gameHandlerScript>().activePlayer - 1, this.order] = true;
+            var belongsToPlayer = gameHandler.GetComponent<gameHandlerScript>().activePlayer;
+            gameHandler.GetComponent<gameHandlerScript>().upgrades[belongsToPlayer - 1, this.order] = true;
             if (order == 13)
             {
-                gameHandler.GetComponent<gameHandlerScript>().baseHitPoints[gameHandler.GetComponent<gameHandlerScript>().activePlayer - 1] += 300;
+                Player.localPlayer.updateTechCmd(order, belongsToPlayer);
+            }
+            else if (order == 3)
+            {
+                Player.localPlayer.updateTechCmd(order, belongsToPlayer);
+            }
+            else if (order == 5)
+            {
+                Player.localPlayer.updateTechCmd(order, belongsToPlayer);
             }
 
             try

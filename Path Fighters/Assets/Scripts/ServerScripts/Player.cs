@@ -14,7 +14,7 @@ using UnityEngine.Localization;
         [SyncVar] public string matchID;
         [SyncVar] public int playerIndex;
 
-        NetworkMatch networkMatch;
+    NetworkMatch networkMatch;
 
         [SyncVar] public Match currentMatch;
 
@@ -278,13 +278,29 @@ using UnityEngine.Localization;
                 NetworkServer.Spawn(obj1);
                 val -= 2.0f;
             }
-            //GameObject obj = Instantiate(Resources.Load("Prefabs/Path")) as GameObject;
-            //Debug.Log($"Spawning {obj.name}");
-            //NetworkServer.SpawnObjects();
-            //NetworkServer.Spawn(obj.gameObject);
 
+            prefab = NetworkManager.singleton.spawnPrefabs[20];
+            Debug.Log($"{prefab.name}");
+            val = 4.5f;
+            for (int i = 1; i <= 6; i++)
+            {
+                GameObject obj1 = Instantiate(prefab, new Vector3(6.5f, val, 0), Quaternion.identity);
+                GameObject obj2 = Instantiate(prefab, new Vector3(-6.5f, val, 0), Quaternion.identity);
+                Debug.Log($"{obj1.name}");
+                NetworkServer.Spawn(obj1);
+                NetworkServer.Spawn(obj2);
+                val -= 1.0f;
+            }
 
-        }
+            prefab = NetworkManager.singleton.spawnPrefabs[21];
+            GameObject obj = Instantiate(prefab, new Vector3(0f, 0f, 0f), Quaternion.identity);
+            NetworkServer.Spawn(obj);
+        //GameObject obj = Instantiate(Resources.Load("Prefabs/Path")) as GameObject;
+        //Debug.Log($"Spawning {obj.name}");
+        //NetworkServer.SpawnObjects();
+        //NetworkServer.Spawn(obj.gameObject);
+
+    }
 
         public void SpawnUnit(int unit, Vector3 pos, int player)
         {
@@ -295,7 +311,6 @@ using UnityEngine.Localization;
         [Command]
         private void CmdSpawnUnit(int unit, Vector3 pos, int player)
         {
-            // Debug.Log($"Spawning unit {unit.name}");
             GameObject o = NetworkManager.singleton.spawnPrefabs[unit];
             GameObject obj = Instantiate(o, pos, Quaternion.identity);
             Debug.Log($"Spawning unit {obj.name}");
@@ -313,11 +328,40 @@ using UnityEngine.Localization;
             } 
             catch (Exception e)
             {
-                Debug.Log("Exception in abc as unitScript was null" + e.GetType());
+                Debug.Log("Expected exception in abc as unitScript was null" + e.GetType());
             }
         }
 
-        public static int getPrefabFromName(string name)
+        public void SpawnTower(int unit, Vector3 pos, int player)
+        {
+            Debug.Log($"Spawnunit {unit}; {pos}; {player}");
+            CmdSpawnTower(unit, pos, player);
+        }
+
+    [Command]
+        private void CmdSpawnTower(int unit, Vector3 pos, int player)
+        {
+        GameObject o = NetworkManager.singleton.spawnPrefabs[unit];
+            GameObject obj = Instantiate(o, pos, Quaternion.identity);
+            Debug.Log($"Spawning tower {obj.name}");
+            NetworkServer.Spawn(obj);
+        }
+
+    public void DestroyTower(GameObject tower)
+    {
+        Debug.Log($"Spawnunit {tower}");
+        CmdDestroyTower(tower);
+    }
+
+    [Command]
+    private void CmdDestroyTower(GameObject tower)
+    {
+        Debug.Log($"Spawnunit {tower}");
+        NetworkServer.Destroy(tower);
+    }
+
+
+    public static int getPrefabFromName(string name)
         {
             List<GameObject> prefabs = NetworkManager.singleton.spawnPrefabs;
             int i = 0;
@@ -330,5 +374,85 @@ using UnityEngine.Localization;
                 i++;
             }
             return i;
-        } 
+        }
+
+    [Command]
+    public void findTField(GameObject tower)
+    {
+        findTowerField(tower);
+        Debug.Log($"Is called {tower.name}");
     }
+
+    [TargetRpc]
+    private void findTowerField(GameObject tower)
+    {
+        Debug.Log($"We are in the function {tower.name}");
+        var buildOver = Physics2D.OverlapCircle(tower.transform.position, 0.5f, LayerMask.GetMask("towerField"));
+        Debug.Log($"Found {buildOver}");
+        if (buildOver == null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            buildOver.gameObject.GetComponent<towerFieldScript>().setLocalTower(tower);
+            Debug.Log($"We build at { buildOver.gameObject.name} ");
+        }
+    }
+
+    [Command]
+    public void updateTechCmd(int order, int belongsToPlayer)
+    {
+        updateTech(order, belongsToPlayer);
+    }
+
+    [ClientRpc]
+    public void updateTech(int order, int belongsToPlayer)
+    {
+        if (order == 13)
+        {
+            GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
+            gameHandler.GetComponent<gameHandlerScript>().baseHitPoints[belongsToPlayer - 1] += 300;
+        }
+        else if (order == 3)
+        {
+            var tech = GameObject.Find("tech(Clone)");
+            Debug.Log($"Tech jeszcze chwilowo ma {tech.GetComponent<techScript>().player1.goblinBuff} i {tech.GetComponent<techScript>().player2.goblinBuff}");
+            try
+            {
+                if (belongsToPlayer == 1)
+                {
+                    tech.GetComponent<techScript>().player1.goblinBuff = true;
+                }
+                else if (belongsToPlayer == 2)
+                {
+                    tech.GetComponent<techScript>().player2.goblinBuff = true;
+                }
+                Debug.Log($"Tech już chwilowo ma {tech.GetComponent<techScript>().player1.goblinBuff} i {tech.GetComponent<techScript>().player2.goblinBuff}");
+            }
+            catch (Exception e)
+            {
+                Debug.Log("Expected exception  " + e.GetType());
+            }
+        }
+        else if (order == 5)
+        {
+            var tech = GameObject.Find("tech(Clone)");
+            try
+            {
+                if (belongsToPlayer == 1)
+                {
+                    tech.GetComponent<techScript>().player1.attackBuff = true;
+                }
+                else if (belongsToPlayer == 2)
+                {
+                    tech.GetComponent<techScript>().player2.attackBuff = true;
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.Log("Expected exception  " + e.GetType());
+            }
+        }
+    }
+}

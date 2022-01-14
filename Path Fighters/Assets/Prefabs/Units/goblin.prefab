@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 7830258852950927630}
   - component: {fileID: 3941238121006187014}
   - component: {fileID: 8139380195860373112}
-  - component: {fileID: 1269405074573561424}
   m_Layer: 7
   m_Name: goblin
   m_TagString: Untagged
@@ -102,6 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3271fec34c0f4c848ae3b41082da1986, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   belongsToPlayer: 0
   speed: 0.5
   reach: 0.05
@@ -359,35 +360,6 @@ MonoBehaviour:
   visible: 0
   m_AssetId: 6368182c1a061a64baee9cb80237472d
   hasSpawned: 0
---- !u!114 &1269405074573561424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2705502805770078684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  clientAuthority: 1
-  sendInterval: 0.05
-  syncPosition: 1
-  syncRotation: 1
-  syncScale: 0
-  interpolatePosition: 1
-  interpolateRotation: 1
-  interpolateScale: 0
-  bufferTimeMultiplier: 1
-  bufferSizeLimit: 64
-  catchupThreshold: 4
-  catchupMultiplier: 0.1
-  showGizmos: 0
-  showOverlay: 0
-  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
 --- !u!1001 &999029213794727466
 PrefabInstance:
   m_ObjectHideFlags: 0

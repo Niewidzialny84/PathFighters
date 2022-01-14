@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 9095542256582397987}
   - component: {fileID: 1526404008935715927}
   - component: {fileID: 7378155470858807114}
+  - component: {fileID: -278109390500868352}
   m_Layer: 0
   m_Name: TowerField
-  m_TagString: Untagged
+  m_TagString: towerField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b30744a0502d5d54c9ae3e7fea8157d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  localTower: {fileID: 0}
   belongsToPlayer: 0
   animator: {fileID: 7378155470858807114}
 --- !u!95 &7378155470858807114
@@ -144,3 +146,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-278109390500868352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8035081658575459780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: d335fde4b495147488a51f6526ffa3ee
+  hasSpawned: 0

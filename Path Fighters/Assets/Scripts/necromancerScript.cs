@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class necromancerScript : MonoBehaviour
+public class necromancerScript : NetworkBehaviour
 {
     public GameObject thrall;
     private float summonTime;
@@ -18,6 +19,10 @@ public class necromancerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isServer)
+        {
+            return;
+        }
         if (summonTime > 0.0f)
         {
             summonTime -= Time.deltaTime;

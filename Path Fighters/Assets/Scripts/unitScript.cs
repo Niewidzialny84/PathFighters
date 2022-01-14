@@ -42,18 +42,37 @@ public class unitScript : NetworkBehaviour
     {
         this.damage -= 1;
         //If right upgrades are developed this will boost the unit
-        GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
-        if (gameHandler.GetComponent<gameHandlerScript>().upgrades[this.belongsToPlayer - 1, 5])
+        var tech = GameObject.Find("tech(Clone)");
+        try
         {
-            if (this.reach < 1.1)
+            if (belongsToPlayer == 1 && tech.GetComponent<techScript>().player1.attackBuff)
             {
-                this.damage += 3;
+                if (this.reach < 1.1)
+                {
+                    this.damage += 3;
+                }
+                else
+                {
+                    this.damage += 1;
+                }
+                this.speed = this.speed * 1.2f;
             }
-            else
+            else if (belongsToPlayer == 2 && tech.GetComponent<techScript>().player2.attackBuff)
             {
-                this.damage += 1;
+                if (this.reach < 1.1)
+                {
+                    this.damage += 3;
+                }
+                else
+                {
+                    this.damage += 1;
+                }
+                this.speed = this.speed * 1.2f;
             }
-            this.speed = this.speed * 1.2f;
+        }
+        catch (Exception e)
+        {
+            Debug.Log("Unexpected exception  " + e.GetType());
         }
     }
     private bool defender;
@@ -91,12 +110,25 @@ public class unitScript : NetworkBehaviour
             this.defender = true;
 
             //Here will be some bonuses due to upgrades
-            GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
-            if (gameHandler.GetComponent<gameHandlerScript>().upgrades[this.belongsToPlayer - 1, 3] && this.speed == 0.5f)
+
+            var tech = GameObject.Find("tech(Clone)");
+            try
             {
-                this.speed += 0.1f;
-                this.reach = this.reach * 1.4f;
-                this.cost -= 5;
+                if (belongsToPlayer == 1 && this.speed == 0.5f && tech.GetComponent<techScript>().player1.goblinBuff)
+                {
+                    this.speed += 0.2f;
+                    this.reach = this.reach * 1.4f;
+                    this.cost -= 5;
+                }
+                else if (belongsToPlayer == 2 && this.speed == 0.5f && tech.GetComponent<techScript>().player2.goblinBuff)
+                {
+                    this.speed += 0.2f;
+                    this.reach = this.reach * 1.4f;
+                    this.cost -= 5;
+                }
+            }
+            catch (Exception e)
+            {
             }
         }
     }

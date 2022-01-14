@@ -55,7 +55,12 @@ public class towerScript : NetworkBehaviour
             this.transform.localScale = new Vector3(-1f, 1f, 0f);
         }
 
+
+        //if(!isServer) Player.localPlayer.findTField(this.gameObject);
+        Debug.Log($"Finish!!!");
     }
+
+    
 
     // Update is called once per frame
     void Update()
@@ -106,6 +111,26 @@ public class towerScript : NetworkBehaviour
                 }
             }
         }
+    }
+
+    void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
+            GameObject tower = gameHandler.GetComponent<gameHandlerScript>().selectedObject;
+            if (tower == null)
+            {
+                if (gameHandler.GetComponent<gameHandlerScript>().upgrades[this.belongsToPlayer - 1, 9]) { gameHandler.GetComponent<gameHandlerScript>().gold += (this.cost * 0.35f); }
+                else { gameHandler.GetComponent<gameHandlerScript>().gold += (this.cost * 0.2f); }
+                Player.localPlayer.DestroyTower(this.gameObject);
+            }
+        }
+    }
+
+    public void destroyYourself()
+    {
+        Destroy(gameObject);
     }
 
     public int getPlayer()

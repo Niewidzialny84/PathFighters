@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class investorScript : MonoBehaviour
+public class investorScript : NetworkBehaviour
 {
     private float paymentTime;
 
@@ -15,6 +16,10 @@ public class investorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isServer)
+        {
+            return;
+        }
         if (paymentTime > 0.0f)
         {
             paymentTime -= Time.deltaTime;
