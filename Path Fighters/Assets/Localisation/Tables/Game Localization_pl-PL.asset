@@ -180,5 +180,17 @@ MonoBehaviour:
       podczas burzenia wie\u017C"
     m_Metadata:
       m_Items: []
+  - m_Id: 6343771477377024
+    m_Localized: Nie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6344057658933248
+    m_Localized: Tak
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6344110440054784
+    m_Localized: "Czy na pewno chcesz si\u0119 podda\u0107?"
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

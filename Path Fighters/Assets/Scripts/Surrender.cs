@@ -20,22 +20,22 @@ public class Surrender : MonoBehaviour
         {
             YesNoPopup yesNoPopup = UIController.Instance.CreateYesNoPopup();
             
-            LocalizedString title, leftButton, rightButton, oldPassword, text;
+            LocalizedString title, leftButton, rightButton, text;
             title = new LocalizedString();
             leftButton = new LocalizedString();
             rightButton = new LocalizedString();
             text = new LocalizedString();
 
-            title.TableReference = "Main Menu Text";
+            title.TableReference = "Game Localization";
             title.TableEntryReference = "G_Surrender";
 
-            leftButton.TableReference = "Main Menu Text";
+            leftButton.TableReference = "Game Localization";
             leftButton.TableEntryReference = "No";
 
-            rightButton.TableReference = "Main Menu Text";
+            rightButton.TableReference = "Game Localization";
             rightButton.TableEntryReference = "Yes";
 
-            text.TableReference = "Main Menu Text";
+            text.TableReference = "Game Localization";
             text.TableEntryReference = "G_Surrender_Info";
 
             yesNoPopup.Init(UIController.Instance.MainCanvas, title.GetLocalizedString(), leftButton.GetLocalizedString(), rightButton.GetLocalizedString(), text.GetLocalizedString(), action);

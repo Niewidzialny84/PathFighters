@@ -49,11 +49,7 @@ public class LoginMenu : MonoBehaviour
         tmp.Popup();
         ParamsPasser.lobbyType = LobbyType.Join;
     }
-    public void QuickGame()
-    {
-        SceneManager.LoadScene("Lobby Scene");
-        ParamsPasser.lobbyType = LobbyType.Fast;
-    }
+
 }
 public static class ParamsPasser
 {

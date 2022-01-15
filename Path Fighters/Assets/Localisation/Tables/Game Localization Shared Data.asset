@@ -151,6 +151,18 @@ MonoBehaviour:
     m_Key: Upgrade_Refunds
     m_Metadata:
       m_Items: []
+  - m_Id: 6343771477377024
+    m_Key: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6344057658933248
+    m_Key: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6344110440054784
+    m_Key: G_Surrender_Info
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

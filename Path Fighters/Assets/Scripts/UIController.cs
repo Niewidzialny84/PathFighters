@@ -33,7 +33,7 @@ public class UIController : MonoBehaviour
     }
     public YesNoPopup CreateYesNoPopup()
     {
-        GameObject popup = Instantiate(Resources.Load("YesNoPopup") as GameObject);
+        GameObject popup = Instantiate(Resources.Load("YesNoPopupSmall") as GameObject);
         return popup.GetComponent<YesNoPopup>();
     }
 }

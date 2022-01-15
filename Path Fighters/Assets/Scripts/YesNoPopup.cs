@@ -25,6 +25,8 @@ public class YesNoPopup : MonoBehaviour
         _firstInput.text = text;
         transform.SetParent(canvas);
         transform.localScale = Vector3.one;
+        var tempvector = new Vector3(2f, 2f, 2f);
+        transform.localScale = tempvector;
         GetComponent<RectTransform>().offsetMin = Vector2.zero;
         GetComponent<RectTransform>().offsetMax = Vector2.zero;
         _leftButton.onClick.AddListener(() => {

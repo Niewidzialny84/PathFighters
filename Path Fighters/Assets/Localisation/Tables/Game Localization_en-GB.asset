@@ -276,5 +276,17 @@ MonoBehaviour:
       when destroying it'
     m_Metadata:
       m_Items: []
+  - m_Id: 6343771477377024
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6344057658933248
+    m_Localized: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6344110440054784
+    m_Localized: Do you really want to surrender?
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
