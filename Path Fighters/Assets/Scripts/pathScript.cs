@@ -42,9 +42,7 @@ public class pathScript : NetworkBehaviour
         if (unit != null && unit.layer == 7 && gameHandler.GetComponent<gameHandlerScript>().recruitmentTime <= 0f && gameHandler.GetComponent<gameHandlerScript>().gold >= unit.GetComponent<unitScript>().cost && !blocked)
         {
             var v = new Vector3(activePlayer==1 ? -5.9f : 5.9f, this.transform.position.y, 0);
-            //var tempUnit = Instantiate(unit, v, Quaternion.identity);
             gameHandler.GetComponent<gameHandlerScript>().gold -= unit.GetComponent<unitScript>().cost;
-            //tempUnit.GetComponent<unitScript>().belongsToPlayer = activePlayer;
             gameHandler.GetComponent<gameHandlerScript>().recruitmentTime = 1.0f;
             int i = Player.getPrefabFromName(unit.name);
 
