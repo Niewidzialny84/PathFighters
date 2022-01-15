@@ -46,6 +46,13 @@ public class RegisterScript : MonoBehaviour
             OnRegisterFailure.Invoke("Passwords do not match.");
             return;
         }
+        if (!ChangePassword.CheckPassword(password))
+        {
+            Debug.Log(password);
+            OnRegisterFailure.Invoke("P");
+            return;
+        }
+
 
         RegisterClient(username, email, password);
     }
@@ -73,10 +80,15 @@ public class RegisterScript : MonoBehaviour
         InfoPopup popup = UIController.Instance.CreatePopup();
         LocalizedString message = new LocalizedString();
         message.TableReference = "Main Menu Text";
-        if(msg == "F")
+        if (msg == "F")
         {
             message.TableEntryReference = "Reg_PopupFail";
-        } else 
+        }
+        else if(msg == "P")
+        {
+            message.TableEntryReference = "DP_PasswordContains";
+        }
+        else
         {
             message.TableEntryReference = "Reg_InvalidData";
         }

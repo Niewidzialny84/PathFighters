@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using System;
 using UnityEngine.Localization;
@@ -6,8 +6,9 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
 using Mirror;
+using System.Text.RegularExpressions;
 
-public class changePassword : MonoBehaviour
+public class ChangePassword : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -16,7 +17,7 @@ public class changePassword : MonoBehaviour
 
         Action action = () =>
         {
-            ChangePassword();
+            ChangePass();
         };
         Button button = GetComponent<Button>();
         button.onClick.AddListener(() =>
@@ -29,7 +30,7 @@ public class changePassword : MonoBehaviour
             oldPassword = new LocalizedString();
             newPassword = new LocalizedString();
 
-            title.TableReference = "Main Menu Text";
+            title.TableReference = "Main Menu Text"; 
             title.TableEntryReference = "DP_ChangePassword";
 
             leftButton.TableReference = "Main Menu Text";
@@ -47,7 +48,7 @@ public class changePassword : MonoBehaviour
             doubleInput.Init(UIController.Instance.MainCanvas, title.GetLocalizedString(), leftButton.GetLocalizedString(), rightButton.GetLocalizedString(), oldPassword.GetLocalizedString(), newPassword.GetLocalizedString(), action);
         });
     }
-    void ChangePassword()
+    void ChangePass()
     {
         loginReturn = GameObject.Find("NetworkManager").GetComponent<Variables>().loginReturn;
         Debug.Log(loginReturn.user.id + " in change passwd");
@@ -57,6 +58,15 @@ public class changePassword : MonoBehaviour
             string newPass = GameObject.Find("InputField2").GetComponent<TMP_InputField>().text;
 
             oldPass = HashingHelper.GenerateSHA256(oldPass);
+            if (!CheckPassword(newPass))
+            {
+                InfoPopup popup = UIController.Instance.CreatePopup();
+                LocalizedString message = new LocalizedString();
+                message.TableReference = "Main Menu Text";
+                message.TableEntryReference = "DP_PasswordContains";
+                popup.Init(UIController.Instance.MainCanvas, message.GetLocalizedString());
+                return;
+            }
             newPass = HashingHelper.GenerateSHA256(newPass);
 
             if (oldPass == "" || loginReturn.user.password != oldPass || newPass == "" || newPass == oldPass)
@@ -68,8 +78,8 @@ public class changePassword : MonoBehaviour
                 popup.Init(UIController.Instance.MainCanvas, message.GetLocalizedString());
                 return;
             }
-
-            ChangePassword(loginReturn.user.id, newPass, loginReturn.jwt_token);
+           
+            ChangePass(loginReturn.user.id, newPass, loginReturn.jwt_token);
         }
     }
 
@@ -78,7 +88,7 @@ public class changePassword : MonoBehaviour
         Debug.Log("Password Changed");
 
         GameObject.Find("NetworkManager").GetComponent<Variables>().loginReturn.user.password = msg;
-    
+
         InfoPopup popup = UIController.Instance.CreatePopup();
         LocalizedString message = new LocalizedString();
         message.TableReference = "Main Menu Text";
@@ -86,12 +96,52 @@ public class changePassword : MonoBehaviour
         popup.Init(UIController.Instance.MainCanvas, message.GetLocalizedString());
         return;
     }
-    
+    public static bool CheckPassword(string passWord)
+    {
+        Debug.Log($"HALLOOO {passWord}");
+
+        int validConditions = 0;
+        if(passWord.Length<8) return false;
+        foreach (char c in passWord)
+        {
+            if (c >= 'a' && c <= 'z')
+            {
+                validConditions++;
+                break;
+            }
+        }
+        foreach (char c in passWord)
+        {
+            if (c >= 'A' && c <= 'Z')
+            {
+                validConditions++;
+                break;
+            }
+        }
+        if (validConditions == 0) return false;
+        foreach (char c in passWord)
+        {
+            if (c >= '0' && c <= '9')
+            {
+                validConditions++;
+                break;
+            }
+        }
+        if (validConditions == 1) return false;
+        if (validConditions == 2)
+        {
+            char[] special = { '@', '#', '$', '%', '^', '&', '+', '=' }; // or whatever    
+            if (passWord.IndexOfAny(special) == -1) return false;
+        }
+        return true;
+        
+    }
+
     #region ChangePassword
 
     private LoginReturn loginReturn;
     public UnityEvent<string> OnChangeAccountSuccess;
-    public void ChangePassword(int id, string password, string auth)
+    public void ChangePass(int id, string password, string auth)
     {
         StartCoroutine(__ChangePassword(id, password, auth, false));
     }

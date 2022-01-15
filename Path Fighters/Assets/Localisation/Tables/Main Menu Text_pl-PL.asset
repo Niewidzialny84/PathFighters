@@ -182,5 +182,9 @@ MonoBehaviour:
     m_Localized: "Has\u0142o zmienione"
     m_Metadata:
       m_Items: []
+  - m_Id: 31796504581767168
+    m_Localized: "Has\u0142o musi spe\u0142nia\u0107 wymagania minimalne bezpiecze\u0144stwa"
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
