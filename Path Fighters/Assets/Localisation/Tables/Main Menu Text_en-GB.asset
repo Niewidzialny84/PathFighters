@@ -186,5 +186,9 @@ MonoBehaviour:
     m_Localized: Password must fulfill basic password requirements
     m_Metadata:
       m_Items: []
+  - m_Id: 31882407489703936
+    m_Localized: Invalid character in login
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

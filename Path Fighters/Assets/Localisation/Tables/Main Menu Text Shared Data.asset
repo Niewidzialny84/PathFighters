@@ -183,6 +183,10 @@ MonoBehaviour:
     m_Key: DP_PasswordContains
     m_Metadata:
       m_Items: []
+  - m_Id: 31882407489703936
+    m_Key: Username_PopupFail
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

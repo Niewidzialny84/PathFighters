@@ -29,9 +29,18 @@ public class RegisterScript : MonoBehaviour
         var regex = @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z";
         bool isValid = Regex.IsMatch(email, regex);
 
+        var regexUser = @"\A(?:[a-z0-9!?. -])+\Z";
+        bool usernameIsValid = Regex.IsMatch(username, regexUser);
+
         if (username == "" || email == "" || emailConfirm == "" || password == "" || passwordConfirm == "")
         {
             OnRegisterFailure.Invoke("Please fill in all fields.");
+            return;
+        }
+
+        if (!usernameIsValid)
+        {
+            OnRegisterFailure.Invoke("Username is not valid.");
             return;
         }
 
@@ -80,7 +89,11 @@ public class RegisterScript : MonoBehaviour
         InfoPopup popup = UIController.Instance.CreatePopup();
         LocalizedString message = new LocalizedString();
         message.TableReference = "Main Menu Text";
-        if (msg == "F")
+        if (msg == "Username is not valid.")
+        {
+            message.TableEntryReference = "Username_PopupFail";
+        }
+        else if (msg == "F")
         {
             message.TableEntryReference = "Reg_PopupFail";
         }
