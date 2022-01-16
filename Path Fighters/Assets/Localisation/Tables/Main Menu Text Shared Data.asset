@@ -187,6 +187,10 @@ MonoBehaviour:
     m_Key: Username_PopupFail
     m_Metadata:
       m_Items: []
+  - m_Id: 32180871481131008
+    m_Key: LobbyName
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

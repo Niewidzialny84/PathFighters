@@ -648,10 +648,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa15d47a2c3567841b7c49ae71081977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonColor: {r: 0, g: 0, b: 0, a: 0}
+  fadedbuttonColor: {r: 87, g: 44, b: 8, a: 0}
+  textColor: {r: 217, g: 175, b: 136, a: 0}
   _Code: {fileID: 1457361046}
   _InputField: {fileID: 401259764}
   User1: {fileID: 374819636}
   User2: {fileID: 559881161}
+  startText: {fileID: 37191547}
+  startButton: {fileID: 1873350436}
 --- !u!1 &258171489
 GameObject:
   m_ObjectHideFlags: 0
@@ -1174,7 +1179,7 @@ MonoBehaviour:
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: 111111
+  m_Text: -----
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 1
@@ -1435,7 +1440,6 @@ GameObject:
   - component: {fileID: 729845200}
   - component: {fileID: 729845202}
   - component: {fileID: 729845201}
-  - component: {fileID: 729845203}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -1559,45 +1563,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 729845199}
   m_CullTransparentMesh: 1
---- !u!114 &729845203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729845199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_StringReference:
-    m_TableReference:
-      m_TableCollectionName: GUID:b224f168b04271142934e399195148b3
-    m_TableEntryReference:
-      m_KeyId: 25778875459690496
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  m_FormatArguments: []
-  m_UpdateString:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 729845201}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  references:
-    version: 1
 --- !u!1 &936886356
 GameObject:
   m_ObjectHideFlags: 0
@@ -1939,7 +1904,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "111111\u200B"
+  m_text: "-----\u200B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 366dd4a7c8139f44381fedf77779cbb9, type: 2}
   m_sharedMaterial: {fileID: 7241430867664106316, guid: 366dd4a7c8139f44381fedf77779cbb9, type: 2}

@@ -7,19 +7,26 @@ using TMPro;
 public class codeInit : MonoBehaviour
 {
     public static codeInit instance;
-
+    public Color buttonColor = new Color(87, 44, 8, 255);
+    public Color fadedbuttonColor = new Color(87, 44, 8, 0);
+    public Color textColor = new Color(217, 175, 136, 255);
     [SerializeField] TextMeshProUGUI _Code;
     [SerializeField] TMP_InputField _InputField;
 
     [SerializeField] TMP_Text User1;
 
     [SerializeField] TMP_Text User2;
+    [SerializeField] TMP_Text startText;
+    [SerializeField] Button startButton;
 
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
 
+        startButton.GetComponent<Image>().color = fadedbuttonColor;
+        startText.color = fadedbuttonColor;
+        startButton.enabled = false;
         switch(ParamsPasser.lobbyType)
         {
             case LobbyType.Create:
@@ -77,5 +84,22 @@ public class codeInit : MonoBehaviour
         Debug.Log("Create Game");
         _InputField.text = code;
         User1.text = Player.localPlayer.username;
+    }
+    public void Update()
+    {
+        if (User2.text != "---")
+        {
+            startButton.enabled = true;
+            startButton.interactable = true;
+            startButton.GetComponent<Image>().color = buttonColor;
+            startText.color = textColor;
+        }
+        if (User2.text == "---" && startButton.enabled == true)
+        {
+            startButton.interactable = false;
+            startButton.enabled = false;
+            startButton.GetComponent<Image>().color = fadedbuttonColor;
+            startText.color = fadedbuttonColor;
+        }
     }
 }

@@ -190,5 +190,9 @@ MonoBehaviour:
     m_Localized: Niepoprawny znak w loginie
     m_Metadata:
       m_Items: []
+  - m_Id: 32180871481131008
+    m_Localized: Lobby
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
