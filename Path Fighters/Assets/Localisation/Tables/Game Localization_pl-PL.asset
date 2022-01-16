@@ -192,5 +192,13 @@ MonoBehaviour:
     m_Localized: "Czy na pewno chcesz si\u0119 podda\u0107?"
     m_Metadata:
       m_Items: []
+  - m_Id: 6840495190966272
+    m_Localized: "Zwyci\u0119stwo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6840600715460608
+    m_Localized: "Pora\u017Cka"
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

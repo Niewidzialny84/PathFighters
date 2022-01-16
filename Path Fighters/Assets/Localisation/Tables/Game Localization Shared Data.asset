@@ -163,6 +163,14 @@ MonoBehaviour:
     m_Key: G_Surrender_Info
     m_Metadata:
       m_Items: []
+  - m_Id: 6840495190966272
+    m_Key: G_Victory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6840600715460608
+    m_Key: G_Defeat
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

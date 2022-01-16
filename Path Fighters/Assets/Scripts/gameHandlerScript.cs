@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
+using UnityEngine.Localization;
 public class gameHandlerScript : MonoBehaviour
 {
     //This contains the selected object type
@@ -12,6 +13,9 @@ public class gameHandlerScript : MonoBehaviour
     public float gold;
     //The time a player needs to wait between spawning new units. This will be handeled locally so there is no need to split it between players
     public float recruitmentTime;
+
+
+    LoginReturn loginReturn;
 
 
     public int[] baseHitPoints = new int[2];
@@ -73,22 +77,25 @@ public class gameHandlerScript : MonoBehaviour
             if (this.baseHitPoints[0] <= 0 || this.baseHitPoints[1] <= 0)
             {
                 Time.timeScale = 0.1f;
-                if (this.baseHitPoints[0] <= 0 || this.baseHitPoints[1] <= 0)
+                /*if (this.baseHitPoints[0] <= 0 || this.baseHitPoints[1] <= 0)
                 {
                     this.pauseEndTime = Time.realtimeSinceStartup + 3;
                     this.state = State.Defeated;
+                    Defeated();
                     //TODO: send that player is defeated with timestamp to the server for it to decide (based on time) who is the winner
-                }
-                else if (this.baseHitPoints[this.activePlayer - 1] <= 0)
+                }*/
+                if (this.baseHitPoints[this.activePlayer - 1] <= 0)
                 {
                     this.pauseEndTime = Time.realtimeSinceStartup + 3;
                     this.state = State.Defeated;
+                    Defeated();
                     //TODO: send that player is defeated with timestamp to the server for it to decide (based on time) who is the winner
                 }
                 else
                 {
                     this.pauseEndTime = Time.realtimeSinceStartup + 3;
                     this.state = State.Victorious;
+                    Victorious();
                     //TODO: send that player is defeated with timestamp to the server for it to decide (based on time) who is the winner
                 }
             }
@@ -103,7 +110,7 @@ public class gameHandlerScript : MonoBehaviour
                 else { gold += (5f * Time.deltaTime); }  
             }
         }
-
+      
 
         //THIS IS ONLY A TEST DELETE IS AFTERWARDS
         // if (Input.GetMouseButtonDown(1))
@@ -119,5 +126,137 @@ public class gameHandlerScript : MonoBehaviour
         //         aP = true;
         //     }
         // }
+    }
+    #region Win
+    public void AddWin(int id, string auth)
+    {
+        StartCoroutine(__AddWin(id, auth,false));
+    }
+
+    private IEnumerator __AddWin(int id, string auth,bool refresh)
+    {
+        string json = " ";
+
+        var url = string.Format(ApiURL.STATS_USER_WIN, id);
+        var www = ApiFormater.formatPatch(url, json, auth);
+
+        yield return www.SendWebRequest();
+
+        if (www.responseCode == 200)
+        {
+            // Call success callback 
+
+            // Show results as text
+            Debug.Log(www.downloadHandler.text);
+        }
+        else
+        {
+            if (refresh == false)
+            {
+                Debug.Log("Refresh token after error");
+
+                json = JsonUtility.ToJson(new LoginData(loginReturn.user.username, loginReturn.user.password));
+                www = ApiFormater.formatPost(ApiURL.REFRESH_URL, json);
+
+                yield return www.SendWebRequest();
+
+                if (www.responseCode == 200)
+                {
+                    TokenReturn token = JsonUtility.FromJson<TokenReturn>(www.downloadHandler.text);
+
+                    GameObject.Find("NetworkManager").GetComponent<Variables>().loginReturn.jwt_token = token.jwt_token;
+
+                    StartCoroutine(__AddWin(id, token.jwt_token, true));
+                }
+                else
+                {
+                    Debug.Log(www.error);
+                }
+            }
+            else
+            {
+                // Call the error callback
+                Debug.Log(www.error);
+            }
+            // Call the error callback
+        }
+    }
+    #endregion
+
+    #region Lose
+    public void AddLose(int id, string auth)
+    {
+        StartCoroutine(__AddLose(id, auth,false));
+    }
+
+    private IEnumerator __AddLose(int id, string auth, bool refresh)
+    {
+        string json = " ";
+
+        var url = string.Format(ApiURL.STATS_USER_LOSE, id);
+        var www = ApiFormater.formatPatch(url, json, auth);
+
+        yield return www.SendWebRequest();
+
+        if (www.responseCode == 200)
+        {
+            // Call success callback 
+
+            // Show results as text
+            Debug.Log(www.downloadHandler.text);
+        }
+        else
+        {
+            if (refresh == false)
+            {
+                Debug.Log("Refresh token after error");
+
+                json = JsonUtility.ToJson(new LoginData(loginReturn.user.username, loginReturn.user.password));
+                www = ApiFormater.formatPost(ApiURL.REFRESH_URL, json);
+
+                yield return www.SendWebRequest();
+
+                if (www.responseCode == 200)
+                {
+                    TokenReturn token = JsonUtility.FromJson<TokenReturn>(www.downloadHandler.text);
+
+                    GameObject.Find("NetworkManager").GetComponent<Variables>().loginReturn.jwt_token = token.jwt_token;
+
+                    StartCoroutine(__AddLose(id, token.jwt_token, true));
+                }
+                else
+                {
+                    Debug.Log(www.error);
+                }
+            }
+            else
+            {
+                // Call the error callback
+                Debug.Log(www.error);
+            }
+        }
+    }
+    #endregion
+    private void Defeated()
+    {
+        loginReturn = GameObject.Find("NetworkManager").GetComponent<Variables>().loginReturn;
+        AddLose(loginReturn.user.id, loginReturn.jwt_token);
+        InfoPopup popup = UIController.Instance.CreatePopup();
+        LocalizedString message = new LocalizedString();
+        message.TableReference = "Game Localization";
+        message.TableEntryReference = "G_Defeat";
+        popup.Initialize(UIController.Instance.MainCanvas, message.GetLocalizedString());
+        
+
+    }
+    private void Victorious()
+    {
+        loginReturn = GameObject.Find("NetworkManager").GetComponent<Variables>().loginReturn;
+        AddWin(loginReturn.user.id, loginReturn.jwt_token);
+        InfoPopup popup = UIController.Instance.CreatePopup();
+        LocalizedString message = new LocalizedString();
+        message.TableReference = "Game Localization";
+        message.TableEntryReference = "G_Victory";
+        popup.Initialize(UIController.Instance.MainCanvas, message.GetLocalizedString());
     }
 }

@@ -288,5 +288,13 @@ MonoBehaviour:
     m_Localized: Do you really want to surrender?
     m_Metadata:
       m_Items: []
+  - m_Id: 6840495190966272
+    m_Localized: Victory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6840600715460608
+    m_Localized: Defeat
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

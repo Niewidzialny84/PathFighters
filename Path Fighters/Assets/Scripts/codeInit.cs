@@ -24,8 +24,8 @@ public class codeInit : MonoBehaviour
     {
         instance = this;
 
-        startButton.GetComponent<Image>().color = fadedbuttonColor;
-        startText.color = fadedbuttonColor;
+        //startButton.GetComponent<Image>().color = fadedbuttonColor;
+        //startText.color = fadedbuttonColor;
         startButton.enabled = false;
         switch(ParamsPasser.lobbyType)
         {
@@ -91,15 +91,15 @@ public class codeInit : MonoBehaviour
         {
             startButton.enabled = true;
             startButton.interactable = true;
-            startButton.GetComponent<Image>().color = buttonColor;
-            startText.color = textColor;
+            //startButton.GetComponent<Image>().color = buttonColor;
+            //startText.color = textColor;
         }
         if (User2.text == "---" && startButton.enabled == true)
         {
             startButton.interactable = false;
             startButton.enabled = false;
-            startButton.GetComponent<Image>().color = fadedbuttonColor;
-            startText.color = fadedbuttonColor;
+            //startButton.GetComponent<Image>().color = fadedbuttonColor;
+            //startText.color = fadedbuttonColor;
         }
     }
 }

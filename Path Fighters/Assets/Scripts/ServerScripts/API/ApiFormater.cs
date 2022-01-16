@@ -13,6 +13,8 @@ public class ApiFormater
     public static UnityWebRequest formatGet(string url, string auth)
     {
         var www = new UnityWebRequest(url, "GET");
+        var cert = new ForceAcceptAll();
+        www.certificateHandler = cert;
         www.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
         www.SetRequestHeader("Authorization", "Bearer " + auth);
         return www;
