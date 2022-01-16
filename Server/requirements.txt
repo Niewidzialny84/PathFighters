@@ -18,6 +18,7 @@ itsdangerous==1.1.0
 Jinja2>=2.10.1
 jsonschema==4.0.1
 Mako==1.1.5
+pyOpenSSL==20.0.1
 psycopg2-binary==2.8.5
 pycparser==2.20
 PyJWT==2.3.0

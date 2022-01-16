@@ -22,7 +22,7 @@ main_app = Manager(app)
 @main_app.command
 def run():
     """Runs main app."""
-    app.run(host='0.0.0.0', port=5001, use_reloader=False) #, ssl_context="adhoc"   # TO ADD INSIDE RUN TU ACTIVATE SSL
+    app.run(host='0.0.0.0', port=5001, use_reloader=False, ssl_context="adhoc") #, ssl_context="adhoc"   # TO ADD INSIDE RUN TU ACTIVATE SSL
 
 @main_app.command
 def test():
