@@ -18,6 +18,8 @@ using UnityEngine.Localization;
 
         [SyncVar] public Match currentMatch;
 
+    private LoginReturn loginReturn;
+
         Guid netIDGuid;
 
         void Awake () {
@@ -49,14 +51,130 @@ using UnityEngine.Localization;
             }
         }
 
+    #region Lose
+    public void AddLose(int id, string auth)
+    {
+        StartCoroutine(__AddLose(id, auth, false));
+    }
+
+    private IEnumerator __AddLose(int id, string auth, bool refresh)
+    {
+        string json = " ";
+
+        var url = string.Format(ApiURL.STATS_USER_LOSE, id);
+        var www = ApiFormater.formatPatch(url, json, auth);
+
+        yield return www.SendWebRequest();
+
+        if (www.responseCode == 200)
+        {
+            // Call success callback 
+
+            // Show results as text
+            Debug.Log(www.downloadHandler.text);
+        }
+        else
+        {
+            if (refresh == false)
+            {
+                Debug.Log("Refresh token after error");
+
+                json = JsonUtility.ToJson(new LoginData(loginReturn.user.username, loginReturn.user.password));
+                www = ApiFormater.formatPost(ApiURL.REFRESH_URL, json);
+
+                yield return www.SendWebRequest();
+
+                if (www.responseCode == 200)
+                {
+                    TokenReturn token = JsonUtility.FromJson<TokenReturn>(www.downloadHandler.text);
+
+                    GameObject.Find("NetworkManager").GetComponent<Variables>().loginReturn.jwt_token = token.jwt_token;
+
+                    StartCoroutine(__AddLose(id, token.jwt_token, true));
+                }
+                else
+                {
+                    Debug.Log(www.error);
+                }
+            }
+            else
+            {
+                // Call the error callback
+                Debug.Log(www.error);
+            }
+        }
+    }
+    #endregion
+
+    void OnApplicationQuit()
+    {
+        
+        if (Player.localPlayer.currentMatch.inMatch && Player.localPlayer.username != username)
+        {
+            loginReturn = GameObject.Find("NetworkManager").GetComponent<Variables>().loginReturn;
+            AddLose(loginReturn.user.id, loginReturn.jwt_token);
+        }
+    }
+
+    void OnDestroy()
+    {
+        if (isServer) return;
+        //AltF4Cmd(matchID);
+        if (!Player.localPlayer.matchID.Equals(matchID))
+        {
+            return;
+        }
+        if (Player.localPlayer.currentMatch.inMatch && Player.localPlayer.username != username)
+        {
+            GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
+            Debug.Log($"I am winning: {username} which is {gameHandler.GetComponent<gameHandlerScript>().activePlayer}");
+            gameHandler.GetComponent<gameHandlerScript>().baseHitPoints[gameHandler.GetComponent<gameHandlerScript>().activePlayer == 1 ? 1 : 0] = -1;
+        }
+        else
+        {
+
+        }
+    }
+
         public override void OnStopClient () {
             Debug.Log ($"Client Stopped {username}");
+        
             ClientDisconnect ();
         }
 
-        public override void OnStopServer () {
-            Debug.Log ($"Client Stopped on Server {username}");
-            ServerDisconnect ();
+    //    [Command]
+    //    public void AltF4Cmd(string match_ID)
+    //{
+    //    AltF4Rpc(match_ID);
+    //}
+
+    //[ClientRpc]
+    //public void AltF4Rpc(string match_ID)
+    //{
+    //    AltF4FunRcp(match_ID);
+    //    if (!Player.localPlayer.matchID.Equals(match_ID))
+    //    {
+    //        return;
+    //    }
+    //    if (Player.localPlayer.currentMatch.inMatch)
+    //    {
+
+    //    }
+    //    else
+    //    {
+
+    //    }
+    //}
+
+    //public void AltF4FunRcp(string match_ID)
+    //{
+    //    Debug.Log($"ALT F4 Disconnect from: {Player.localPlayer.gameObject.scene.name}");
+    //}
+
+    public override void OnStopServer () {
+            Debug.Log ($"1. Client Stopped on Server {username} a match ID to {matchID}");
+            //AltF4Rpc(matchID);
+        ServerDisconnect ();
         }
 
         /* 
@@ -157,19 +275,13 @@ using UnityEngine.Localization;
 
         [ClientRpc]
         void RpcDisconnectGame () {
-
-            ClientDisconnect ();
+        
+        ClientDisconnect ();
         }
 
         void ClientDisconnect () {
-            //if (playerLobbyUI != null) {
-            //    if (!isServer) {
-            //        Destroy (playerLobbyUI);
-            //    } else {
-            //        playerLobbyUI.SetActive (false);
-            //    }
-            //}
-        }
+        Debug.Log($"Disconnect from: {Player.localPlayer.gameObject.scene.name}");
+    }
 
         /* 
             SEARCH MATCH
@@ -244,8 +356,9 @@ using UnityEngine.Localization;
         [TargetRpc]
         void TargetBeginGame () {
             Debug.Log ($"MatchID: {matchID} | Beginning");
-            //Additively load game scene
-            //SceneManager.LoadScene ("SampleScene", LoadSceneMode.Additive);
+        //Additively load game scene
+        //SceneManager.LoadScene ("SampleScene", LoadSceneMode.Additive);
+        currentMatch.inMatch = true;
             SceneManager.LoadScene ("SampleScene");
             //NetworkManager.singleton.ServerChangeScene ("SampleScene");
             
