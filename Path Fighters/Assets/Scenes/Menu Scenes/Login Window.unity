@@ -914,7 +914,6 @@ GameObject:
   m_Component:
   - component: {fileID: 648460800}
   - component: {fileID: 648460801}
-  - component: {fileID: 648460802}
   m_Layer: 0
   m_Name: LoginScript
   m_TagString: Untagged
@@ -956,24 +955,6 @@ MonoBehaviour:
       m_Calls: []
   usernameInputField: {fileID: 1142451995}
   passwordInputField: {fileID: 1075514459}
---- !u!114 &648460802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 648460799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aaab3b4cb81de024f9b6610f45c828f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnServerAuthenticated:
-    m_PersistentCalls:
-      m_Calls: []
-  OnClientAuthenticated:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &682036264
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,6 +1034,7 @@ GameObject:
   - component: {fileID: 699752034}
   - component: {fileID: 699752033}
   - component: {fileID: 699752037}
+  - component: {fileID: 699752038}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -1067,7 +1049,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 699752032}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6442dc8070ceb41f094e44de0bf87274, type: 3}
   m_Name: 
@@ -1123,7 +1105,7 @@ MonoBehaviour:
   transport: {fileID: 699752034}
   networkAddress: localhost
   maxConnections: 100
-  authenticator: {fileID: 648460802}
+  authenticator: {fileID: 699752038}
   playerPrefab: {fileID: 716457668215599647, guid: a2391cfcf0245e848abdfafc573d2aef, type: 3}
   autoCreatePlayer: 0
   playerSpawnMethod: 0
@@ -1147,8 +1129,6 @@ MonoBehaviour:
   - {fileID: 6045984558694664280, guid: ff9c1a2ff8c74a6499dd61acdf946de9, type: 3}
   - {fileID: 5692463958246945643, guid: 3bc0ae9611e943b4b9f9486c8d9bd4fb, type: 3}
   - {fileID: 3966771907537544977, guid: 508b95acf0b91134eb090764f821465b, type: 3}
-  - {fileID: 8357042920024325251, guid: 141e0c0fce754c94c91077d1c38c0fee, type: 3}
-  - {fileID: 8035081658575459780, guid: d335fde4b495147488a51f6526ffa3ee, type: 3}
   - {fileID: 5176758552417849546, guid: 3dae0debf21ef6240b67329868a57d10, type: 3}
 --- !u!4 &699752036
 Transform:
@@ -1176,6 +1156,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b47f3c8685ddf746a65c97ff7cea6d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &699752038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699752032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaab3b4cb81de024f9b6610f45c828f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnServerAuthenticated:
+    m_PersistentCalls:
+      m_Calls: []
+  OnClientAuthenticated:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &876555754
 GameObject:
   m_ObjectHideFlags: 0

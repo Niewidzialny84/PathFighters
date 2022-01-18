@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
-public class towerFieldScript : NetworkBehaviour
+public class towerFieldScript : MonoBehaviour
 {
     [SerializeField] private GameObject localTower;
     public int belongsToPlayer;
@@ -26,7 +26,6 @@ public class towerFieldScript : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isServer) return;
         GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
         if (gameHandler.GetComponent<gameHandlerScript>().activePlayer == this.belongsToPlayer)
         {

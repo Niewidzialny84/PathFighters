@@ -45,13 +45,15 @@ public class Surrender : MonoBehaviour
     }
     void AcceptSurrender()
     {
-        loginReturn = GameObject.Find("NetworkManager").GetComponent<Variables>().loginReturn;
-        AddLose(loginReturn.user.id, loginReturn.jwt_token);
-        InfoPopup popup = UIController.Instance.CreatePopup();
-        LocalizedString message = new LocalizedString();
-        message.TableReference = "Game Localization";
-        message.TableEntryReference = "G_Defeat";
-        popup.Initialize(UIController.Instance.MainCanvas, message.GetLocalizedString());
+        Player.localPlayer.surrenderGame(GameObject.Find("gameHandler").GetComponent<gameHandlerScript>().activePlayer);
+
+        //loginReturn = GameObject.Find("NetworkManager").GetComponent<Variables>().loginReturn;
+        //AddLose(loginReturn.user.id, loginReturn.jwt_token);
+        //InfoPopup popup = UIController.Instance.CreatePopup();
+        //LocalizedString message = new LocalizedString();
+        //message.TableReference = "Game Localization";
+        //message.TableEntryReference = "G_Defeat";
+        //popup.Initialize(UIController.Instance.MainCanvas, message.GetLocalizedString());
     }
     // Update is called once per frame
     public void AddLose(int id, string auth)

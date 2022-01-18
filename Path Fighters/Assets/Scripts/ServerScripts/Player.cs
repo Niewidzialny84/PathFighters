@@ -64,7 +64,7 @@ using UnityEngine.Localization;
         */
 
         public void HostGame (bool publicMatch) {
-            string matchID = MatchMaker.GetRandomMatchID ();
+            string matchID = MatchMaker.GetRandomMatchID();
             CmdHostGame (matchID, publicMatch);
         }
 
@@ -157,6 +157,7 @@ using UnityEngine.Localization;
 
         [ClientRpc]
         void RpcDisconnectGame () {
+
             ClientDisconnect ();
         }
 
@@ -245,8 +246,8 @@ using UnityEngine.Localization;
             Debug.Log ($"MatchID: {matchID} | Beginning");
             //Additively load game scene
             //SceneManager.LoadScene ("SampleScene", LoadSceneMode.Additive);
-            //SceneManager.LoadScene ("SampleScene");
-            NetworkManager.singleton.ServerChangeScene ("SampleScene");
+            SceneManager.LoadScene ("SampleScene");
+            //NetworkManager.singleton.ServerChangeScene ("SampleScene");
             
         }
 
@@ -268,31 +269,21 @@ using UnityEngine.Localization;
             //     GameObject o = Instantiate(p.gameObject);
             //     NetworkServer.Spawn(o);
             // }
-            GameObject prefab = NetworkManager.singleton.spawnPrefabs[19];
-            Debug.Log($"{prefab.name}");
-            float val = 3.5f;
-            for (int i=1; i<=3;i++)
-            {
-                GameObject obj1 = Instantiate(prefab, new Vector3(0, val, 0), Quaternion.identity);
-                Debug.Log($"{obj1.name}");
-                NetworkServer.Spawn(obj1);
-                val -= 2.0f;
-            }
 
-            prefab = NetworkManager.singleton.spawnPrefabs[20];
-            Debug.Log($"{prefab.name}");
-            val = 4.5f;
-            for (int i = 1; i <= 6; i++)
-            {
-                GameObject obj1 = Instantiate(prefab, new Vector3(6.5f, val, 0), Quaternion.identity);
-                GameObject obj2 = Instantiate(prefab, new Vector3(-6.5f, val, 0), Quaternion.identity);
-                Debug.Log($"{obj1.name}");
-                NetworkServer.Spawn(obj1);
-                NetworkServer.Spawn(obj2);
-                val -= 1.0f;
-            }
+            //var prefab = NetworkManager.singleton.spawnPrefabs[19];
+            //Debug.Log($"{prefab.name}");
+            //var val = 4.5f;
+            //for (int i = 1; i <= 6; i++)
+            //{
+            //    GameObject obj1 = Instantiate(prefab, new Vector3(6.5f, val, 0), Quaternion.identity);
+            //    GameObject obj2 = Instantiate(prefab, new Vector3(-6.5f, val, 0), Quaternion.identity);
+            //    Debug.Log($"{obj1.name}");
+            //    NetworkServer.Spawn(obj1);
+            //    NetworkServer.Spawn(obj2);
+            //    val -= 1.0f;
+            //}
 
-            prefab = NetworkManager.singleton.spawnPrefabs[21];
+            var prefab = NetworkManager.singleton.spawnPrefabs[19];
             GameObject obj = Instantiate(prefab, new Vector3(0f, 0f, 0f), Quaternion.identity);
             NetworkServer.Spawn(obj);
         //GameObject obj = Instantiate(Resources.Load("Prefabs/Path")) as GameObject;
@@ -305,23 +296,28 @@ using UnityEngine.Localization;
         public void SpawnUnit(int unit, Vector3 pos, int player)
         {
             Debug.Log($"Spawnunit {unit}; {pos}; {player}");
-            CmdSpawnUnit(unit, pos, player);
+            CmdSpawnUnit(unit, pos, player, Player.localPlayer.matchID);
         }
 
-        [Command]
-        private void CmdSpawnUnit(int unit, Vector3 pos, int player)
-        {
-            GameObject o = NetworkManager.singleton.spawnPrefabs[unit];
-            GameObject obj = Instantiate(o, pos, Quaternion.identity);
-            Debug.Log($"Spawning unit {obj.name}");
-            NetworkServer.Spawn(obj);
-            abc(obj, player);
-        }
+    [Command]
+    private void CmdSpawnUnit(int unit, Vector3 pos, int player, string match_ID)
+    {
+        GameObject o = NetworkManager.singleton.spawnPrefabs[unit];
+        GameObject obj = Instantiate(o, pos, Quaternion.identity);
+        Debug.Log($"Spawning unit {obj.name}");
+        NetworkServer.Spawn(obj);
+        abc(obj, player, match_ID);
+    }
 
         [ClientRpc]
-        private void abc(GameObject o, int player)
+        private void abc(GameObject o, int player, string match_ID)
         {
-            Debug.Log($"{o.name}");
+        if (!Player.localPlayer.matchID.Equals(match_ID))
+        {
+            Destroy(o);
+            return;
+        }
+        Debug.Log($"{o.name}");
             try 
             {
                 o.GetComponent<unitScript>().belongsToPlayer = player;
@@ -335,17 +331,27 @@ using UnityEngine.Localization;
         public void SpawnTower(int unit, Vector3 pos, int player)
         {
             Debug.Log($"Spawnunit {unit}; {pos}; {player}");
-            CmdSpawnTower(unit, pos, player);
+            CmdSpawnTower(unit, pos, player, Player.localPlayer.matchID);
         }
 
     [Command]
-        private void CmdSpawnTower(int unit, Vector3 pos, int player)
+        private void CmdSpawnTower(int unit, Vector3 pos, int player, string match_ID)
         {
         GameObject o = NetworkManager.singleton.spawnPrefabs[unit];
             GameObject obj = Instantiate(o, pos, Quaternion.identity);
             Debug.Log($"Spawning tower {obj.name}");
             NetworkServer.Spawn(obj);
+        RpcSpawnTower(obj, match_ID);
         }
+    [ClientRpc]
+    private void RpcSpawnTower(GameObject o, string match_ID)
+    {
+        if (!Player.localPlayer.matchID.Equals(match_ID))
+        {
+            Destroy(o);
+            return;
+        }
+    }
 
     public void DestroyTower(GameObject tower)
     {
@@ -400,16 +406,25 @@ using UnityEngine.Localization;
         }
     }
 
-    [Command]
-    public void updateTechCmd(int order, int belongsToPlayer)
+    public void updateTech(int order, int belongsToPlayer, string match_ID)
     {
-        updateTech(order, belongsToPlayer);
+        updateTech(order, belongsToPlayer, Player.localPlayer.matchID);
+    }
+
+    [Command]
+    public void updateTechCmd(int order, int belongsToPlayer, string match_ID)
+    {
+        updateTechRcp(order, belongsToPlayer, match_ID);
     }
 
     [ClientRpc]
-    public void updateTech(int order, int belongsToPlayer)
+    public void updateTechRcp(int order, int belongsToPlayer, string match_ID)
     {
-        if (order == 13)
+        if (!Player.localPlayer.matchID.Equals(match_ID))
+        {
+            return;
+        }
+            if (order == 13)
         {
             GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
             gameHandler.GetComponent<gameHandlerScript>().baseHitPoints[belongsToPlayer - 1] += 300;
@@ -453,6 +468,30 @@ using UnityEngine.Localization;
             {
                 Debug.Log("Expected exception  " + e.GetType());
             }
+        }
+    }
+
+    public void surrenderGame(int player)
+    {
+        //Debug.Log($"Ten player ma {Player.localPlayer.matchID}");
+        surrenderGameCmd(player, Player.localPlayer.matchID);
+    }
+
+    [Command]
+    public void surrenderGameCmd(int player, string match_ID)
+    {
+        //Debug.Log($"Surrender: {match_ID}");
+        surrenderGameRcp(player, match_ID);
+    }
+
+    [ClientRpc]
+    public void surrenderGameRcp(int player, string match_ID)
+    {
+        //Debug.Log($"Tutaj będzie ID przy surrender {this.matchID} ; a to które powinno przegrać {match_ID}");
+        if(Player.localPlayer.matchID.Equals(match_ID))
+        {
+            GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
+            gameHandler.GetComponent<gameHandlerScript>().baseHitPoints[player -1] = -1;
         }
     }
 }

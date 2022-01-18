@@ -64,15 +64,15 @@ public class upgradeScript : MonoBehaviour
             gameHandler.GetComponent<gameHandlerScript>().upgrades[belongsToPlayer - 1, this.order] = true;
             if (order == 13)
             {
-                Player.localPlayer.updateTechCmd(order, belongsToPlayer);
+                Player.localPlayer.updateTech(order, belongsToPlayer, Player.localPlayer.matchID);
             }
             else if (order == 3)
             {
-                Player.localPlayer.updateTechCmd(order, belongsToPlayer);
+                Player.localPlayer.updateTech(order, belongsToPlayer, Player.localPlayer.matchID);
             }
             else if (order == 5)
             {
-                Player.localPlayer.updateTechCmd(order, belongsToPlayer);
+                Player.localPlayer.updateTech(order, belongsToPlayer, Player.localPlayer.matchID);
             }
 
             try

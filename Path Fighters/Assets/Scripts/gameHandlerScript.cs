@@ -70,17 +70,16 @@ public class gameHandlerScript : MonoBehaviour
             selectedObject = null;
         }
 
-        if (pauseEndTime != 0 && Time.realtimeSinceStartup > pauseEndTime)
-        {
-            Time.timeScale = 1f;
-            //Here the game should end and the players should be moved to the summary screen
-        }
+        //if (pauseEndTime != 0 && Time.realtimeSinceStartup > pauseEndTime)
+        //{
+        //    Time.timeScale = 1f;
+        //    //Here the game should end and the players should be moved to the summary screen
+        //}
 
         if (this.state == State.Active)
         {
             if (this.baseHitPoints[0] <= 0 || this.baseHitPoints[1] <= 0)
             {
-                Time.timeScale = 0.1f;
                 if (this.baseHitPoints[this.activePlayer - 1] <= 0)
                 {
                     disabled = true;

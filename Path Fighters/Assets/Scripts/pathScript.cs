@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
-public class pathScript : NetworkBehaviour
+public class pathScript : MonoBehaviour
 {
 
     // Update is called once per frame

@@ -21,6 +21,8 @@ public class towerScript : NetworkBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private AudioSource attackS;
 
+    public string unitMatchID;
+
     // Start is called before the first frame update
     void Start()
     {
