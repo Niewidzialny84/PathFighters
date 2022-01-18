@@ -237,7 +237,7 @@ public class gameHandlerScript : MonoBehaviour
         }
     }
     #endregion
-    private void Defeated()
+    public void Defeated()
     {
         loginReturn = GameObject.Find("NetworkManager").GetComponent<Variables>().loginReturn;
         AddLose(loginReturn.user.id, loginReturn.jwt_token);
