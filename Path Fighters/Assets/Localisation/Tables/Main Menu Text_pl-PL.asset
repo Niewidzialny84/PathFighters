@@ -194,5 +194,9 @@ MonoBehaviour:
     m_Localized: Lobby
     m_Metadata:
       m_Items: []
+  - m_Id: 32997467117195264
+    m_Localized: "Jeste\u015B ju\u017C zalogowany"
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

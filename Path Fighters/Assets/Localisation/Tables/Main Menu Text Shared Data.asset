@@ -191,6 +191,10 @@ MonoBehaviour:
     m_Key: LobbyName
     m_Metadata:
       m_Items: []
+  - m_Id: 32997467117195264
+    m_Key: AlreadyLogged
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

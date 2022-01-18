@@ -194,5 +194,9 @@ MonoBehaviour:
     m_Localized: Lobby
     m_Metadata:
       m_Items: []
+  - m_Id: 32997467117195264
+    m_Localized: You are already logged in
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
