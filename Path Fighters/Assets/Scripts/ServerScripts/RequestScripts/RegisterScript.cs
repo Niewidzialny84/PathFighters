@@ -26,10 +26,10 @@ public class RegisterScript : MonoBehaviour
         string password = passwordInputField.text;
         string passwordConfirm = passwordInputConfirmField.text;
 
-        var regex = @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z";
+        var regex = @"\A(?:[A-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[A-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[A-z0-9](?:[A-z0-9-]*[A-z0-9])?\.)+[A-z0-9](?:[A-z0-9-]*[A-z0-9])?)\Z";
         bool isValid = Regex.IsMatch(email, regex);
 
-        var regexUser = @"\A(?:[a-z0-9!?. -])+\Z";
+        var regexUser = @"\A(?:[A-z0-9!?. -])+\Z";
         bool usernameIsValid = Regex.IsMatch(username, regexUser);
 
         if (username == "" || email == "" || emailConfirm == "" || password == "" || passwordConfirm == "")

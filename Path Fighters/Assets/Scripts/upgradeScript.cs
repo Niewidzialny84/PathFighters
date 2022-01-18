@@ -108,12 +108,12 @@ public class upgradeScript : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && (previousUpgrade == null || previousUpgrade.GetComponent<upgradeScript>().IsDeveloped()) && !this.IsDeveloped())
         {
-            Activate();
+            activate();
         }
     }
 
     // This funktion is responsible for activationg the right selectable and deactivate all others
-    void Activate()
+    void activate()
     {
         GameObject[] upgrades = GameObject.FindGameObjectsWithTag("upgrade");
 
