@@ -6,8 +6,8 @@ class User(db.Model):
     __tablename__ = "users" # pragma: no cover
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    username = db.Column(db.String(32), unique=True, nullable=False)
-    email = db.Column(db.String(32), nullable=False)
+    username = db.Column(db.String(64), unique=True, nullable=False)
+    email = db.Column(db.String(64), nullable=False)
     password = db.Column(db.String(64), nullable=False)
     child = db.relationship(Stats, backref="parent", passive_deletes=True)
 
