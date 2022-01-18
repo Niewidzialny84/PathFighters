@@ -119,7 +119,7 @@ public class towerScript : NetworkBehaviour
         {
             GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
             GameObject tower = gameHandler.GetComponent<gameHandlerScript>().selectedObject;
-            if (tower == null && this.belongsToPlayer == gameHandler.GetComponent<gameHandlerScript>().activePlayer)
+            if (tower == null && this.belongsToPlayer == gameHandler.GetComponent<gameHandlerScript>().activePlayer && !gameHandler.GetComponent<gameHandlerScript>().Disabled())
             {
                 if (gameHandler.GetComponent<gameHandlerScript>().upgrades[this.belongsToPlayer - 1, 9]) { gameHandler.GetComponent<gameHandlerScript>().gold += (this.cost * 0.35f); }
                 else { gameHandler.GetComponent<gameHandlerScript>().gold += (this.cost * 0.2f); }

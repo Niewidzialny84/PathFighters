@@ -9,6 +9,7 @@ public class gateScript : MonoBehaviour
 
     public void receiveDamage(int damage)
     {
+        if(!gameHandler.GetComponent<gameHandlerScript>().Disabled())
         gameHandler.GetComponent<gameHandlerScript>().baseHitPoints[this.belongsToPlayer - 1] -= damage;
     }
 

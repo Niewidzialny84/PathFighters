@@ -22,6 +22,7 @@ public class gameHandlerScript : MonoBehaviour
     public bool[,] upgrades = new bool[2,14];
 
     private float pauseEndTime;
+    private bool disabled;
 
     enum State
     {
@@ -30,10 +31,6 @@ public class gameHandlerScript : MonoBehaviour
         Victorious
     }
     State state;
-
-
-    // TODO DELETE THIS
-    bool aP = true;
 
     // Start is called before the first frame update
     void Start()
@@ -61,11 +58,18 @@ public class gameHandlerScript : MonoBehaviour
         {
             upgrades[0,i] = upgrades[1,i] = false;
         }
+
+        disabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (disabled)
+        {
+            selectedObject = null;
+        }
+
         if (pauseEndTime != 0 && Time.realtimeSinceStartup > pauseEndTime)
         {
             Time.timeScale = 1f;
@@ -77,26 +81,19 @@ public class gameHandlerScript : MonoBehaviour
             if (this.baseHitPoints[0] <= 0 || this.baseHitPoints[1] <= 0)
             {
                 Time.timeScale = 0.1f;
-                /*if (this.baseHitPoints[0] <= 0 || this.baseHitPoints[1] <= 0)
-                {
-                    this.pauseEndTime = Time.realtimeSinceStartup + 3;
-                    this.state = State.Defeated;
-                    Defeated();
-                    //TODO: send that player is defeated with timestamp to the server for it to decide (based on time) who is the winner
-                }*/
                 if (this.baseHitPoints[this.activePlayer - 1] <= 0)
                 {
+                    disabled = true;
                     this.pauseEndTime = Time.realtimeSinceStartup + 3;
                     this.state = State.Defeated;
                     Defeated();
-                    //TODO: send that player is defeated with timestamp to the server for it to decide (based on time) who is the winner
                 }
                 else
                 {
+                    disabled = true;
                     this.pauseEndTime = Time.realtimeSinceStartup + 3;
                     this.state = State.Victorious;
                     Victorious();
-                    //TODO: send that player is defeated with timestamp to the server for it to decide (based on time) who is the winner
                 }
             }
             if (recruitmentTime > 0f)
@@ -104,28 +101,12 @@ public class gameHandlerScript : MonoBehaviour
                 recruitmentTime -= (1.0f * Time.deltaTime);
             }
 
-            if (gold < 1000000000000f)
+            if (gold < 1000000f)
             {
                 if (upgrades[activePlayer - 1, 7]) { gold += (7f * Time.deltaTime); }
-                else { gold += (5f * Time.deltaTime); }  
+                else { gold += (4f * Time.deltaTime); }  
             }
         }
-      
-
-        //THIS IS ONLY A TEST DELETE IS AFTERWARDS
-        // if (Input.GetMouseButtonDown(1))
-        // {
-        //     if (aP)
-        //     {
-        //         activePlayer++;
-        //         aP = false;
-        //     }
-        //     else if (!aP)
-        //     {
-        //         activePlayer--;
-        //         aP = true;
-        //     }
-        // }
     }
     #region Win
     public void AddWin(int id, string auth)
@@ -258,5 +239,10 @@ public class gameHandlerScript : MonoBehaviour
         message.TableReference = "Game Localization";
         message.TableEntryReference = "G_Victory";
         popup.Initialize(UIController.Instance.MainCanvas, message.GetLocalizedString());
+    }
+
+    public bool Disabled()
+    {
+        return disabled;
     }
 }
