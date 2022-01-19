@@ -16,6 +16,8 @@ public class deleteAccountPressed : MonoBehaviour
         Action action = () =>
         {
             DeleteAccount();
+            Application.Quit();
+            Debug.Log("Closing");
         };
         Button button = GetComponent<Button>();
         button.onClick.AddListener(() =>
