@@ -124,21 +124,25 @@ using UnityEngine.Localization;
         {
             return;
         }
-        if (Player.localPlayer.currentMatch.inMatch && Player.localPlayer.username != username)
-        {
-            GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
-            Debug.Log($"I am winning: {username} which is {gameHandler.GetComponent<gameHandlerScript>().activePlayer}");
-            gameHandler.GetComponent<gameHandlerScript>().baseHitPoints[gameHandler.GetComponent<gameHandlerScript>().activePlayer == 1 ? 1 : 0] = -1;
-        }
-        else
-        {
+        if (Player.localPlayer.username != username) {
 
+            if (Player.localPlayer.currentMatch.inMatch)
+            {
+                
+                GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
+                Debug.Log($"I am winning: {username} which is {gameHandler.GetComponent<gameHandlerScript>().activePlayer}");
+                gameHandler.GetComponent<gameHandlerScript>().baseHitPoints[gameHandler.GetComponent<gameHandlerScript>().activePlayer == 1 ? 1 : 0] = -1;
+            }
+            else
+            {
+                Debug.Log($"User left lobby! {matchID} + {username}");
+                Player.localPlayer.LeaveLobby();
+            }
         }
     }
 
         public override void OnStopClient () {
             Debug.Log ($"Client Stopped {username}");
-        
             ClientDisconnect ();
         }
 
@@ -606,5 +610,36 @@ using UnityEngine.Localization;
             GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
             gameHandler.GetComponent<gameHandlerScript>().baseHitPoints[player -1] = -1;
         }
+    }
+
+    public void LeaveLobby()
+    {
+        LeaveLobbyCmd(Player.localPlayer.matchID);
+    }
+
+    [Command]
+    public void LeaveLobbyCmd(string match_ID)
+    {
+        Debug.Log($"Player leave lobby {match_ID}");
+        LeaveLobbyRpc(match_ID);
+        MatchMaker.instance.RemoveMatch(match_ID);
+        //MATCHMAKER REMOVE GAME
+    }
+    
+    [ClientRpc]
+    public void LeaveLobbyRpc(string match_ID)
+    {
+        if (!Player.localPlayer.matchID.Equals(match_ID))
+        {
+            return;
+        }
+        Debug.Log($"Player leave local lobby {Player.localPlayer.matchID}");
+        //SceneManager.LoadScene("Main Menu");
+
+        InfoPopup popup = UIController.Instance.CreatePopup();
+        LocalizedString message = new LocalizedString();
+        message.TableReference = "Main Menu Text";
+        message.TableEntryReference = "UserLeftLobby";
+        popup.Ehhhh(UIController.Instance.MainCanvas, message.GetLocalizedString());
     }
 }

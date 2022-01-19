@@ -198,5 +198,9 @@ MonoBehaviour:
     m_Localized: You are already logged in
     m_Metadata:
       m_Items: []
+  - m_Id: 33050727572180992
+    m_Localized: Lobby disbaned
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

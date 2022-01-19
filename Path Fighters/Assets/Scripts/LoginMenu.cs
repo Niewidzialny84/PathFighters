@@ -26,6 +26,11 @@ public class LoginMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Main Menu");
     }
+    public void LeaveLobby()
+    {
+        Player.localPlayer.LeaveLobby();
+        //SceneManager.LoadScene("Main Menu");
+    }
     public void ReturnToLoginScene()
     {
         SceneManager.LoadScene("Login Window");

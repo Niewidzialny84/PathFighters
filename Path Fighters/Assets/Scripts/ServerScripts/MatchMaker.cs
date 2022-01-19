@@ -144,9 +144,24 @@ using UnityEngine;
             }
         }
 
+    public void RemoveMatch(string idToRemove)
+    {
+        
+        for (int i = 0; i < matches.Count; i++)
+        {
+            if (matches[i].matchID == idToRemove)
+            {
+                Debug.Log($"Removing {idToRemove}");
+                    matches.RemoveAt(i);
+                    matchIDs.Remove(idToRemove);
+            }
+        }
     }
+}
 
-    public static class MatchExtensions {
+
+
+public static class MatchExtensions {
         public static Guid ToGuid (this string id) {
             MD5CryptoServiceProvider provider = new MD5CryptoServiceProvider ();
             byte[] inputBytes = Encoding.Default.GetBytes (id);

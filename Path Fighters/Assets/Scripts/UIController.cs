@@ -11,6 +11,7 @@ public class UIController : MonoBehaviour
     {
         if (Instance != null)
         {
+            Debug.Log("UIController: Instance destroyed");
             GameObject.Destroy(this.gameObject);
             return;
         }

@@ -195,6 +195,10 @@ MonoBehaviour:
     m_Key: AlreadyLogged
     m_Metadata:
       m_Items: []
+  - m_Id: 33050727572180992
+    m_Key: UserLeftLobby
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
