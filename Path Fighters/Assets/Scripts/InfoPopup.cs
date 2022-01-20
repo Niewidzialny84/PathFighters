@@ -33,7 +33,8 @@ public class InfoPopup : MonoBehaviour
         transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
         GetComponent<RectTransform>().offsetMin = Vector2.zero;
         GetComponent<RectTransform>().offsetMax = Vector2.zero;
-        _okButton.onClick.AddListener(() => { 
+        _okButton.onClick.AddListener(() => {
+            Player.localPlayer.currentMatch.inMatch = false;
             SceneManager.LoadScene("Main Menu");
             GameObject.Destroy(this.gameObject); });
     }

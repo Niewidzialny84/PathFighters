@@ -29,8 +29,9 @@ public class necromancerScript : NetworkBehaviour
         }
         else
         {
-            Collider2D closestPath = Physics2D.OverlapCircle(this.transform.position, 0.7f, LayerMask.GetMask("Path"));
             int toPlayer = gameObject.GetComponent<towerScript>().getPlayer();
+            Collider2D closestPath = Physics2D.OverlapCircle(new Vector3(toPlayer == 1 ? -5.9f : 5.9f, gameObject.GetComponent<towerScript>().attackHight, 0), 0.2f, LayerMask.GetMask("Path"));
+            
 
             bool blocked = false;
             Collider2D[] inGate = Physics2D.OverlapCircleAll(new Vector3(toPlayer == 1 ? -5.9f : 5.9f, closestPath.transform.position.y, 0), 0.2f, LayerMask.GetMask("Unit"));

@@ -1072,7 +1072,7 @@ MonoBehaviour:
   maxMessageSize: 16384
   handshakeMaxSize: 3000
   noDelay: 1
-  sendTimeout: 5000
+  sendTimeout: 1000
   receiveTimeout: 20000
   serverMaxMessagesPerTick: 10000
   clientMaxMessagesPerTick: 1000
@@ -1103,7 +1103,7 @@ MonoBehaviour:
   offlineScene: Assets/Scenes/Menu Scenes/Login Window.unity
   onlineScene: Assets/Scenes/Menu Scenes/Main Menu.unity
   transport: {fileID: 699752034}
-  networkAddress: localhost
+  networkAddress: molly.ovh
   maxConnections: 100
   authenticator: {fileID: 699752038}
   playerPrefab: {fileID: 716457668215599647, guid: a2391cfcf0245e848abdfafc573d2aef, type: 3}
