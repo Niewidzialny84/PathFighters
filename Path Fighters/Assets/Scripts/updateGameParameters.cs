@@ -4,12 +4,12 @@ using UnityEngine;
 using TMPro;
 
 
-
 public class updateGameParameters : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI _UserHP;
     [SerializeField] TextMeshProUGUI _EnemyHP;
     [SerializeField] TextMeshProUGUI _UserGold;
+    
     public TextMeshProUGUI _Research;
     // Start is called before the first frame update
     public void Update()

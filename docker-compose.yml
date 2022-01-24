@@ -1,0 +1,29 @@
+version: '3'
+services:
+  Path-Fighters-API:
+    image: niewidzialny84/path-fighters-api:latest
+    volumes: 
+      - ./path-fighters-api:/app/app/main/db
+    ports:
+      - "127.0.0.1:5000:5000"
+    networks:
+      custom-internal:
+        ipv4_address: 172.16.248.10
+
+  Path-Fighters-Server-API:
+    image: niewidzialny84/path-fighters-server-api:latest
+    ports:
+      # This should be changed depending on the server ip address
+      - "127.0.0.1:5001:5001"
+    networks:
+      custom-internal:
+          ipv4_address: 172.16.248.11
+    
+networks:
+  custom-internal:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.16.248.0/24"
+          gateway: "172.16.248.1"

@@ -1,0 +1,32 @@
+name: Python Flask API Tests
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./API
+    steps:
+      - uses: actions/checkout@v2
+      - name: Python Set up
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.9
+      - name: Dependency install
+        run: |
+          echo Installing requirements
+          python -m pip install --upgrade pip
+          python -m pip install wheel
+          pip install -r requirements.txt
+      - name: Init SQLite database
+        run: |
+          echo Initializing SQLite database
+          python main_app.py db init
+          python main_app.py db migrate --message 'initial database migration'
+          python main_app.py db upgrade
+      - name: Execute test 
+        run: |
+          echo Running tests
+          python main_app.py test
