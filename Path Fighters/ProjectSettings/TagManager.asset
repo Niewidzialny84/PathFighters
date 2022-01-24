@@ -8,6 +8,10 @@ TagManager:
   - path
   - unit
   - upgrade
+  - canvas
+  - MatchMaker
+  - NetworkPlayer
+  - towerField
   layers:
   - Default
   - TransparentFX

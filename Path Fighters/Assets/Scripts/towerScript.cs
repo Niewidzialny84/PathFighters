@@ -2,8 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class towerScript : MonoBehaviour
+public class towerScript : NetworkBehaviour
 {
     public float cost;
     public float attackHight;
@@ -20,20 +21,22 @@ public class towerScript : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private AudioSource attackS;
 
+    public string unitMatchID;
+
     // Start is called before the first frame update
     void Start()
     {
         if(this.transform.position.y <= 0.5)
         {
-            attackHight = 0f;
+            attackHight = -0.5f;
         }
         else if(this.transform.position.y >= 3.5)
         {
-            attackHight = 4f;
+            attackHight = 3.5f;
         }
         else
         {
-            attackHight = 2f;
+            attackHight = 1.5f;
         }
 
         if (this.transform.position.x > 0)
@@ -54,11 +57,20 @@ public class towerScript : MonoBehaviour
             this.transform.localScale = new Vector3(-1f, 1f, 0f);
         }
 
+
+        //if(!isServer) Player.localPlayer.findTField(this.gameObject);
+        Debug.Log($"Finish!!!");
     }
+
+    
 
     // Update is called once per frame
     void Update()
     {
+        if(isServer)
+        {
+            return;
+        }
         //Reduce the actual attack delay to allow the unit to be ready to attack.
         if (this.actualAttackDelay > 0f)
         {
@@ -101,6 +113,26 @@ public class towerScript : MonoBehaviour
                 }
             }
         }
+    }
+
+    void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
+            GameObject tower = gameHandler.GetComponent<gameHandlerScript>().selectedObject;
+            if (tower == null && this.belongsToPlayer == gameHandler.GetComponent<gameHandlerScript>().activePlayer && !gameHandler.GetComponent<gameHandlerScript>().Disabled())
+            {
+                if (gameHandler.GetComponent<gameHandlerScript>().upgrades[this.belongsToPlayer - 1, 9]) { gameHandler.GetComponent<gameHandlerScript>().gold += (this.cost * 0.35f); }
+                else { gameHandler.GetComponent<gameHandlerScript>().gold += (this.cost * 0.2f); }
+                Player.localPlayer.DestroyTower(this.gameObject);
+            }
+        }
+    }
+
+    public void destroyYourself()
+    {
+        Destroy(gameObject);
     }
 
     public int getPlayer()

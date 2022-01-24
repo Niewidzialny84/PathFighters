@@ -37,9 +37,11 @@ public class LoginScript : MonoBehaviour
     public void SuccessHandler(LoginReturn msg)
     {
         Debug.Log("Login Successful");
-        gameObject.GetComponent<Authenticator>().loginReturn = msg;
-        GameObject.Find("NetworkManager").GetComponent<NetworkManager>().StartClient();
-        GameObject.Find("NetworkManager").GetComponent<Variables>().loginReturn = msg;
+        GameObject GM = GameObject.Find("NetworkManager");
+        GM.GetComponent<Authenticator>().loginReturn = msg;
+        GM.GetComponent<NetworkManager>().StartClient();
+        GM.GetComponent<Variables>().loginReturn = msg;
+ 
     }
 
     public void FailureHandler(string msg)

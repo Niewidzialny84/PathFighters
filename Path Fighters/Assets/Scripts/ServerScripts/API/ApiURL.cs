@@ -1,6 +1,6 @@
 public class ApiURL
 {
-    public static string URL = "http://molly.ovh:5001/";
+    public static string URL = "https://molly.ovh:5001/";
 
     #region Login
     public static string LOGIN_URL = URL + "login";

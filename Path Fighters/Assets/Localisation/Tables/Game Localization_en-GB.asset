@@ -26,5 +26,275 @@ MonoBehaviour:
     m_Localized: Research
     m_Metadata:
       m_Items: []
+  - m_Id: 3179620278075392
+    m_Localized: 'Goblin
+
+
+      Cost: 25
+
+      Slow and weak melee unit'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3179715807543296
+    m_Localized: 'Crossbowman
+
+
+      Cost: 35
+
+      Basic ranged unit'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3179885760741376
+    m_Localized: 'Knight
+
+
+      Cost: 40
+
+      Balanced melee unit'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3180009744367616
+    m_Localized: 'Elf
+
+
+      Cost: 50
+
+      Fast unit effective at range'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3180113595334656
+    m_Localized: 'Orc
+
+
+      Cost: 60
+
+      Strong melee unit but with weak armor'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3180194092417024
+    m_Localized: 'Dwarf
+
+
+      Cost: 60
+
+      Heavily armored melee unit'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3180265060040704
+    m_Localized: 'Wizard
+
+
+      Cost: 75
+
+      Powerful short range unit'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276768910901248
+    m_Localized: 'Destroy tower
+
+
+      Destroy your tower and recover some gold
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276794642956288
+    m_Localized: 'Archers tower
+
+
+      Cost: 100
+
+      Shoots fast but deals little
+      damage'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276823197777920
+    m_Localized: 'Investors tower
+
+
+      Cost: 100
+
+      Increases income by 1
+      gold per second but is bad at defense'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276852457242624
+    m_Localized: 'Balista tower
+
+
+      Cost: 150
+
+      Shoots at highest range
+      and deals decend damage'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276874670276608
+    m_Localized: 'Catapult tower
+
+
+      Cost: 250
+
+      Shoots slow but deals highest
+      damage'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276905204809728
+    m_Localized: 'Necromancers tower
+
+
+      Cost: 200
+
+      Summons weak zombies
+      and sends them on the path'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276940067864576
+    m_Localized: 'Druid tower
+
+
+      Cost: 250
+
+      Shoots extremely fast but
+      only at close range'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280294609289216
+    m_Localized: 'Call to arms
+
+
+      Allows to recruit knights'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280345402310656
+    m_Localized: 'Taming beasts
+
+
+      Allows to recruit orcs'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280368319987712
+    m_Localized: 'Deep mining
+
+
+      Allows to recruit dwarves'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280393888464896
+    m_Localized: 'Alliance pact
+
+
+      Allows to recruit elves'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280414159536128
+    m_Localized: 'Magic university
+
+
+      Allows to recruit wizards'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280486733578240
+    m_Localized: 'Strategy of conquest
+
+
+      Makes units stronger when they are
+      close to the enemy''s castle'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280935926759424
+    m_Localized: 'Hunger and fury
+
+
+      Makes goblins more effective in combat'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3281169574658048
+    m_Localized: 'Engineering
+
+
+      Allows to build balista towers'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3281219734339584
+    m_Localized: 'Advanced towers
+
+
+      Allows to build catapult towers and druid
+      towers'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3281272276385792
+    m_Localized: 'Dark magic
+
+
+      Allows to build necromancers towers'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3282096876552192
+    m_Localized: 'Higher taxes
+
+
+      Increases your income by 2 gold per second'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3282130531647488
+    m_Localized: 'Effective pillaging
+
+
+      Increases gold looted from enemies
+      by 20%'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3283836304752640
+    m_Localized: 'Thick walls
+
+
+      Increases your castles health by 300'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3295387279556608
+    m_Localized: Switch to Polish Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3295410591498240
+    m_Localized: Surrender
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3295913341747200
+    m_Localized: Sounds volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3296187481456640
+    m_Localized: Music volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3499834552225792
+    m_Localized: 'Material recovery
+
+
+      Recover additional 15% of tower cost
+      when destroying it'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6343771477377024
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6344057658933248
+    m_Localized: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6344110440054784
+    m_Localized: Do you really want to surrender?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6840495190966272
+    m_Localized: Victory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6840600715460608
+    m_Localized: Defeat
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

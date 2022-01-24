@@ -9,22 +9,17 @@ public class updateGameParameters : MonoBehaviour
     [SerializeField] TextMeshProUGUI _UserHP;
     [SerializeField] TextMeshProUGUI _EnemyHP;
     [SerializeField] TextMeshProUGUI _UserGold;
-    [SerializeField] TextMeshProUGUI _Research;
+    
+    public TextMeshProUGUI _Research;
     // Start is called before the first frame update
-    void UpdateGold()
+    public void Update()
     {
-        
-    }
-    void UpdateEnemyHP()
-    {
+        GameObject gameHandler = GameObject.Find("gameHandler");
+        gameHandlerScript handlerScript = gameHandler.GetComponent<gameHandlerScript>();
 
-    }
-    void UpdateUserHP()
-    {
-
-    }
-    void UpdateResearch()
-    {
-
+        _UserHP.text = (handlerScript.baseHitPoints[0]).ToString();
+        _EnemyHP.text = (handlerScript.baseHitPoints[1]).ToString();
+        _UserGold.text = (handlerScript.gold).ToString("F0");
+        //_Research.text = ( i * 2).ToString();
     }
 }

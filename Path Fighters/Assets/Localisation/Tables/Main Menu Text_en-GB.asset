@@ -39,11 +39,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1067747893248
-    m_Localized: Log in
+    m_Localized: Register
     m_Metadata:
       m_Items: []
   - m_Id: 1199084134400
-    m_Localized: Log in to the game server
+    m_Localized: Log in to game server
     m_Metadata:
       m_Items: []
   - m_Id: 1416378441728
@@ -55,15 +55,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1841526547931136
-    m_Localized: Confirm password
+    m_Localized: Confirm password...
     m_Metadata:
       m_Items: []
   - m_Id: 1841733910126592
-    m_Localized: Confirm email
+    m_Localized: Confirm email...
     m_Metadata:
       m_Items: []
   - m_Id: 1841887992078336
-    m_Localized: Enter email
+    m_Localized: Enter email...
     m_Metadata:
       m_Items: []
   - m_Id: 1844177016709120
@@ -71,11 +71,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1844258113576960
-    m_Localized: Join the game
+    m_Localized: Join game
     m_Metadata:
       m_Items: []
   - m_Id: 1844426691043328
-    m_Localized: Create new game
+    m_Localized: Create game
     m_Metadata:
       m_Items: []
   - m_Id: 25778875459690496
@@ -128,6 +128,78 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 26915416194146304
     m_Localized: Invalid data provided
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27943051950424064
+    m_Localized: Log in
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27978724384309248
+    m_Localized: Change password
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27978946841804800
+    m_Localized: Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27979025292066816
+    m_Localized: Confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27979107164880896
+    m_Localized: Old password
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27979228636119040
+    m_Localized: New Password
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29015144133689344
+    m_Localized: Enter password
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29015237981241344
+    m_Localized: Delete account
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29027122789089280
+    m_Localized: will face
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29027610666336256
+    m_Localized: Fight!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29239749809143808
+    m_Localized: Join
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29239891769556992
+    m_Localized: Join code
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29397209451323392
+    m_Localized: Password changed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31796504581767168
+    m_Localized: Password must fulfill basic password requirements
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31882407489703936
+    m_Localized: Invalid character in login
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32180871481131008
+    m_Localized: Lobby
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32997467117195264
+    m_Localized: You are already logged in
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33050727572180992
+    m_Localized: Lobby disbaned
     m_Metadata:
       m_Items: []
   references:

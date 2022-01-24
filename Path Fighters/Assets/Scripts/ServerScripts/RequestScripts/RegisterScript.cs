@@ -26,12 +26,21 @@ public class RegisterScript : MonoBehaviour
         string password = passwordInputField.text;
         string passwordConfirm = passwordInputConfirmField.text;
 
-        var regex = @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z";
+        var regex = @"\A(?:[A-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[A-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[A-z0-9](?:[A-z0-9-]*[A-z0-9])?\.)+[A-z0-9](?:[A-z0-9-]*[A-z0-9])?)\Z";
         bool isValid = Regex.IsMatch(email, regex);
+
+        var regexUser = @"\A(?:[A-z0-9!?. -])+\Z";
+        bool usernameIsValid = Regex.IsMatch(username, regexUser);
 
         if (username == "" || email == "" || emailConfirm == "" || password == "" || passwordConfirm == "")
         {
             OnRegisterFailure.Invoke("Please fill in all fields.");
+            return;
+        }
+
+        if (!usernameIsValid)
+        {
+            OnRegisterFailure.Invoke("Username is not valid.");
             return;
         }
 
@@ -46,6 +55,13 @@ public class RegisterScript : MonoBehaviour
             OnRegisterFailure.Invoke("Passwords do not match.");
             return;
         }
+        if (!ChangePassword.CheckPassword(password))
+        {
+            Debug.Log(password);
+            OnRegisterFailure.Invoke("P");
+            return;
+        }
+
 
         RegisterClient(username, email, password);
     }
@@ -73,10 +89,19 @@ public class RegisterScript : MonoBehaviour
         InfoPopup popup = UIController.Instance.CreatePopup();
         LocalizedString message = new LocalizedString();
         message.TableReference = "Main Menu Text";
-        if(msg == "F")
+        if (msg == "Username is not valid.")
+        {
+            message.TableEntryReference = "Username_PopupFail";
+        }
+        else if (msg == "F")
         {
             message.TableEntryReference = "Reg_PopupFail";
-        } else 
+        }
+        else if(msg == "P")
+        {
+            message.TableEntryReference = "DP_PasswordContains";
+        }
+        else
         {
             message.TableEntryReference = "Reg_InvalidData";
         }

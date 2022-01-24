@@ -26,6 +26,11 @@ public class LoginMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Main Menu");
     }
+    public void LeaveLobby()
+    {
+        Player.localPlayer.LeaveLobby();
+        //SceneManager.LoadScene("Main Menu");
+    }
     public void ReturnToLoginScene()
     {
         SceneManager.LoadScene("Login Window");
@@ -38,4 +43,26 @@ public class LoginMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Settings Scene");
     }
+    public void CreateGame()
+    {
+        Player.localPlayer.HostGame(true);
+        ParamsPasser.lobbyType = LobbyType.Create;
+    }
+    public void JoinGame()
+    {
+        var tmp = GameObject.Find("JoinGamePopUp").GetComponent<joinGame>();
+        tmp.Popup();
+        ParamsPasser.lobbyType = LobbyType.Join;
+    }
+
+}
+public static class ParamsPasser
+{
+    public static LobbyType lobbyType { get; set; }
+} 
+public enum LobbyType
+{
+    Create,
+    Join,
+    Fast
 }

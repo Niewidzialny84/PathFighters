@@ -127,6 +127,78 @@ MonoBehaviour:
     m_Key: Reg_InvalidData
     m_Metadata:
       m_Items: []
+  - m_Id: 27943051950424064
+    m_Key: Login
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27978724384309248
+    m_Key: DP_ChangePassword
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27978946841804800
+    m_Key: DP_Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27979025292066816
+    m_Key: DP_Confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27979107164880896
+    m_Key: DP_OldPass
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27979228636119040
+    m_Key: DP_NewPass
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29015144133689344
+    m_Key: SP_Password
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29015237981241344
+    m_Key: SP_DeleteAccount
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29027122789089280
+    m_Key: lb_vs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29027610666336256
+    m_Key: lb_start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29239749809143808
+    m_Key: Join
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29239891769556992
+    m_Key: Join_code
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29397209451323392
+    m_Key: DP_Success
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31796504581767168
+    m_Key: DP_PasswordContains
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31882407489703936
+    m_Key: Username_PopupFail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32180871481131008
+    m_Key: LobbyName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32997467117195264
+    m_Key: AlreadyLogged
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33050727572180992
+    m_Key: UserLeftLobby
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

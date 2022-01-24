@@ -11,6 +11,7 @@ public class UIController : MonoBehaviour
     {
         if (Instance != null)
         {
+            Debug.Log("UIController: Instance destroyed");
             GameObject.Destroy(this.gameObject);
             return;
         }
@@ -21,4 +22,20 @@ public class UIController : MonoBehaviour
         GameObject popup = Instantiate(Resources.Load("InfoPopup") as GameObject);
         return popup.GetComponent<InfoPopup>();
     }
+    public DoubleInputPopup CreateDoubleInputPopup()
+    {
+        GameObject popup = Instantiate(Resources.Load("DoubleInputPopup") as GameObject);
+        return popup.GetComponent<DoubleInputPopup>();
+    }
+    public SingleInputPopup CreateSingleInputPopup()
+    {
+        GameObject popup = Instantiate(Resources.Load("SingleInputPopup") as GameObject);
+        return popup.GetComponent<SingleInputPopup>();
+    }
+    public YesNoPopup CreateYesNoPopup()
+    {
+        GameObject popup = Instantiate(Resources.Load("YesNoPopupSmall") as GameObject);
+        return popup.GetComponent<YesNoPopup>();
+    }
 }
+

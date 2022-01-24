@@ -31,7 +31,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 702981857280
-    m_Localized: "Podaj nazw\u0119 u\u017Cytkownika..."
+    m_Localized: Podaj login...
     m_Metadata:
       m_Items: []
   - m_Id: 944502464512
@@ -39,7 +39,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1067747893248
-    m_Localized: "Zaloguj si\u0119"
+    m_Localized: "Zarejestruj si\u0119"
     m_Metadata:
       m_Items: []
   - m_Id: 1199084134400
@@ -55,15 +55,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1841526547931136
-    m_Localized: "Potwierd\u017A has\u0142o"
+    m_Localized: "Potwierd\u017A has\u0142o..."
     m_Metadata:
       m_Items: []
   - m_Id: 1841733910126592
-    m_Localized: "Potwierd\u017A email"
+    m_Localized: "Potwierd\u017A email..."
     m_Metadata:
       m_Items: []
   - m_Id: 1841887992078336
-    m_Localized: Podaj email
+    m_Localized: Podaj email...
     m_Metadata:
       m_Items: []
   - m_Id: 1844177016709120
@@ -75,7 +75,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1844426691043328
-    m_Localized: "Utw\xF3rz now\u0105 gr\u0119"
+    m_Localized: "Utw\xF3rz gr\u0119"
     m_Metadata:
       m_Items: []
   - m_Id: 25778875459690496
@@ -128,6 +128,78 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 26915416194146304
     m_Localized: Wprowadzono niepoprawne dane
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27943051950424064
+    m_Localized: "Zaloguj si\u0119"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27978724384309248
+    m_Localized: "Zmie\u0144 has\u0142o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27978946841804800
+    m_Localized: Anuluj
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27979025292066816
+    m_Localized: "Potwierd\u017A"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27979107164880896
+    m_Localized: "Stare has\u0142o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27979228636119040
+    m_Localized: "Nowe has\u0142o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29015144133689344
+    m_Localized: "Podaj has\u0142o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29015237981241344
+    m_Localized: "Usu\u0144 konto"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29027122789089280
+    m_Localized: "zmierzy si\u0119 z"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29027610666336256
+    m_Localized: Do boju!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29239749809143808
+    m_Localized: "Do\u0142\u0105cz"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29239891769556992
+    m_Localized: Kod rozgrywki
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29397209451323392
+    m_Localized: "Has\u0142o zmienione"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31796504581767168
+    m_Localized: "Has\u0142o musi spe\u0142nia\u0107 wymagania minimalne bezpiecze\u0144stwa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31882407489703936
+    m_Localized: Niepoprawny znak w loginie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32180871481131008
+    m_Localized: Lobby
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32997467117195264
+    m_Localized: "Jeste\u015B ju\u017C zalogowany"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33050727572180992
+    m_Localized: "Lobby rozwi\u0105zane"
     m_Metadata:
       m_Items: []
   references:

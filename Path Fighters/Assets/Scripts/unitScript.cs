@@ -2,8 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class unitScript : MonoBehaviour
+public class unitScript : NetworkBehaviour
 {
     public int belongsToPlayer;
     private int moveDirection;
@@ -41,18 +42,37 @@ public class unitScript : MonoBehaviour
     {
         this.damage -= 1;
         //If right upgrades are developed this will boost the unit
-        GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
-        if (gameHandler.GetComponent<gameHandlerScript>().upgrades[this.belongsToPlayer - 1, 5])
+        var tech = GameObject.Find("tech(Clone)");
+        try
         {
-            if (this.reach < 1.1)
+            if (belongsToPlayer == 1 && tech.GetComponent<techScript>().player1.attackBuff)
             {
-                this.damage += 3;
+                if (this.reach < 1.1)
+                {
+                    this.damage += 3;
+                }
+                else
+                {
+                    this.damage += 1;
+                }
+                this.speed = this.speed * 1.2f;
             }
-            else
+            else if (belongsToPlayer == 2 && tech.GetComponent<techScript>().player2.attackBuff)
             {
-                this.damage += 1;
+                if (this.reach < 1.1)
+                {
+                    this.damage += 3;
+                }
+                else
+                {
+                    this.damage += 1;
+                }
+                this.speed = this.speed * 1.2f;
             }
-            this.speed = this.speed * 1.2f;
+        }
+        catch (Exception e)
+        {
+            Debug.Log("Unexpected exception  " + e.GetType());
         }
     }
     private bool defender;
@@ -69,31 +89,65 @@ public class unitScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rayDistance = 0.05f;
-        rayOffset = 0.01f;
-
-        this.state = State.Moving;
-
-        if (belongsToPlayer == 1)
+        if(!isServer)
         {
-            moveDirection = -1;
+            rayDistance = 0.05f;
+            rayOffset = 0.01f;
+
+            this.state = State.Moving;
+
+            if (belongsToPlayer == 1)
+            {
+                moveDirection = -1;
+            }
+            else
+            {
+                moveDirection = 1;
+                this.transform.localScale = new Vector3(-1f, 1f, 0f);
+            }
+            actualAttackDelay = 0f;
+
+            this.defender = true;
+
+            //Here will be some bonuses due to upgrades
+
+            var tech = GameObject.Find("tech(Clone)");
+            try
+            {
+                if (belongsToPlayer == 1 && this.speed == 0.5f && tech.GetComponent<techScript>().player1.goblinBuff)
+                {
+                    this.speed += 0.2f;
+                    this.reach = this.reach * 1.4f;
+                    this.cost -= 5;
+                }
+                else if (belongsToPlayer == 2 && this.speed == 0.5f && tech.GetComponent<techScript>().player2.goblinBuff)
+                {
+                    this.speed += 0.2f;
+                    this.reach = this.reach * 1.4f;
+                    this.cost -= 5;
+                }
+            }
+            catch (Exception e)
+            {
+            }
+        }
+    }
+
+    void attackEnemy(GameObject enemy)
+    {
+        if (Mathf.Abs(this.transform.position.x - enemy.transform.position.x) <= this.meleeReach + GetComponent<CircleCollider2D>().radius + enemy.GetComponent<CircleCollider2D>().radius)
+        {
+            enemy.GetComponent<unitScript>().hitPoints -= Mathf.Max(1, ((int)(this.damage / 2) - enemy.GetComponent<unitScript>().armor));
+        }
+        else if (this.projectile != null)
+        {
+            var tempProjectile = Instantiate(projectile, this.transform.position, Quaternion.identity);
+            tempProjectile.GetComponent<projectileScript>().setTarget(enemy);
+            tempProjectile.GetComponent<projectileScript>().setDamage(damage);
         }
         else
         {
-            moveDirection = 1;
-            this.transform.localScale = new Vector3(-1f, 1f, 0f);
-        }
-        actualAttackDelay = 0f;
-
-        this.defender = true;
-
-        //Here will be some bonuses due to upgrades
-        GameObject gameHandler = GameObject.FindGameObjectWithTag("GameController");
-        if (gameHandler.GetComponent<gameHandlerScript>().upgrades[this.belongsToPlayer - 1, 3] && this.speed == 0.5f)
-        {
-            this.speed += 0.1f;
-            this.reach = this.reach * 1.4f;
-            this.cost -= 5;
+            enemy.GetComponent<unitScript>().hitPoints -= Mathf.Max(1, (this.damage - enemy.GetComponent<unitScript>().armor));
         }
     }
 
@@ -158,20 +212,7 @@ public class unitScript : MonoBehaviour
                     var enemy = inReach[i].collider.gameObject;
                     if (enemy.layer == 7 && enemy.GetComponent<unitScript>().belongsToPlayer != this.belongsToPlayer)
                     {
-                        if (Mathf.Abs(this.transform.position.x - enemy.transform.position.x) <= this.meleeReach + GetComponent<CircleCollider2D>().radius + enemy.GetComponent<CircleCollider2D>().radius)
-                        {
-                            enemy.GetComponent<unitScript>().hitPoints -= Mathf.Max(1, ((int)(this.damage/2) - enemy.GetComponent<unitScript>().armor));
-                        }
-                        else if(this.projectile != null)
-                        {
-                            var tempProjectile = Instantiate(projectile, this.transform.position, Quaternion.identity);
-                            tempProjectile.GetComponent<projectileScript>().setTarget(enemy);
-                            tempProjectile.GetComponent<projectileScript>().setDamage(damage);
-                        }
-                        else
-                        {
-                            enemy.GetComponent<unitScript>().hitPoints -= Mathf.Max(1, (this.damage - enemy.GetComponent<unitScript>().armor));
-                        }
+                        attackEnemy(enemy);
                         break;
                     }
                     else if (enemy.layer == 9 && enemy.GetComponent<gateScript>().belongsToPlayer != this.belongsToPlayer)

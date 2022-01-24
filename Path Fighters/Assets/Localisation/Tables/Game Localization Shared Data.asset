@@ -23,6 +23,154 @@ MonoBehaviour:
     m_Key: G_Research
     m_Metadata:
       m_Items: []
+  - m_Id: 3179620278075392
+    m_Key: U_Goblin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3179715807543296
+    m_Key: U_Crossbowman
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3179885760741376
+    m_Key: U_Knight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3180009744367616
+    m_Key: U_Elf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3180113595334656
+    m_Key: U_Orc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3180194092417024
+    m_Key: U_Dwarf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3180265060040704
+    m_Key: U_Wizard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276768910901248
+    m_Key: T_Delete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276794642956288
+    m_Key: T_Archers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276823197777920
+    m_Key: T_Investor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276852457242624
+    m_Key: T_Balista
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276874670276608
+    m_Key: T_Catapult
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276905204809728
+    m_Key: T_Necromancer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276940067864576
+    m_Key: T_Warlock
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280294609289216
+    m_Key: Unlock_Knight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280345402310656
+    m_Key: Unlock_Orc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280368319987712
+    m_Key: Unlock_Dwarf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280393888464896
+    m_Key: Unlock_Elf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280414159536128
+    m_Key: Unlock_Wizard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280486733578240
+    m_Key: Upgrade_Warriors_Spirit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280935926759424
+    m_Key: Upgrade_Goblins
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3281169574658048
+    m_Key: Unlock_Balista
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3281219734339584
+    m_Key: Unlock_Catapult
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3281272276385792
+    m_Key: Unlock_Necromant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3282096876552192
+    m_Key: Upgrade_Income
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3282130531647488
+    m_Key: Upgrade_Looting_Upgrade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3283836304752640
+    m_Key: Unlock_Health
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3295387279556608
+    m_Key: G_Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3295410591498240
+    m_Key: G_Surrender
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3295913341747200
+    m_Key: G_Master_Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3296187481456640
+    m_Key: G_Music_Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3499834552225792
+    m_Key: Upgrade_Refunds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6343771477377024
+    m_Key: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6344057658933248
+    m_Key: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6344110440054784
+    m_Key: G_Surrender_Info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6840495190966272
+    m_Key: G_Victory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6840600715460608
+    m_Key: G_Defeat
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

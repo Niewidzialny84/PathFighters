@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7378155470858807114}
   m_Layer: 0
   m_Name: TowerField
-  m_TagString: Untagged
+  m_TagString: towerField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b30744a0502d5d54c9ae3e7fea8157d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  localTower: {fileID: 0}
   belongsToPlayer: 0
   animator: {fileID: 7378155470858807114}
 --- !u!95 &7378155470858807114

@@ -26,5 +26,179 @@ MonoBehaviour:
     m_Localized: Badania
     m_Metadata:
       m_Items: []
+  - m_Id: 3179620278075392
+    m_Localized: "Goblin\n\nKoszt: 25\nWolna i s\u0142aba jednostka do walki wr\u0119cz"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3179715807543296
+    m_Localized: 'Kusznik
+
+
+      Koszt: 35
+
+      Podstawowa jednostka strzelecka'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3179885760741376
+    m_Localized: "Rycerz\n\nKoszt: 40\nZbalansowana jednostka do walki wr\u0119cz"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3180009744367616
+    m_Localized: 'Elf
+
+
+      Koszt: 50
+
+      Szybka jednostka efektywna na dystans'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3180113595334656
+    m_Localized: "Ork\n\nKoszt: 60\nSilna jednostka do walki wr\u0119cz ze s\u0142abym
+      pancerzem"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3180194092417024
+    m_Localized: "Krasnolud\n\nKoszt: 60\nCi\u0119\u017Cko zbrojna jednostka do walki
+      wr\u0119cz"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3180265060040704
+    m_Localized: "Czarodziej\n\nKoszt: 75\nPot\u0119\u017Cna jednostka na kr\xF3tki
+      dystans"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276768910901248
+    m_Localized: "Zburz wie\u017C\u0119\n\nZburz w\u0142asn\u0105 wie\u017C\u0119
+      i odzyskaj cz\u0119\u015B\u0107 z\u0142ota"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276794642956288
+    m_Localized: "Wie\u017Ca \u0142ucznik\xF3w\n\nKoszt: 100\nStrzela szybko lecz
+      zadaje ma\u0142o obra\u017Ce\u0144"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276823197777920
+    m_Localized: "Wie\u017Ca inwestora\n\nKoszt: 100\nZwi\u0119ksza doch\xF3d o 1
+      z\u0142ota na sekund\u0119 ale zapewnia s\u0142ab\u0105 obron\u0119"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276852457242624
+    m_Localized: "Wie\u017Ca z balist\u0105\n\nKoszt: 150\nStrzela na najwi\u0119kszy
+      dystans i zadaje spore obra\u017Cenia"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276874670276608
+    m_Localized: "Wie\u017Ca z katapult\u0105\n\nKoszt: 250\nStrzela wolno lecz zadaje
+      najwi\u0119ksze obra\u017Cenia"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276905204809728
+    m_Localized: "Wie\u017Ca nekromanty\n\nKoszt: 200\nPrzywo\u0142uje s\u0142abych
+      nieumar\u0142ych i wysy\u0142a ich na \u015Bcie\u017Ck\u0119 "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3276940067864576
+    m_Localized: "Wie\u017Ca druida\n\nKoszt: 250\nStrzela ekstremalnie szybko lecz
+      na kr\xF3tki dystans"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280294609289216
+    m_Localized: "Wezwanie do walki\n\nPozwala rekrutowa\u0107 rycerzy"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280345402310656
+    m_Localized: "Oswajanie bestii\n\nPozwala rekrutowa\u0107 ork\xF3w"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280368319987712
+    m_Localized: "G\u0142\u0119bkie kopalnie\n\nPozwala rekrutowa\u0107 krasnoludy"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280393888464896
+    m_Localized: "Pakt przymierza\n\nPozwala rekrutowa\u0107 elfy"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280414159536128
+    m_Localized: "Uniwersytet magii\n\nPozwala rekrutowa\u0107 czarodziei"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280486733578240
+    m_Localized: "Strategia podboju\n\nWzmacnia jednostki gdy zbli\u017C\u0105 si\u0119
+      do wrogiego zamku"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3280935926759424
+    m_Localized: "G\u0142\xF3d i gniew\n\nSprawia, \u017Ce gobliny staj\u0105 si\u0119
+      lepsze w walce"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3281169574658048
+    m_Localized: "In\u017Cynieria\n\nPozwala budowa\u0107 wie\u017Ce z balist\u0105"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3281219734339584
+    m_Localized: "Zaawansowane wie\u017Ce\n\nPozwala budowa\u0107 wie\u017Ce z katapult\u0105
+      lub wie\u017Ce druida"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3281272276385792
+    m_Localized: "Mroczna magia\n\nPozwala budowa\u0107 wie\u017Ce nekromanty"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3282096876552192
+    m_Localized: "Zwi\u0119kszone podatki\n\nZwi\u0119ksza doch\xF3d o 2 z\u0142ota
+      na sekund\u0119"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3283836304752640
+    m_Localized: "Grube mury\n\nZwi\u0119ksza zdrowie twojego zamku o 300"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3282130531647488
+    m_Localized: "Efektywne pl\u0105drowanie\n\nZwi\u0119ksza o 20% z\u0142oto z\u0142upione
+      z wrog\xF3w"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3295387279556608
+    m_Localized: "Zamie\u0144 na j\u0119zyk angielski"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3295410591498240
+    m_Localized: "Poddaj si\u0119"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3295913341747200
+    m_Localized: "G\u0142o\u015Bno\u015B\u0107 efekt\xF3w"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3296187481456640
+    m_Localized: "G\u0142o\u015Bno\u015B\u0107 muzyki"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3499834552225792
+    m_Localized: "Odzysk materia\u0142\xF3w\n\nOdzyskujesz dodatkowe 15% koszt\xF3w
+      podczas burzenia wie\u017C"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6343771477377024
+    m_Localized: Nie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6344057658933248
+    m_Localized: Tak
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6344110440054784
+    m_Localized: "Czy na pewno chcesz si\u0119 podda\u0107?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6840495190966272
+    m_Localized: "Zwyci\u0119stwo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6840600715460608
+    m_Localized: "Pora\u017Cka"
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
