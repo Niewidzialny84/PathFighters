@@ -42,10 +42,10 @@ public class unitScript : NetworkBehaviour
     {
         this.damage -= 1;
         //If right upgrades are developed this will boost the unit
-        var tech = GameObject.Find("tech(Clone)");
+        var tech = GameObject.FindGameObjectWithTag("tech");
         try
         {
-            if (belongsToPlayer == 1 && tech.GetComponent<techScript>().player1.attackBuff)
+            if (belongsToPlayer == 1 && tech.GetComponent<localTech>().player1.attackBuff)
             {
                 if (this.reach < 1.1)
                 {
@@ -57,7 +57,7 @@ public class unitScript : NetworkBehaviour
                 }
                 this.speed = this.speed * 1.2f;
             }
-            else if (belongsToPlayer == 2 && tech.GetComponent<techScript>().player2.attackBuff)
+            else if (belongsToPlayer == 2 && tech.GetComponent<localTech>().player2.attackBuff)
             {
                 if (this.reach < 1.1)
                 {
@@ -111,16 +111,16 @@ public class unitScript : NetworkBehaviour
 
             //Here will be some bonuses due to upgrades
 
-            var tech = GameObject.Find("tech(Clone)");
+            var tech = GameObject.FindGameObjectWithTag("tech");
             try
             {
-                if (belongsToPlayer == 1 && this.speed == 0.5f && tech.GetComponent<techScript>().player1.goblinBuff)
+                if (belongsToPlayer == 1 && this.speed == 0.5f && tech.GetComponent<localTech>().player1.goblinBuff)
                 {
                     this.speed += 0.2f;
                     this.reach = this.reach * 1.4f;
                     this.cost -= 5;
                 }
-                else if (belongsToPlayer == 2 && this.speed == 0.5f && tech.GetComponent<techScript>().player2.goblinBuff)
+                else if (belongsToPlayer == 2 && this.speed == 0.5f && tech.GetComponent<localTech>().player2.goblinBuff)
                 {
                     this.speed += 0.2f;
                     this.reach = this.reach * 1.4f;

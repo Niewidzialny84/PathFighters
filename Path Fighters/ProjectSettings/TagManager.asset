@@ -12,6 +12,7 @@ TagManager:
   - MatchMaker
   - NetworkPlayer
   - towerField
+  - tech
   layers:
   - Default
   - TransparentFX

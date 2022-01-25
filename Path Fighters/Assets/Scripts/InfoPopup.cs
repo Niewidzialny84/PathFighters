@@ -48,6 +48,7 @@ public class InfoPopup : MonoBehaviour
         GetComponent<RectTransform>().offsetMax = Vector2.zero;
         _okButton.onClick.AddListener(() => {
             Player.localPlayer.currentMatch.inMatch = false;
+            Player.localPlayer.matchID = null;
             SceneManager.LoadScene("Main Menu");
             GameObject.Destroy(this.gameObject); });
     }

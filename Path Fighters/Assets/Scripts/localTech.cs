@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Mirror;
 
-public class techScript : NetworkBehaviour
+public class localTech : MonoBehaviour
 {
 
     public struct Upgrades

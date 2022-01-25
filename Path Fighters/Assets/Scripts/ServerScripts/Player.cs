@@ -525,7 +525,8 @@ using UnityEngine.Localization;
 
     public void updateTech(int order, int belongsToPlayer, string match_ID)
     {
-        updateTech(order, belongsToPlayer, Player.localPlayer.matchID);
+        Debug.Log($"{belongsToPlayer} is the player number");
+        updateTechCmd(order, belongsToPlayer, Player.localPlayer.matchID);
     }
 
     [Command]
@@ -548,19 +549,19 @@ using UnityEngine.Localization;
         }
         else if (order == 3)
         {
-            var tech = GameObject.Find("tech(Clone)");
-            Debug.Log($"Tech jeszcze chwilowo ma {tech.GetComponent<techScript>().player1.goblinBuff} i {tech.GetComponent<techScript>().player2.goblinBuff}");
+            var tech = GameObject.FindGameObjectWithTag("tech");
+            Debug.Log($"Tech jeszcze chwilowo ma {tech.GetComponent<localTech>().player1.goblinBuff} i {tech.GetComponent<localTech>().player2.goblinBuff}");
             try
             {
                 if (belongsToPlayer == 1)
                 {
-                    tech.GetComponent<techScript>().player1.goblinBuff = true;
+                    tech.GetComponent<localTech>().player1.goblinBuff = true;
                 }
                 else if (belongsToPlayer == 2)
                 {
-                    tech.GetComponent<techScript>().player2.goblinBuff = true;
+                    tech.GetComponent<localTech>().player2.goblinBuff = true;
                 }
-                Debug.Log($"Tech już chwilowo ma {tech.GetComponent<techScript>().player1.goblinBuff} i {tech.GetComponent<techScript>().player2.goblinBuff}");
+                Debug.Log($"Tech już chwilowo ma {tech.GetComponent<localTech>().player1.goblinBuff} i {tech.GetComponent<localTech>().player2.goblinBuff}");
             }
             catch (Exception e)
             {
@@ -574,11 +575,11 @@ using UnityEngine.Localization;
             {
                 if (belongsToPlayer == 1)
                 {
-                    tech.GetComponent<techScript>().player1.attackBuff = true;
+                    tech.GetComponent<localTech>().player1.attackBuff = true;
                 }
                 else if (belongsToPlayer == 2)
                 {
-                    tech.GetComponent<techScript>().player2.attackBuff = true;
+                    tech.GetComponent<localTech>().player2.attackBuff = true;
                 }
             }
             catch (Exception e)
