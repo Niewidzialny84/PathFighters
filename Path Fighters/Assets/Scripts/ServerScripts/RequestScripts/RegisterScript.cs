@@ -79,7 +79,7 @@ public class RegisterScript : MonoBehaviour
         LocalizedString message = new LocalizedString();
         message.TableReference = "Main Menu Text";
         message.TableEntryReference = "Reg_PopupSuccess";
-        popup.Init(UIController.Instance.MainCanvas, message.GetLocalizedString());
+        popup.InitRegister(UIController.Instance.MainCanvas, message.GetLocalizedString());
     }
 
     public void FailureHandler(string msg)
