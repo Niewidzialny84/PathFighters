@@ -16,7 +16,6 @@ public class deleteAccountPressed : MonoBehaviour
         Action action = () =>
         {
             DeleteAccount();
-            Application.Quit();
             Debug.Log("Closing");
         };
         Button button = GetComponent<Button>();
@@ -65,6 +64,7 @@ public class deleteAccountPressed : MonoBehaviour
             }
 
             DeleteAccount(loginReturn.user.id, loginReturn.jwt_token);
+            
 
             Debug.Log("Account Deleted");
         }
@@ -74,6 +74,7 @@ public class deleteAccountPressed : MonoBehaviour
     {
         Debug.Log("Account deleted disconecting client");
         GameObject.Find("NetworkManager").GetComponent<NetworkManager>().StopClient();
+        Application.Quit();
     }
 
     #region DeleteAccount
@@ -126,6 +127,7 @@ public class deleteAccountPressed : MonoBehaviour
             Debug.Log(www.error);
         }
     }
+
     #endregion
 
 }

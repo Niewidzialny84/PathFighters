@@ -24,6 +24,19 @@ public class InfoPopup : MonoBehaviour
         GetComponent<RectTransform>().offsetMax = Vector2.zero;
         _okButton.onClick.AddListener(() => { GameObject.Destroy(this.gameObject); });
     }
+    public void InitRegister(Transform canvas, string localized)
+    {
+        _okButtonText.text = "OK";
+        _popupText.text = localized;
+        transform.SetParent(canvas);
+        transform.localScale = Vector3.one;
+        GetComponent<RectTransform>().offsetMin = Vector2.zero;
+        GetComponent<RectTransform>().offsetMax = Vector2.zero;
+        _okButton.onClick.AddListener(() => {
+            SceneManager.LoadScene("Login Window");
+            GameObject.Destroy(this.gameObject);
+        });
+    }
     public void Initialize(Transform canvas, string localized)
     {
         _okButtonText.text = "OK";

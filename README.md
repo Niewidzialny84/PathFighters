@@ -25,7 +25,7 @@ Here is a list of technologies used in this project:
 
 ### How to run game
 
-To run the game simply use provided .exe file in the releases zip.
+To run the game simply install it with the provided setup file and run the created .exe file. To register you need to have a password which is at least 8 symbols long and contains at least 1 lower case and 1 upper case letter, a digit and a special symbol.
 
 ### Description of game
 
