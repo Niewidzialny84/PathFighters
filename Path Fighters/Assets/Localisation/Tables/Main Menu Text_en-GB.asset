@@ -202,5 +202,9 @@ MonoBehaviour:
     m_Localized: Lobby disbaned
     m_Metadata:
       m_Items: []
+  - m_Id: 36325019310227456
+    m_Localized: Single Player
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

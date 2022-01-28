@@ -54,6 +54,10 @@ public class LoginMenu : MonoBehaviour
         tmp.Popup();
         ParamsPasser.lobbyType = LobbyType.Join;
     }
+    public void SinglePlayer()
+    {
+        SceneManager.LoadScene("Single Player");
+    }
 
 }
 public static class ParamsPasser

@@ -199,6 +199,10 @@ MonoBehaviour:
     m_Key: UserLeftLobby
     m_Metadata:
       m_Items: []
+  - m_Id: 36325019310227456
+    m_Key: SinglePlayer
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
